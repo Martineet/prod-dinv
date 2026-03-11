@@ -50,9 +50,10 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
             <input
               type="number"
               min={0}
-              placeholder="200"
+              placeholder="69"
               value={monthlyEur}
               onChange={(event) => setMonthlyEur(event.target.value === '' ? '' : Number(event.target.value))}
+              className="input-accent"
             />
           </div>
           <div className="calc-row">

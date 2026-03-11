@@ -82,10 +82,10 @@ function buildMonthlySchedule(startDate: string, endDate: string): string[] {
 }
 
 export function useDcaCalculator(currentBtcPrice: number) {
-  const [monthlyEur, setMonthlyEur] = useState<number | ''>('');
+  const [monthlyEur, setMonthlyEur] = useState<number | ''>(69);
   const today = useMemo(() => toIsoDate(new Date()), []);
   const [startDate, setStartDate] = useState(() => defaultStartDateIso(today));
-  const [endDate, setEndDate] = useState('');
+  const [endDate, setEndDate] = useState(today);
   const [compareAsset, setCompareAsset] = useState<AssetKind>('gold');
   const [result, setResult] = useState<DcaResult | null>(null);
   const [loading, setLoading] = useState(false);

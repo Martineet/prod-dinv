@@ -5,7 +5,7 @@ import { DEFAULT_GROWTH } from '@/lib/constants';
 
 export function useCalculator(currentBtcPrice: number) {
   const [growthRate, setGrowthRate] = useState(DEFAULT_GROWTH);
-  const [investment, setInvestment] = useState<number | ''>('');
+  const [investment, setInvestment] = useState<number | ''>(1000);
   const [futurePrice, setFuturePrice] = useState<number | ''>('');
 
   const computedFuturePrice = useMemo(() => {

@@ -53,6 +53,7 @@ export function CalculatorSection({ btcPrice }: CalculatorSectionProps) {
               onChange={(event) => setInvestment(event.target.value === '' ? '' : Number(event.target.value))}
               min={0}
               placeholder="1000"
+              className="input-accent"
             />
           </div>
           <div className="calc-row">
@@ -61,7 +62,6 @@ export function CalculatorSection({ btcPrice }: CalculatorSectionProps) {
               type="number"
               value={futurePrice === '' ? Math.round(computedFuturePrice || 0) : futurePrice}
               onChange={(event) => handleFuturePriceChange(event.target.value)}
-              className="input-emphasis"
             />
           </div>
         </div>

@@ -416,6 +416,11 @@ button:disabled {
   font-weight: 600;
 }
 
+.input-accent {
+  color: #f59e0b;
+  font-weight: 400;
+}
+
 .calc-result {
   margin-top: 30px;
   padding: 20px;
