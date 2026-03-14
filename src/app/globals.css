@@ -858,7 +858,8 @@ button:disabled {
   }
 
   .stat-value {
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .stat-tooltip {
@@ -869,8 +870,14 @@ button:disabled {
   .investments-table table .col-price,
   .investments-table table .col-profit,
   .investments-table table .col-notes,
-  .investments-table table .col-actions {
+  .investments-table table .col-actions,
+  .investments-table table .col-invested,
+  .investments-table table .col-divested {
     display: none;
+  }
+
+  .investments-table table .col-flow {
+    display: table-cell;
   }
 
   .investment-row {
@@ -882,6 +889,22 @@ button:disabled {
   font-size: 28px;
   font-weight: 700;
   color: #ffffff;
+}
+
+.btc-hodled-compact {
+  display: none;
+}
+
+.btc-hodled-full {
+  display: inline;
+}
+
+.btc-hodled-compact {
+  display: none;
+}
+
+.btc-hodled-full {
+  display: inline;
 }
 
 .investments-table {
@@ -1106,6 +1129,10 @@ tr:hover {
   margin-top: 5px;
 }
 
+.investments-table table .col-flow {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 24px);
@@ -1238,6 +1265,27 @@ tr:hover {
     height: 50px;
   }
 
+  .btc-logo,
+  .dinversions-logo {
+    position: static;
+    opacity: 1;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+  }
+
   table {
     font-size: 12px;
   }
@@ -1245,5 +1293,15 @@ tr:hover {
   th,
   td {
     padding: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .btc-hodled-compact {
+    display: inline;
+  }
+
+  .btc-hodled-full {
+    display: none;
   }
 }

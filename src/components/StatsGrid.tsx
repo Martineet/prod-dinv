@@ -15,7 +15,13 @@ export function StatsGrid({ totals }: StatsGridProps) {
 
   const profitLoss = totals ? totals.totalProfitLoss : 0;
   const profitSign = profitLoss >= 0 ? '+' : '';
-  const btcHodled = totals ? `${formatBtc(totals.totalBTC)} BTC` : '-- BTC';
+  const btcHodledFull = totals ? `${formatBtc(totals.totalBTC)} BTC` : '-- BTC';
+  const btcHodledCompact = totals
+    ? `${totals.totalBTC.toLocaleString('de-DE', {
+        minimumFractionDigits: 3,
+        maximumFractionDigits: 3
+      })} BTC`
+    : '-- BTC';
   const totalDivested = totals?.totalDivested ?? 0;
 
   const renderTooltip = (label: string, description: string) => (
@@ -32,7 +38,10 @@ export function StatsGrid({ totals }: StatsGridProps) {
       <div className="stats-group">
         <div className="stat-card">
           <div className="stat-label">BTC hodled</div>
-          <div className="stat-value">{btcHodled}</div>
+          <div className="stat-value">
+            <span className="btc-hodled-full">{btcHodledFull}</span>
+            <span className="btc-hodled-compact">{btcHodledCompact}</span>
+          </div>
         </div>
         <div className="stat-card">
           {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}

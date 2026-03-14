@@ -101,8 +101,8 @@ export default function DashboardPage() {
         updatingInvestment={updatingInvestment}
         deletingInvestment={deletingInvestment}
       />
-      <Logos />
       <Footer />
+      <Logos />
     </div>
   );
 }

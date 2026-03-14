@@ -61,8 +61,8 @@ export default function HomePage() {
         <BtcHistoricalChart currentPrice={price} />
         <SummarySection summary={summary} btcPrice={price} />
         <CalculatorsSection btcPrice={price} />
-        <Logos />
         <Footer />
+        <Logos />
       </main>
 
       {isLoginModalOpen ? (

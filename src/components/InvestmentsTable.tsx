@@ -388,6 +388,7 @@ export function InvestmentsTable({
               <th className="col-date">Date</th>
               <th className="col-type">Type</th>
               <th className="col-btc">BTC Amount</th>
+              <th className="col-flow">Invested/Divested</th>
               <th className="col-invested">Invested</th>
               <th className="col-price">Price</th>
               <th className="col-divested">Divested</th>
@@ -404,6 +405,9 @@ export function InvestmentsTable({
                   <td className="col-date">{row.date}</td>
                   <td className="col-type">{row.type}</td>
                   <td className="col-btc">{`${formatBtc(row.btcAmount)} BTC`}</td>
+                  <td className="col-flow">
+                    {row.invested > 0 ? formatMoneyOrHyphen(row.invested) : formatMoneyOrHyphen(row.divested)}
+                  </td>
                   <td className="col-invested">{formatMoneyOrHyphen(row.invested)}</td>
                   <td className="col-price">{formatMoneyOrHyphenNullable(row.price)}</td>
                   <td className="col-divested">{formatMoneyOrHyphen(row.divested)}</td>
