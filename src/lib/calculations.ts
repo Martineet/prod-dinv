@@ -11,12 +11,26 @@ export function buildInvestmentRows(
   investments: Investment[],
   currentBtcPrice: number
 ): InvestmentRow[] {
-  return investments.map((investment) => {
+  const sortedInvestments = [...investments].sort((a, b) => {
+    const aTime = Date.parse(a.date_swap);
+    const bTime = Date.parse(b.date_swap);
+    if (Number.isFinite(aTime) && Number.isFinite(bTime)) {
+      return bTime - aTime;
+    }
+    return String(b.date_swap ?? '').localeCompare(String(a.date_swap ?? ''));
+  });
+
+  return sortedInvestments.map((investment) => {
     const btcAmount = toNumber(investment.btc_amount);
     const eurAmount = toNumber(investment.eur_amount);
     const purchasePrice = toNumber(investment.purchase_price);
-    const rawCurrentValue = btcAmount * currentBtcPrice;
-    const currentValue = rawCurrentValue * PRICE_HAIRCUT;
+    const transactionType = (investment.type ?? '').trim().toLowerCase();
+    const isBuy = transactionType === 'buy';
+    const isSell = transactionType === 'sell';
+    const invested = isBuy ? eurAmount : 0;
+    const proceeds = isSell ? eurAmount : 0;
+
+    const currentValue = btcAmount * currentBtcPrice * PRICE_HAIRCUT;
     const profitLoss = currentValue - eurAmount;
 
     return {
@@ -26,9 +40,9 @@ export function buildInvestmentRows(
       type: investment.type ?? '-',
       notes: investment.notes ?? '-',
       btcAmount,
-      eurAmount,
+      invested,
+      proceeds,
       purchasePrice,
-      currentValue,
       profitLoss
     };
   });
@@ -38,50 +52,57 @@ export function calculatePortfolioTotals(
   investments: Investment[],
   currentBtcPrice: number
 ): PortfolioTotals {
-  let totalInvested = 0;
+  let totalInvestedGross = 0;
+  let totalProceeds = 0;
   let totalBTC = 0;
-  let totalFinalValue = 0;
-  let totalTaxes = 0;
-  let onboardedDate: string | null = null;
 
   investments.forEach((investment) => {
     const btcAmount = toNumber(investment.btc_amount);
     const eurAmount = toNumber(investment.eur_amount);
+    const transactionType = (investment.type ?? '').trim().toLowerCase();
 
-    const rawCurrentValue = btcAmount * currentBtcPrice;
-    const currentValue = rawCurrentValue * PRICE_HAIRCUT;
-
-    let taxes = 0;
-    let finalValue = currentValue;
-
-    if (currentValue > eurAmount) {
-      const profit = currentValue - eurAmount;
-      taxes = profit * TAX_RATE;
-      finalValue = currentValue - taxes;
+    if (transactionType === 'buy') {
+      totalInvestedGross += eurAmount;
+      totalBTC += btcAmount;
+      return;
     }
 
-    totalInvested += eurAmount;
-    totalBTC += btcAmount;
-    totalFinalValue += finalValue;
-    totalTaxes += taxes;
+    if (transactionType === 'sell') {
+      totalProceeds += eurAmount;
+      totalBTC -= btcAmount;
+      return;
+    }
 
-    if (!onboardedDate || investment.date_swap < onboardedDate) {
-      onboardedDate = investment.date_swap;
+    if (transactionType === 'transfer-in') {
+      totalBTC += btcAmount;
+      return;
+    }
+
+    if (transactionType === 'transfer-out') {
+      totalBTC -= btcAmount;
     }
   });
 
+  const totalInvested = totalInvestedGross - totalProceeds;
   const totalCurrentValue = totalBTC * currentBtcPrice * PRICE_HAIRCUT;
   const averagePurchasePrice = totalBTC > 0 ? totalInvested / totalBTC : 0;
+
+  let totalTaxes = 0;
+  if (totalCurrentValue > totalInvested) {
+    totalTaxes = (totalCurrentValue - totalInvested) * TAX_RATE;
+  }
+
+  const totalFinalValue = totalCurrentValue - totalTaxes;
   const totalProfitLoss = totalFinalValue - totalInvested;
 
   return {
     totalInvested,
+    totalProceeds,
     totalBTC,
     averagePurchasePrice,
     totalCurrentValue,
     totalFinalValue,
     totalTaxes,
-    totalProfitLoss,
-    onboardedDate
+    totalProfitLoss
   };
 }

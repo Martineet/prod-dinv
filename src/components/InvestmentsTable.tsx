@@ -151,6 +151,11 @@ function findInvestmentByRowId(investments: Investment[], rowId: string): Invest
   );
 }
 
+function formatMoneyOrDash(value: number) {
+  if (!Number.isFinite(value) || value <= 0) return '--';
+  return `${formatMoneyRounded(value)} ${EUR}`;
+}
+
 export function InvestmentsTable({
   investments,
   rows,
@@ -353,9 +358,9 @@ export function InvestmentsTable({
               <th>Date</th>
               <th>Type</th>
               <th>BTC Amount</th>
-              <th>{`${EUR} Invested`}</th>
+              <th>Invested</th>
               <th>Purchase Price</th>
-              <th>Current Value</th>
+              <th>Proceeds</th>
               <th>Profit/Loss</th>
               <th>Notes</th>
               <th>Actions</th>
@@ -369,9 +374,9 @@ export function InvestmentsTable({
                   <td>{row.date}</td>
                   <td>{row.type}</td>
                   <td>{`${formatBtc(row.btcAmount)} BTC`}</td>
-                  <td>{`${formatMoneyRounded(row.eurAmount)} ${EUR}`}</td>
+                  <td>{formatMoneyOrDash(row.invested)}</td>
                   <td>{`${formatMoneyRounded(row.purchasePrice)} ${EUR}`}</td>
-                  <td>{`${formatMoneyRounded(row.currentValue)} ${EUR}`}</td>
+                  <td>{formatMoneyOrDash(row.proceeds)}</td>
                   <td className={row.profitLoss >= 0 ? 'positive' : 'negative'}>
                     {`${profitSign}${formatMoneyRounded(row.profitLoss)} ${EUR}`}
                   </td>

@@ -46,21 +46,21 @@ export type InvestmentRow = {
   type: string;
   notes: string;
   btcAmount: number;
-  eurAmount: number;
+  invested: number;
+  proceeds: number;
   purchasePrice: number;
-  currentValue: number;
   profitLoss: number;
 };
 
 export type PortfolioTotals = {
   totalInvested: number;
+  totalProceeds: number;
   totalBTC: number;
   averagePurchasePrice: number;
   totalCurrentValue: number;
   totalFinalValue: number;
   totalTaxes: number;
   totalProfitLoss: number;
-  onboardedDate: string | null;
 };
 
 export type AssetKind = 'bitcoin' | 'gold' | 'sp500' | 'ibex35';
