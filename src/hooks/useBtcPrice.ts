@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchBtcPriceEur } from '@/services/btc';
 
-export function useBtcPrice(refreshIntervalMs = 60000) {
+export function useBtcPrice(refreshIntervalMs = 3600000) {
   const [price, setPrice] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
