@@ -3,7 +3,7 @@ export type Investment = {
   portfolio_id: string;
   btc_amount: number | string;
   eur_amount: number | string;
-  purchase_price: number | string;
+  price: number | string;
   type: string | null;
   notes: string | null;
   commission: number | string;
@@ -47,14 +47,14 @@ export type InvestmentRow = {
   notes: string;
   btcAmount: number;
   invested: number;
-  proceeds: number;
-  purchasePrice: number;
-  profitLoss: number;
+  divested: number;
+  price: number | null;
+  profitLoss: number | null;
 };
 
 export type PortfolioTotals = {
   totalInvested: number;
-  totalProceeds: number;
+  totalDivested: number;
   totalBTC: number;
   averagePurchasePrice: number;
   totalCurrentValue: number;

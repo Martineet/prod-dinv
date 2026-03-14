@@ -16,7 +16,7 @@ type InvestmentInsert = {
   portfolio_id: string;
   type: string;
   btc_amount: number;
-  purchase_price: number;
+  price: number;
   eur_amount: number;
   date_swap: string;
   notes: string | null;
@@ -33,7 +33,7 @@ function toInvestmentInsert(payload: InvestmentFormInput): InvestmentInsert {
     portfolio_id: payload.portfolio_id,
     type: payload.asset.trim(),
     btc_amount: payload.amount,
-    purchase_price: payload.price,
+    price: payload.price,
     eur_amount: payload.eur_amount,
     date_swap: payload.date,
     notes: null,

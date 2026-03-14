@@ -14,7 +14,7 @@ export function StatsGrid({ totals }: StatsGridProps) {
   const profitLoss = totals ? totals.totalProfitLoss : 0;
   const profitSign = profitLoss >= 0 ? '+' : '';
   const btcHodled = totals ? `${formatBtc(totals.totalBTC)} BTC` : '-- BTC';
-  const totalProceeds = totals?.totalProceeds ?? 0;
+  const totalDivested = totals?.totalDivested ?? 0;
 
   return (
     <div className="stats-grid">
@@ -27,11 +27,11 @@ export function StatsGrid({ totals }: StatsGridProps) {
         <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
       </div>
       <div className="stat-card">
-        <div className="stat-label">Total Invested</div>
+        <div className="stat-label">Net Invested</div>
         <div className="stat-value">{display(totals?.totalInvested)}</div>
       </div>
       <div className="stat-card">
-        <div className="stat-label">Average Purchase Price</div>
+        <div className="stat-label">Average Price</div>
         <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
       </div>
       <div className="stat-card highlight">
@@ -49,8 +49,8 @@ export function StatsGrid({ totals }: StatsGridProps) {
         <div className="stat-value">{display(totals?.totalTaxes)}</div>
       </div>
       <div className="stat-card">
-        <div className="stat-label">Total Proceeds</div>
-        <div className="stat-value">{display(totalProceeds)}</div>
+        <div className="stat-label">Total divested</div>
+        <div className="stat-value">{display(totalDivested)}</div>
       </div>
     </div>
   );

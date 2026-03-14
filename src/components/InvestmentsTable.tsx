@@ -139,7 +139,7 @@ function mapInvestmentToDraft(investment: Investment): InvestmentDraft {
     asset: normalizeTransactionType(investment.type),
     amount: String(investment.btc_amount ?? ''),
     eurAmount: String(investment.eur_amount ?? ''),
-    price: String(investment.purchase_price ?? ''),
+    price: String(investment.price ?? ''),
     date: investment.date_swap?.slice(0, 10) ?? ''
   };
 }
@@ -151,8 +151,13 @@ function findInvestmentByRowId(investments: Investment[], rowId: string): Invest
   );
 }
 
-function formatMoneyOrDash(value: number) {
-  if (!Number.isFinite(value) || value <= 0) return '--';
+function formatMoneyOrHyphen(value: number) {
+  if (!Number.isFinite(value) || value <= 0) return '-';
+  return `${formatMoneyRounded(value)} ${EUR}`;
+}
+
+function formatMoneyOrHyphenNullable(value: number | null) {
+  if (value === null) return '-';
   return `${formatMoneyRounded(value)} ${EUR}`;
 }
 
@@ -359,8 +364,8 @@ export function InvestmentsTable({
               <th>Type</th>
               <th>BTC Amount</th>
               <th>Invested</th>
-              <th>Purchase Price</th>
-              <th>Proceeds</th>
+              <th>Price</th>
+              <th>Divested</th>
               <th>Profit/Loss</th>
               <th>Notes</th>
               <th>Actions</th>
@@ -368,17 +373,17 @@ export function InvestmentsTable({
           </thead>
           <tbody>
             {rows.map((row) => {
-              const profitSign = row.profitLoss >= 0 ? '+' : '';
+              const profitSign = row.profitLoss !== null && row.profitLoss >= 0 ? '+' : '';
               return (
                 <tr key={row.id}>
                   <td>{row.date}</td>
                   <td>{row.type}</td>
                   <td>{`${formatBtc(row.btcAmount)} BTC`}</td>
-                  <td>{formatMoneyOrDash(row.invested)}</td>
-                  <td>{`${formatMoneyRounded(row.purchasePrice)} ${EUR}`}</td>
-                  <td>{formatMoneyOrDash(row.proceeds)}</td>
-                  <td className={row.profitLoss >= 0 ? 'positive' : 'negative'}>
-                    {`${profitSign}${formatMoneyRounded(row.profitLoss)} ${EUR}`}
+                  <td>{formatMoneyOrHyphen(row.invested)}</td>
+                  <td>{formatMoneyOrHyphenNullable(row.price)}</td>
+                  <td>{formatMoneyOrHyphen(row.divested)}</td>
+                  <td className={row.profitLoss === null ? undefined : row.profitLoss >= 0 ? 'positive' : 'negative'}>
+                    {row.profitLoss === null ? '-' : `${profitSign}${formatMoneyRounded(row.profitLoss)} ${EUR}`}
                   </td>
                   <td>{row.notes}</td>
                   <td>

@@ -7,6 +7,12 @@ function toNumber(value: number | string | null | undefined): number {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
+function toNullableNumber(value: number | string | null | undefined): number | null {
+  if (value === null || value === undefined || value === '') return null;
+  const parsed = typeof value === 'string' ? Number(value) : value;
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 export function buildInvestmentRows(
   investments: Investment[],
   currentBtcPrice: number
@@ -23,15 +29,21 @@ export function buildInvestmentRows(
   return sortedInvestments.map((investment) => {
     const btcAmount = toNumber(investment.btc_amount);
     const eurAmount = toNumber(investment.eur_amount);
-    const purchasePrice = toNumber(investment.purchase_price);
+    const price = toNullableNumber(investment.price);
     const transactionType = (investment.type ?? '').trim().toLowerCase();
     const isBuy = transactionType === 'buy';
     const isSell = transactionType === 'sell';
+    const isTransferOut = transactionType === 'transfer-out';
     const invested = isBuy ? eurAmount : 0;
-    const proceeds = isSell ? eurAmount : 0;
+    const divested = isSell ? eurAmount : 0;
 
     const currentValue = btcAmount * currentBtcPrice * PRICE_HAIRCUT;
-    const profitLoss = currentValue - eurAmount;
+    let profitLoss: number | null = currentValue - eurAmount;
+    if (isSell) {
+      profitLoss = null;
+    } else if (isTransferOut) {
+      profitLoss = -Math.abs(currentValue);
+    }
 
     return {
       id: String(investment.id ?? `${investment.portfolio_id}-${investment.date_swap}`),
@@ -41,8 +53,8 @@ export function buildInvestmentRows(
       notes: investment.notes ?? '-',
       btcAmount,
       invested,
-      proceeds,
-      purchasePrice,
+      divested,
+      price,
       profitLoss
     };
   });
@@ -53,7 +65,7 @@ export function calculatePortfolioTotals(
   currentBtcPrice: number
 ): PortfolioTotals {
   let totalInvestedGross = 0;
-  let totalProceeds = 0;
+  let totalDivested = 0;
   let totalBTC = 0;
 
   investments.forEach((investment) => {
@@ -68,7 +80,7 @@ export function calculatePortfolioTotals(
     }
 
     if (transactionType === 'sell') {
-      totalProceeds += eurAmount;
+      totalDivested += eurAmount;
       totalBTC -= btcAmount;
       return;
     }
@@ -83,7 +95,7 @@ export function calculatePortfolioTotals(
     }
   });
 
-  const totalInvested = totalInvestedGross - totalProceeds;
+  const totalInvested = totalInvestedGross - totalDivested;
   const totalCurrentValue = totalBTC * currentBtcPrice * PRICE_HAIRCUT;
   const averagePurchasePrice = totalBTC > 0 ? totalInvested / totalBTC : 0;
 
@@ -97,7 +109,7 @@ export function calculatePortfolioTotals(
 
   return {
     totalInvested,
-    totalProceeds,
+    totalDivested,
     totalBTC,
     averagePurchasePrice,
     totalCurrentValue,

@@ -59,7 +59,7 @@ export function SummarySection({ summary, btcPrice }: SummarySectionProps) {
           <div className="summary-value">
             {summary ? `${formatMoneyRounded(totalInvested)} ${EUR}` : `-- ${EUR}`}
           </div>
-          <div className="summary-label">Total Invested</div>
+          <div className="summary-label">Net Invested</div>
         </div>
         <div className="summary-card highlight">
           <div className="summary-icon">{TREND}</div>
