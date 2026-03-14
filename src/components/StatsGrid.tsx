@@ -29,51 +29,50 @@ export function StatsGrid({ totals }: StatsGridProps) {
 
   return (
     <div className="stats-grid">
-      <div className="stat-card">
-        <div className="stat-label">BTC hodled</div>
-        <div className="stat-value">{btcHodled}</div>
-      </div>
-      <div className="stat-card">
-        {renderTooltip(
-          'Portfolio value info',
-          `BTC hodled × current BTC price × ${PRICE_HAIRCUT}.`
-        )}
-        <div className="stat-label">Portfolio Value</div>
-        <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
-      </div>
-      <div className="stat-card">
-        {renderTooltip('Net invested info', 'Total invested - total divested.')}
-        <div className="stat-label">Net Invested</div>
-        <div className="stat-value">{display(totals?.totalInvested)}</div>
-      </div>
-      <div className="stat-card">
-        {renderTooltip('Average price info', 'Net invested ÷ BTC hodled.')}
-        <div className="stat-label">Average Price</div>
-        <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
-      </div>
-      <div className="stat-card highlight">
-        {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
-        <div className="stat-label">Final Value</div>
-        <div className="stat-value highlight-value">{display(totals?.totalFinalValue)}</div>
-      </div>
-      <div className="stat-card">
-        {renderTooltip('Result info', 'Final value - net invested.')}
-        <div className="stat-label">Result</div>
-        <div className={`stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`}>
-          {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} ${EUR}` : `-- ${EUR}`}
+      <div className="stats-group">
+        <div className="stat-card">
+          <div className="stat-label">BTC hodled</div>
+          <div className="stat-value">{btcHodled}</div>
         </div>
-      </div>
-      <div className="stat-card">
-        {renderTooltip(
-          'Taxes info',
-          `Tax applied to positive unrealized gains (portfolio value - net invested) × ${TAX_RATE}.`
-        )}
-        <div className="stat-label">Total Taxes</div>
-        <div className="stat-value">{display(totals?.totalTaxes)}</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-label">Total divested</div>
-        <div className="stat-value">{display(totalDivested)}</div>
+        <div className="stat-card">
+          {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
+          <div className="stat-label">Portfolio Value</div>
+          <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
+        </div>
+        <div className="stat-card">
+          {renderTooltip('Net invested info', 'Total invested - total divested.')}
+          <div className="stat-label">Net Invested</div>
+          <div className="stat-value">{display(totals?.totalInvested)}</div>
+        </div>
+        <div className="stat-card">
+          {renderTooltip('Average price info', 'Net invested / BTC hodled.')}
+          <div className="stat-label">Average Price</div>
+          <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
+        </div>
+        <div className="stat-card highlight">
+          {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
+          <div className="stat-label">Final Value</div>
+          <div className="stat-value highlight-value">{display(totals?.totalFinalValue)}</div>
+        </div>
+        <div className="stat-card">
+          {renderTooltip('Result info', 'Final value - net invested.')}
+          <div className="stat-label">Result</div>
+          <div className={`stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`}>
+            {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} ${EUR}` : `-- ${EUR}`}
+          </div>
+        </div>
+        <div className="stat-card">
+          {renderTooltip(
+            'Taxes info',
+            `Tax applied to positive unrealized gains (portfolio value - net invested) x ${TAX_RATE}.`
+          )}
+          <div className="stat-label">Total Taxes</div>
+          <div className="stat-value">{display(totals?.totalTaxes)}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Total divested</div>
+          <div className="stat-value">{display(totalDivested)}</div>
+        </div>
       </div>
     </div>
   );

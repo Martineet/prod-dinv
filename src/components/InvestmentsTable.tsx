@@ -385,38 +385,41 @@ export function InvestmentsTable({
         <table>
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Type</th>
-              <th>BTC Amount</th>
-              <th>Invested</th>
-              <th>Price</th>
-              <th>Divested</th>
-              <th>Profit/Loss</th>
-              <th>Notes</th>
-              <th>Actions</th>
+              <th className="col-date">Date</th>
+              <th className="col-type">Type</th>
+              <th className="col-btc">BTC Amount</th>
+              <th className="col-invested">Invested</th>
+              <th className="col-price">Price</th>
+              <th className="col-divested">Divested</th>
+              <th className="col-profit">Profit/Loss</th>
+              <th className="col-notes">Notes</th>
+              <th className="col-actions">Actions</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => {
               const profitSign = row.profitLoss !== null && row.profitLoss >= 0 ? '+' : '';
               return (
-                <tr key={row.id}>
-                  <td>{row.date}</td>
-                  <td>{row.type}</td>
-                  <td>{`${formatBtc(row.btcAmount)} BTC`}</td>
-                  <td>{formatMoneyOrHyphen(row.invested)}</td>
-                  <td>{formatMoneyOrHyphenNullable(row.price)}</td>
-                  <td>{formatMoneyOrHyphen(row.divested)}</td>
-                  <td className={row.profitLoss === null ? undefined : row.profitLoss >= 0 ? 'positive' : 'negative'}>
+                <tr key={row.id} className="investment-row" onClick={() => openEditTransactionModal(row.id)}>
+                  <td className="col-date">{row.date}</td>
+                  <td className="col-type">{row.type}</td>
+                  <td className="col-btc">{`${formatBtc(row.btcAmount)} BTC`}</td>
+                  <td className="col-invested">{formatMoneyOrHyphen(row.invested)}</td>
+                  <td className="col-price">{formatMoneyOrHyphenNullable(row.price)}</td>
+                  <td className="col-divested">{formatMoneyOrHyphen(row.divested)}</td>
+                  <td className={`col-profit ${row.profitLoss === null ? '' : row.profitLoss >= 0 ? 'positive' : 'negative'}`}>
                     {row.profitLoss === null ? '-' : `${profitSign}${formatMoneyRounded(row.profitLoss)} ${EUR}`}
                   </td>
-                  <td>{row.notes}</td>
-                  <td>
+                  <td className="col-notes">{row.notes}</td>
+                  <td className="col-actions">
                     <div className="table-actions">
                       <button
                         type="button"
                         className="icon-action icon-edit"
-                        onClick={() => openEditTransactionModal(row.id)}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          openEditTransactionModal(row.id);
+                        }}
                         title="Edit transaction"
                         aria-label="Edit transaction"
                       >
@@ -430,7 +433,10 @@ export function InvestmentsTable({
                       <button
                         type="button"
                         className="icon-action icon-delete"
-                        onClick={() => handleDeleteFromRow(row)}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleDeleteFromRow(row);
+                        }}
                         disabled={deletingInvestment.loading}
                         title="Delete transaction"
                         aria-label="Delete transaction"
