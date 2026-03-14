@@ -83,6 +83,7 @@ export default function DashboardPage() {
         rows={rows}
         loading={investmentsLoading}
         error={error}
+        currentBtcPrice={price}
         portfolios={portfolios}
         selectedPortfolioId={selectedPortfolioId}
         selectedPortfolioName={selectedPortfolioName}

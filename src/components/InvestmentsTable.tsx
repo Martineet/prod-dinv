@@ -31,6 +31,7 @@ type InvestmentsTableProps = {
   rows: InvestmentRow[];
   loading: boolean;
   error: string | null;
+  currentBtcPrice: number;
   portfolios: Portfolio[];
   selectedPortfolioId: string | null;
   selectedPortfolioName: string | null;
@@ -54,12 +55,16 @@ type InvestmentsTableProps = {
 
 const EUR = '\u20AC';
 
+function todayInputDate(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 const EMPTY_DRAFT: InvestmentDraft = {
   asset: 'buy',
   amount: '',
   eurAmount: '',
   price: '',
-  date: ''
+  date: todayInputDate()
 };
 
 const TRANSFER_TYPES = new Set(['transfer-in', 'transfer-out']);
@@ -140,7 +145,7 @@ function mapInvestmentToDraft(investment: Investment): InvestmentDraft {
     amount: String(investment.btc_amount ?? ''),
     eurAmount: String(investment.eur_amount ?? ''),
     price: String(investment.price ?? ''),
-    date: investment.date_swap?.slice(0, 10) ?? ''
+    date: investment.date_swap?.slice(0, 10) ?? todayInputDate()
   };
 }
 
@@ -166,6 +171,7 @@ export function InvestmentsTable({
   rows,
   loading,
   error,
+  currentBtcPrice,
   portfolios,
   selectedPortfolioId,
   selectedPortfolioName,
@@ -221,7 +227,7 @@ export function InvestmentsTable({
   const openCreateTransactionModal = () => {
     setTransactionMode('create');
     setEditingInvestmentId(null);
-    setDraft(EMPTY_DRAFT);
+    setDraft({ ...EMPTY_DRAFT, date: todayInputDate() });
     setDraftErrors({});
     setIsPriceManuallyEdited(false);
     setIsTransactionModalOpen(true);
@@ -261,11 +267,30 @@ export function InvestmentsTable({
     if (!Number.isFinite(calculatedPrice)) return;
 
     setDraft((prev) => {
-      const nextPrice = String(calculatedPrice);
+      const nextPrice = calculatedPrice.toFixed(2);
       if (prev.price === nextPrice) return prev;
       return { ...prev, price: nextPrice };
     });
   }, [draft.amount, draft.eurAmount, isPriceManuallyEdited, showEurAmount]);
+
+  const handleAmountChange = (rawValue: string) => {
+    const [integerPart, decimalPart = ''] = rawValue.split('.');
+    const capped = decimalPart.length > 8 ? `${integerPart}.${decimalPart.slice(0, 8)}` : rawValue;
+    setDraft((prev) => ({ ...prev, amount: capped }));
+  };
+
+  const handleEurAmountChange = (rawValue: string) => {
+    const [integerPart, decimalPart = ''] = rawValue.split('.');
+    const capped = decimalPart.length > 2 ? `${integerPart}.${decimalPart.slice(0, 2)}` : rawValue;
+    setDraft((prev) => ({ ...prev, eurAmount: capped }));
+  };
+
+  const handlePriceChange = (rawValue: string) => {
+    const [integerPart, decimalPart = ''] = rawValue.split('.');
+    const capped = decimalPart.length > 2 ? `${integerPart}.${decimalPart.slice(0, 2)}` : rawValue;
+    setIsPriceManuallyEdited(true);
+    setDraft((prev) => ({ ...prev, price: capped }));
+  };
 
   const handleTransactionSubmit = async () => {
     const validationErrors = validateDraft(draft);
@@ -483,7 +508,12 @@ export function InvestmentsTable({
                 onChange={(event) => {
                   const nextType = normalizeTransactionType(event.target.value);
                   if (isTransferType(nextType)) {
-                    setDraft((prev) => ({ ...prev, asset: nextType, eurAmount: '0', price: '0' }));
+                    setDraft((prev) => ({
+                      ...prev,
+                      asset: nextType,
+                      eurAmount: '0',
+                      price: currentBtcPrice ? String(currentBtcPrice.toFixed(2)) : prev.price
+                    }));
                     setIsPriceManuallyEdited(false);
                     return;
                   }
@@ -512,7 +542,7 @@ export function InvestmentsTable({
                 min="0"
                 step="any"
                 value={draft.amount}
-                onChange={(event) => setDraft((prev) => ({ ...prev, amount: event.target.value }))}
+                onChange={(event) => handleAmountChange(event.target.value)}
               />
               {draftErrors.amount ? <p className="field-error">{draftErrors.amount}</p> : null}
             </div>
@@ -525,7 +555,7 @@ export function InvestmentsTable({
                   min="0"
                   step="any"
                   value={draft.eurAmount}
-                  onChange={(event) => setDraft((prev) => ({ ...prev, eurAmount: event.target.value }))}
+                  onChange={(event) => handleEurAmountChange(event.target.value)}
                 />
                 {draftErrors.eurAmount ? <p className="field-error">{draftErrors.eurAmount}</p> : null}
               </div>
@@ -538,11 +568,7 @@ export function InvestmentsTable({
                 min="0"
                 step="any"
                 value={draft.price}
-                onChange={(event) => {
-                  setIsPriceManuallyEdited(true);
-                  setDraft((prev) => ({ ...prev, price: event.target.value }));
-                }}
-                disabled={isTransferType(draft.asset)}
+                onChange={(event) => handlePriceChange(event.target.value)}
               />
               {draftErrors.price ? <p className="field-error">{draftErrors.price}</p> : null}
             </div>
