@@ -1,3 +1,4 @@
+import { PRICE_HAIRCUT, TAX_RATE } from '@/lib/constants';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { PortfolioTotals } from '@/lib/types';
 
@@ -6,9 +7,10 @@ type StatsGridProps = {
 };
 
 export function StatsGrid({ totals }: StatsGridProps) {
+  const EUR = '\u20AC';
   const display = (value: number | null | undefined) => {
-    if (!totals || value === null || value === undefined) return '-- â‚¬';
-    return `${formatMoneyRounded(value)} â‚¬`;
+    if (!totals || value === null || value === undefined) return `-- ${EUR}`;
+    return `${formatMoneyRounded(value)} ${EUR}`;
   };
 
   const profitLoss = totals ? totals.totalProfitLoss : 0;
@@ -32,12 +34,15 @@ export function StatsGrid({ totals }: StatsGridProps) {
         <div className="stat-value">{btcHodled}</div>
       </div>
       <div className="stat-card">
-        {renderTooltip('Portfolio value info', 'BTC hodled × current BTC price (price haircut applied).')}
+        {renderTooltip(
+          'Portfolio value info',
+          `BTC hodled × current BTC price × ${PRICE_HAIRCUT}.`
+        )}
         <div className="stat-label">Portfolio Value</div>
         <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
       </div>
       <div className="stat-card">
-        {renderTooltip('Net invested info', 'Total invested minus total divested.')}
+        {renderTooltip('Net invested info', 'Total invested - total divested.')}
         <div className="stat-label">Net Invested</div>
         <div className="stat-value">{display(totals?.totalInvested)}</div>
       </div>
@@ -52,14 +57,17 @@ export function StatsGrid({ totals }: StatsGridProps) {
         <div className="stat-value highlight-value">{display(totals?.totalFinalValue)}</div>
       </div>
       <div className="stat-card">
-        {renderTooltip('Result info', 'Final value minus net invested.')}
+        {renderTooltip('Result info', 'Final value - net invested.')}
         <div className="stat-label">Result</div>
         <div className={`stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`}>
-          {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} â‚¬` : '-- â‚¬'}
+          {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} ${EUR}` : `-- ${EUR}`}
         </div>
       </div>
       <div className="stat-card">
-        {renderTooltip('Taxes info', 'Tax applied to positive unrealized gains (portfolio value - net invested).')}
+        {renderTooltip(
+          'Taxes info',
+          `Tax applied to positive unrealized gains (portfolio value - net invested) × ${TAX_RATE}.`
+        )}
         <div className="stat-label">Total Taxes</div>
         <div className="stat-value">{display(totals?.totalTaxes)}</div>
       </div>
