@@ -80,8 +80,8 @@ function isTransferType(value: string): boolean {
 }
 
 function eurAmountLabel(value: string): string {
-  if (value === 'sell') return `Money earned (${EUR})`;
-  return `Money spent (${EUR})`;
+  if (value === 'sell') return `Money divested (${EUR})`;
+  return `Money invested (${EUR})`;
 }
 
 function isValidDate(value: string): boolean {
