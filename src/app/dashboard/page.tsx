@@ -48,8 +48,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!session) return;
-    const intervalId = setInterval(refresh, 60000);
-    return () => clearInterval(intervalId);
+    refresh();
   }, [session, refresh]);
 
   const totals = useMemo(() => {

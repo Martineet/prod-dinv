@@ -872,11 +872,16 @@ button:disabled {
   .investments-table table .col-notes,
   .investments-table table .col-actions,
   .investments-table table .col-invested,
-  .investments-table table .col-divested {
+  .investments-table table .col-divested,
+  .investments-table table .col-eur {
     display: none;
   }
 
   .investments-table table .col-flow {
+    display: none;
+  }
+
+  .investments-table table .col-eur {
     display: table-cell;
   }
 
@@ -1074,8 +1079,8 @@ tr:hover {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   opacity: 0.6;
   transition: opacity 0.3s;
 }
@@ -1130,6 +1135,10 @@ tr:hover {
 }
 
 .investments-table table .col-flow {
+  display: none;
+}
+
+.investments-table table .col-eur {
   display: none;
 }
 
@@ -1238,8 +1247,8 @@ tr:hover {
   }
 
   .btc-logo {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
   .investments-header {
@@ -1284,6 +1293,7 @@ tr:hover {
     justify-content: center;
     gap: 24px;
     width: 100%;
+    margin-top: 5px;
   }
 
   table {
@@ -1302,6 +1312,14 @@ tr:hover {
   }
 
   .btc-hodled-full {
+    display: none;
+  }
+
+  .investments-table table .col-eur {
+    display: table-cell;
+  }
+
+  .investments-table table .col-flow {
     display: none;
   }
 }
