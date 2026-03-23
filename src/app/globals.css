@@ -954,16 +954,6 @@ button:disabled {
     order: 6;
   }
 
-  .stat-card.mobile-left .stat-tooltip {
-    left: 6px;
-    right: auto;
-  }
-
-  .stat-card.mobile-left .tooltip-bubble {
-    left: 0;
-    right: auto;
-  }
-
   .investments-table table .col-price,
   .investments-table table .col-profit,
   .investments-table table .col-notes,
