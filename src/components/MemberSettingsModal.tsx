@@ -33,7 +33,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     setError('');
 
     const load = async () => {
-      if (!user?.id) {
+      if (!user?.email) {
         if (!active) return;
         setError('No active session. Please log in again.');
         setLoading(false);
@@ -43,7 +43,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
       const { data, error: loadError } = await supabase
         .from('members')
         .select('member_id, visibility_summary, taxes')
-        .eq('member_id', user.id)
+        .eq('email', user.email)
         .maybeSingle();
 
       if (!active) return;
@@ -69,7 +69,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     return () => {
       active = false;
     };
-  }, [isOpen, user?.id]);
+  }, [isOpen, user?.email]);
 
   const taxesValue = useMemo(() => {
     const numeric = Number(taxesInput);
@@ -110,7 +110,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
       return;
     }
 
-    if (!user?.id) {
+    if (!user?.email) {
       setError('No active session. Please log in again.');
       return;
     }
@@ -124,7 +124,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     const { error: updateError } = await supabase
       .from('members')
       .update({ visibility_summary: visible, taxes: taxesValue / 100 })
-      .eq('member_id', user.id);
+      .eq('email', user.email);
 
     if (updateError) {
       setError(updateError.message);

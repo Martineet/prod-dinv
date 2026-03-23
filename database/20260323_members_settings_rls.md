@@ -21,7 +21,7 @@ create policy "members_select_own"
   for select
   to authenticated
   using (
-    auth.uid() = member_id
+    email = auth.email()
   );
 
 create policy "members_update_own"
