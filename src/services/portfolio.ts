@@ -4,7 +4,7 @@ import { Investment, MemberProfile, Portfolio, PortfolioSummary } from '@/lib/ty
 export async function getMemberProfileByEmail(email: string): Promise<MemberProfile | null> {
   const { data, error } = await supabase
     .from('members')
-    .select('member_id, display_name, email')
+    .select('member_id, display_name, email, visibility_summary, taxes')
     .eq('email', email)
     .maybeSingle();
 

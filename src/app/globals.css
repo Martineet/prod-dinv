@@ -271,6 +271,65 @@ label {
   font-size: 14px;
 }
 
+.input-with-suffix {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-suffix input {
+  padding-right: 46px;
+}
+
+.input-suffix {
+  position: absolute;
+  right: 14px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid #2d3548;
+  background: #0a0e27;
+  padding: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch.on {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.25);
+}
+
+.toggle-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.toggle-switch.on .toggle-knob {
+  transform: translateX(20px);
+}
+
+.toggle-state {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
 input,
 select {
   width: 100%;

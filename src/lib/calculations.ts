@@ -1,4 +1,4 @@
-import { PRICE_HAIRCUT, TAX_RATE } from '@/lib/constants';
+import { PRICE_HAIRCUT } from '@/lib/constants';
 import { Investment, InvestmentRow, PortfolioTotals } from '@/lib/types';
 
 function toNumber(value: number | string | null | undefined): number {
@@ -62,7 +62,8 @@ export function buildInvestmentRows(
 
 export function calculatePortfolioTotals(
   investments: Investment[],
-  currentBtcPrice: number
+  currentBtcPrice: number,
+  taxRate: number
 ): PortfolioTotals {
   let totalInvestedGross = 0;
   let totalDivested = 0;
@@ -100,8 +101,9 @@ export function calculatePortfolioTotals(
   const averagePurchasePrice = totalBTC > 0 ? totalInvested / totalBTC : 0;
 
   let totalTaxes = 0;
+  const safeTaxRate = Number.isFinite(taxRate) ? taxRate : 0;
   if (totalCurrentValue > totalInvested) {
-    totalTaxes = (totalCurrentValue - totalInvested) * TAX_RATE;
+    totalTaxes = (totalCurrentValue - totalInvested) * safeTaxRate;
   }
 
   const totalFinalValue = totalCurrentValue - totalTaxes + totalDivested;

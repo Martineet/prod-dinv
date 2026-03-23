@@ -3,15 +3,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 type SettingsMenuProps = {
+  onSettings: () => void;
   onChangePassword: () => void;
   onLogout: () => void;
 };
 
 const GEAR_ICON = '\u2699\uFE0F';
+const SETTINGS_ICON = '\u2699\uFE0F';
 const KEY_ICON = '\u{1F511}';
 const DOOR_ICON = '\u{1F6AA}';
 
-export function SettingsMenu({ onChangePassword, onLogout }: SettingsMenuProps) {
+export function SettingsMenu({ onSettings, onChangePassword, onLogout }: SettingsMenuProps) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,6 +41,16 @@ export function SettingsMenu({ onChangePassword, onLogout }: SettingsMenuProps) 
         {GEAR_ICON}
       </button>
       <div className={`settings-dropdown ${open ? 'open' : ''}`}>
+        <button
+          type="button"
+          className="settings-item"
+          onClick={() => {
+            setOpen(false);
+            onSettings();
+          }}
+        >
+          {`${SETTINGS_ICON} Settings`}
+        </button>
         <button
           type="button"
           className="settings-item"

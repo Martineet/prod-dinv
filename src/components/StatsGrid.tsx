@@ -1,17 +1,23 @@
-import { PRICE_HAIRCUT, TAX_RATE } from '@/lib/constants';
+import { PRICE_HAIRCUT } from '@/lib/constants';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { PortfolioTotals } from '@/lib/types';
 
 type StatsGridProps = {
   totals: PortfolioTotals | null;
+  taxRate: number | null;
 };
 
-export function StatsGrid({ totals }: StatsGridProps) {
+export function StatsGrid({ totals, taxRate }: StatsGridProps) {
   const EUR = '\u20AC';
   const display = (value: number | null | undefined) => {
     if (!totals || value === null || value === undefined) return `-- ${EUR}`;
     return `${formatMoneyRounded(value)} ${EUR}`;
   };
+  const taxRatePercent = Number.isFinite(taxRate ?? NaN) ? (taxRate ?? 0) * 100 : null;
+  const taxRateLabel =
+    taxRatePercent === null
+      ? '--'
+      : taxRatePercent.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
   const profitLoss = totals ? totals.totalProfitLoss : 0;
   const profitSign = profitLoss >= 0 ? '+' : '';
@@ -73,7 +79,7 @@ export function StatsGrid({ totals }: StatsGridProps) {
         <div className="stat-card">
           {renderTooltip(
             'Taxes info',
-            `Tax applied to positive unrealized gains (portfolio value - net invested) x ${TAX_RATE}.`
+            `Tax applied to positive unrealized gains (portfolio value - net invested) x ${taxRateLabel}%.`
           )}
           <div className="stat-label">Total Taxes</div>
           <div className="stat-value">{display(totals?.totalTaxes)}</div>

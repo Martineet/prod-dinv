@@ -53,8 +53,9 @@ export default function DashboardPage() {
 
   const totals = useMemo(() => {
     if (!investments.length || !price) return null;
-    return calculatePortfolioTotals(investments, price);
-  }, [investments, price]);
+    const taxRate = member?.taxes ?? 0;
+    return calculatePortfolioTotals(investments, price, taxRate);
+  }, [investments, price, member?.taxes]);
 
   const rows = useMemo(() => {
     if (!investments.length || !price) return [];
@@ -76,7 +77,7 @@ export default function DashboardPage() {
   return (
     <div className="container">
       <DashboardHeader displayName={displayName} />
-      <StatsGrid totals={totals} />
+      <StatsGrid totals={totals} taxRate={member?.taxes ?? null} />
       <InvestmentsTable
         investments={investments}
         rows={rows}

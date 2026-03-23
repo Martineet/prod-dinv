@@ -24,6 +24,8 @@ export type MemberProfile = {
   member_id: string;
   display_name: string | null;
   email: string;
+  visibility_summary?: boolean | null;
+  taxes?: number | null;
 };
 
 export type Portfolio = {

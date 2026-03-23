@@ -3,6 +3,7 @@
 import { useState, type MouseEvent } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChangePasswordModal } from '@/components/ChangePasswordModal';
+import { MemberSettingsModal } from '@/components/MemberSettingsModal';
 import { SettingsMenu } from '@/components/SettingsMenu';
 import { formatMoneyRounded } from '@/lib/format';
 import { useAuth } from '@/hooks/useAuth';
@@ -15,6 +16,7 @@ export function LandingHeader() {
   const pathname = usePathname();
   const { session, loading, signOut } = useAuth();
   const { price: btcPrice } = useBtcPrice();
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const displayPrice = btcPrice ? `${formatMoneyRounded(btcPrice)} ${EUR}` : `-- ${EUR}`;
   const isLoggedIn = !loading && Boolean(session);
@@ -61,7 +63,12 @@ export function LandingHeader() {
       <div className="landing-top-nav-right">
         {isLoggedIn ? (
           <>
-            <SettingsMenu onChangePassword={() => setIsChangePasswordOpen(true)} onLogout={() => signOut()} />
+            <SettingsMenu
+              onSettings={() => setIsSettingsOpen(true)}
+              onChangePassword={() => setIsChangePasswordOpen(true)}
+              onLogout={() => signOut()}
+            />
+            <MemberSettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
             <ChangePasswordModal
               isOpen={isChangePasswordOpen}
               onClose={() => setIsChangePasswordOpen(false)}
