@@ -957,6 +957,10 @@ button:disabled {
   .stat-card.mobile-left .tooltip-bubble {
     left: 0;
     right: auto;
+    background: #111827;
+    border: 1px solid #2d3548;
+    color: #e5e7eb;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   }
 
   .investments-table table .col-price,
