@@ -42,41 +42,41 @@ export function StatsGrid({ totals, taxRate }: StatsGridProps) {
   return (
     <div className="stats-grid">
       <div className="stats-group">
-        <div className="stat-card">
+        <div className="stat-card stat-card-btc mobile-left order-1">
           <div className="stat-label">BTC hodled</div>
           <div className="stat-value">
             <span className="btc-hodled-full">{btcHodledFull}</span>
             <span className="btc-hodled-compact">{btcHodledCompact}</span>
           </div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-portfolio hide-mobile order-7">
           {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
           <div className="stat-label">Portfolio Value</div>
           <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-net mobile-left order-5">
           {renderTooltip('Net invested info', 'Total invested - total divested.')}
           <div className="stat-label">Net Invested</div>
           <div className="stat-value">{display(totals?.totalInvested)}</div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-avg order-2">
           {renderTooltip('Average price info', 'Net invested / BTC hodled.')}
           <div className="stat-label">Average Price</div>
           <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
         </div>
-        <div className="stat-card highlight">
+        <div className="stat-card highlight stat-card-final mobile-left order-3">
           {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
           <div className="stat-label">Final Value</div>
           <div className="stat-value highlight-value">{display(totals?.totalFinalValue)}</div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-result order-4">
           {renderTooltip('Result info', 'Final value - net invested.')}
           <div className="stat-label">Result</div>
           <div className={`stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`}>
             {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} ${EUR}` : `-- ${EUR}`}
           </div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-taxes hide-mobile order-8">
           {renderTooltip(
             'Taxes info',
             `Tax applied to positive unrealized gains (portfolio value - net invested) x ${taxRateLabel}%.`
@@ -84,7 +84,7 @@ export function StatsGrid({ totals, taxRate }: StatsGridProps) {
           <div className="stat-label">Total Taxes</div>
           <div className="stat-value">{display(totals?.totalTaxes)}</div>
         </div>
-        <div className="stat-card">
+        <div className="stat-card stat-card-divested order-6">
           <div className="stat-label">Total divested</div>
           <div className="stat-value">{display(totalDivested)}</div>
         </div>

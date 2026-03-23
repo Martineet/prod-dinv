@@ -51,6 +51,17 @@ export default function DashboardPage() {
     refresh();
   }, [session, refresh]);
 
+  useEffect(() => {
+    const handleTaxUpdate = () => {
+      refresh();
+    };
+
+    window.addEventListener('member-settings-tax-updated', handleTaxUpdate);
+    return () => {
+      window.removeEventListener('member-settings-tax-updated', handleTaxUpdate);
+    };
+  }, [refresh]);
+
   const totals = useMemo(() => {
     if (!investments.length || !price) return null;
     const taxRate = member?.taxes ?? 0;

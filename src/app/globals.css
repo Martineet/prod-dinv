@@ -926,6 +926,39 @@ button:disabled {
     right: 6px;
   }
 
+  .stat-card.hide-mobile {
+    display: none;
+  }
+
+  .stat-card.order-1 {
+    order: 1;
+  }
+
+  .stat-card.order-2 {
+    order: 2;
+  }
+
+  .stat-card.order-3 {
+    order: 3;
+  }
+
+  .stat-card.order-4 {
+    order: 4;
+  }
+
+  .stat-card.order-5 {
+    order: 5;
+  }
+
+  .stat-card.order-6 {
+    order: 6;
+  }
+
+  .stat-card.mobile-left .tooltip-bubble {
+    left: 0;
+    right: auto;
+  }
+
   .investments-table table .col-price,
   .investments-table table .col-profit,
   .investments-table table .col-notes,

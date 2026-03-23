@@ -120,6 +120,11 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
       return;
     }
 
+    const taxesChanged =
+      initialSettings &&
+      Number.isFinite(taxesValue) &&
+      Math.abs(taxesValue / 100 - initialSettings.taxes) > 0.000001;
+
     setSaving(true);
     const { error: updateError } = await supabase
       .from('members')
@@ -133,6 +138,9 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     }
 
     setSaving(false);
+    if (taxesChanged) {
+      window.dispatchEvent(new CustomEvent('member-settings-tax-updated'));
+    }
     onClose();
   };
 
