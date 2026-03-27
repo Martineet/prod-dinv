@@ -7,20 +7,12 @@ type StatsGridProps = {
   taxRate: number | null;
 };
 
-export function StatsGrid({ totals, taxRate }: StatsGridProps) {
+export function StatsGrid({ totals, taxRate: _taxRate }: StatsGridProps) {
   const EUR = '\u20AC';
   const display = (value: number | null | undefined) => {
     if (!totals || value === null || value === undefined) return `-- ${EUR}`;
     return `${formatMoneyRounded(value)} ${EUR}`;
   };
-  const taxRatePercent = Number.isFinite(taxRate ?? NaN) ? (taxRate ?? 0) * 100 : null;
-  const taxRateLabel =
-    taxRatePercent === null
-      ? '--'
-      : taxRatePercent.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
-
-  const profitLoss = totals ? totals.totalProfitLoss : 0;
-  const profitSign = profitLoss >= 0 ? '+' : '';
   const btcHodledFull = totals ? `${formatBtc(totals.totalBTC)} BTC` : '-- BTC';
   const btcHodledCompact = totals
     ? `${totals.totalBTC.toLocaleString('de-DE', {
@@ -29,6 +21,17 @@ export function StatsGrid({ totals, taxRate }: StatsGridProps) {
       })} BTC`
     : '-- BTC';
   const totalDivested = totals?.totalDivested ?? 0;
+  const netInvested = totals?.totalInvested ?? 0;
+  const finalValue = totals?.totalFinalValue ?? 0;
+  const resultEur = totals ? finalValue - netInvested : null;
+  const resultPct = totals && netInvested !== 0 ? (resultEur ?? 0) / netInvested * 100 : null;
+  const resultClass = resultEur === null ? '' : resultEur >= 0 ? 'positive' : 'negative';
+  const formatSigned = (value: number, suffix: string) => {
+    const sign = value >= 0 ? '+' : '-';
+    return `${sign}${formatMoneyRounded(Math.abs(value))}${suffix}`;
+  };
+  const resultEurDisplay = resultEur === null ? `-- ${EUR}` : formatSigned(resultEur, EUR);
+  const resultPctDisplay = resultPct === null ? '--%' : formatSigned(resultPct, '%');
 
   const renderTooltip = (label: string, description: string) => (
     <div className="stat-tooltip">
@@ -42,47 +45,40 @@ export function StatsGrid({ totals, taxRate }: StatsGridProps) {
   return (
     <div className="stats-grid">
       <div className="stats-group">
-        <div className="stat-card stat-card-btc mobile-left order-1">
+        <div className="stat-card highlight stat-card-btc mobile-left order-1">
           <div className="stat-label">BTC hodled</div>
-          <div className="stat-value">
+          <div className="stat-value highlight-value">
             <span className="btc-hodled-full">{btcHodledFull}</span>
             <span className="btc-hodled-compact">{btcHodledCompact}</span>
           </div>
-        </div>
-        <div className="stat-card stat-card-portfolio hide-mobile order-7">
-          {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
-          <div className="stat-label">Portfolio Value</div>
-          <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
-        </div>
-        <div className="stat-card stat-card-net mobile-left order-5">
-          {renderTooltip('Net invested info', 'Total invested - total divested.')}
-          <div className="stat-label">Net Invested</div>
-          <div className="stat-value">{display(totals?.totalInvested)}</div>
         </div>
         <div className="stat-card stat-card-avg order-2">
           {renderTooltip('Average price info', 'Net invested / BTC hodled.')}
           <div className="stat-label">Average Price</div>
           <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
         </div>
-        <div className="stat-card highlight stat-card-final mobile-left order-3">
+        <div className="stat-card stat-card-net mobile-left order-5">
+          {renderTooltip('Net invested info', 'Total invested - total divested.')}
+          <div className="stat-label">Net Invested</div>
+          <div className="stat-value">{display(totals?.totalInvested)}</div>
+        </div>
+        <div className="stat-card stat-card-portfolio hide-mobile order-7">
+          {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
+          <div className="stat-label">Portfolio Value</div>
+          <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
+        </div>
+        <div className="stat-card stat-card-final mobile-left order-3">
           {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
-          <div className="stat-label">Final Value</div>
-          <div className="stat-value highlight-value">{display(totals?.totalFinalValue)}</div>
-        </div>
-        <div className="stat-card stat-card-result order-4">
-          {renderTooltip('Result info', 'Final value - net invested.')}
-          <div className="stat-label">Result</div>
-          <div className={`stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`}>
-            {totals ? `${profitSign}${formatMoneyRounded(profitLoss)} ${EUR}` : `-- ${EUR}`}
+          <div className="stat-final-layout">
+            <div className="stat-final-main">
+              <div className="stat-label">Final Value</div>
+              <div className="stat-value">{display(totals?.totalFinalValue)}</div>
+            </div>
+            <div className="stat-final-results">
+              <div className={`stat-final-result ${resultClass}`}>{resultEurDisplay}</div>
+              <div className={`stat-final-result ${resultClass}`}>{resultPctDisplay}</div>
+            </div>
           </div>
-        </div>
-        <div className="stat-card stat-card-taxes hide-mobile order-8">
-          {renderTooltip(
-            'Taxes info',
-            `Tax applied to positive unrealized gains (portfolio value - net invested) x ${taxRateLabel}%.`
-          )}
-          <div className="stat-label">Total Taxes</div>
-          <div className="stat-value">{display(totals?.totalTaxes)}</div>
         </div>
         <div className="stat-card stat-card-divested order-6">
           <div className="stat-label">Total divested</div>

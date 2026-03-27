@@ -106,7 +106,7 @@ export function calculatePortfolioTotals(
     totalTaxes = (totalCurrentValue - totalInvested) * safeTaxRate;
   }
 
-  const totalFinalValue = totalCurrentValue - totalTaxes + totalDivested;
+  const totalFinalValue = totalCurrentValue + totalDivested;
   const totalProfitLoss = totalFinalValue - totalInvested;
 
   return {
