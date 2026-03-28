@@ -57,30 +57,37 @@ export function StatsGrid({ totals, taxRate: _taxRate }: StatsGridProps) {
           <div className="stat-label">Average Price</div>
           <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
         </div>
-        <div className="stat-card stat-card-net mobile-left order-5">
-          {renderTooltip('Net invested info', 'Total invested - total divested.')}
-          <div className="stat-label">Net Invested</div>
-          <div className="stat-value">{display(totals?.totalInvested)}</div>
-        </div>
-        <div className="stat-card stat-card-portfolio hide-mobile order-7">
+        <div className="stat-card stat-card-portfolio order-3">
           {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
           <div className="stat-label">Portfolio Value</div>
           <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
         </div>
-        <div className="stat-card stat-card-final mobile-left order-3">
+        <div className="stat-card stat-card-net mobile-left order-4">
+          {renderTooltip('Net invested info', 'Total invested - total divested.')}
+          <div className="stat-label">Net Invested</div>
+          <div className="stat-value">{display(totals?.totalInvested)}</div>
+        </div>
+        <div className="stat-card stat-card-final mobile-left order-5">
           {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
           <div className="stat-final-layout">
             <div className="stat-final-main">
               <div className="stat-label">Final Value</div>
               <div className="stat-value">{display(totals?.totalFinalValue)}</div>
             </div>
-            <div className="stat-final-results">
+            <div className="stat-final-results desktop-only">
               <div className={`stat-final-result ${resultClass}`}>{resultEurDisplay}</div>
               <div className={`stat-final-result ${resultClass}`}>{resultPctDisplay}</div>
             </div>
           </div>
         </div>
-        <div className="stat-card stat-card-divested hide-mobile order-6">
+        <div className="stat-card stat-card-result mobile-only order-6">
+          <div className="stat-label">Result</div>
+          <div className="stat-result-values">
+            <div className={`stat-final-result ${resultClass}`}>{resultEurDisplay}</div>
+            <div className={`stat-final-result ${resultClass}`}>{resultPctDisplay}</div>
+          </div>
+        </div>
+        <div className="stat-card stat-card-divested hide-mobile order-7">
           <div className="stat-label">Total divested</div>
           <div className="stat-value">{display(totalDivested)}</div>
         </div>

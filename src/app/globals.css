@@ -845,6 +845,17 @@ button:disabled {
   min-width: 72px;
 }
 
+.stat-result-values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mobile-only {
+  display: none;
+}
+
 .stat-final-result {
   font-size: 16px;
   font-weight: 600;
@@ -986,6 +997,10 @@ button:disabled {
     order: 6;
   }
 
+  .stat-card.order-7 {
+    order: 7;
+  }
+
   .stat-card.mobile-left .stat-tooltip {
     z-index: 20;
   }
@@ -994,6 +1009,24 @@ button:disabled {
     left: 0;
     right: auto;
     z-index: 30;
+  }
+
+  .stat-card-net .stat-tooltip {
+    left: 6px;
+    right: auto;
+  }
+
+  .stat-card-net .tooltip-bubble {
+    left: 0;
+    right: auto;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block;
   }
 
   .investments-table table .col-price,
@@ -1289,6 +1322,7 @@ tr:hover {
 
   .landing-top-nav-left {
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   .landing-top-nav-middle {
@@ -1332,7 +1366,8 @@ tr:hover {
 
   .header-btc-price {
     font-size: 1.3em;
-    white-space: nowrap;
+    white-space: normal;
+    width: 100%;
   }
 
   .stats-grid {
