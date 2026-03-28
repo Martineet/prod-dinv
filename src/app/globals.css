@@ -1011,6 +1011,17 @@ button:disabled {
     z-index: 30;
   }
 
+  .stat-card-portfolio .tooltip-bubble {
+    left: 0;
+    right: auto;
+  }
+
+  .stat-card-final .tooltip-bubble {
+    background: #0f1326;
+    z-index: 40;
+    mix-blend-mode: normal;
+  }
+
   .stat-card-result .stat-result-values {
     align-items: flex-start;
     text-align: left;
