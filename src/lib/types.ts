@@ -1,6 +1,6 @@
 export type Investment = {
-  id?: string | number;
-  portfolio_id: string;
+  investments_id?: string | number;
+  portfolios_id: string;
   btc_amount: number | string;
   eur_amount: number | string;
   price: number | string;
@@ -12,7 +12,7 @@ export type Investment = {
 };
 
 export type InvestmentFormInput = {
-  portfolio_id: string;
+  portfolios_id: string;
   asset: string;
   amount: number;
   eur_amount: number;
@@ -21,7 +21,7 @@ export type InvestmentFormInput = {
 };
 
 export type MemberProfile = {
-  member_id: string;
+  members_id: string;
   display_name: string | null;
   email: string;
   visibility_summary?: boolean | null;
@@ -29,8 +29,8 @@ export type MemberProfile = {
 };
 
 export type Portfolio = {
-  portfolio_id: string;
-  member_id: string;
+  portfolios_id: string;
+  members_id: string;
   name: string;
 };
 

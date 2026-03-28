@@ -39,10 +39,10 @@ type InvestmentsTableProps = {
   onCreatePortfolio: (name: string) => Promise<boolean>;
   onRenamePortfolio: (portfolioId: string, newName: string) => Promise<boolean>;
   onDeletePortfolio: (portfolioId: string) => Promise<boolean>;
-  onCreateInvestment: (investmentData: Omit<InvestmentFormInput, 'portfolio_id'> & { portfolio_id?: string }) => Promise<boolean>;
+  onCreateInvestment: (investmentData: Omit<InvestmentFormInput, 'portfolios_id'> & { portfolios_id?: string }) => Promise<boolean>;
   onUpdateInvestment: (
     investmentId: string,
-    updates: Omit<InvestmentFormInput, 'portfolio_id'> & { portfolio_id?: string }
+    updates: Omit<InvestmentFormInput, 'portfolios_id'> & { portfolios_id?: string }
   ) => Promise<boolean>;
   onDeleteInvestment: (investmentId: string, portfolioIdOverride?: string) => Promise<boolean>;
   creatingPortfolio: MutationState;
@@ -151,7 +151,10 @@ function mapInvestmentToDraft(investment: Investment): InvestmentDraft {
 
 function findInvestmentByRowId(investments: Investment[], rowId: string): Investment | null {
   return (
-    investments.find((investment) => String(investment.id ?? `${investment.portfolio_id}-${investment.date_swap}`) === rowId) ??
+    investments.find(
+      (investment) =>
+        String(investment.investments_id ?? `${investment.portfolios_id}-${investment.date_swap}`) === rowId
+    ) ??
     null
   );
 }
@@ -202,10 +205,10 @@ export function InvestmentsTable({
 
   useEffect(() => {
     setManagerPortfolioId((previous) => {
-      if (previous && portfolios.some((portfolio) => portfolio.portfolio_id === previous)) {
+      if (previous && portfolios.some((portfolio) => portfolio.portfolios_id === previous)) {
         return previous;
       }
-      return selectedPortfolioId ?? portfolios[0]?.portfolio_id ?? null;
+      return selectedPortfolioId ?? portfolios[0]?.portfolios_id ?? null;
     });
   }, [portfolios, selectedPortfolioId]);
 
@@ -215,13 +218,13 @@ export function InvestmentsTable({
       return;
     }
 
-    const current = portfolios.find((portfolio) => portfolio.portfolio_id === managerPortfolioId);
+    const current = portfolios.find((portfolio) => portfolio.portfolios_id === managerPortfolioId);
     setRenamePortfolioName(current?.name ?? '');
   }, [managerPortfolioId, portfolios]);
 
   const selectedManagerPortfolio = useMemo(() => {
     if (!managerPortfolioId) return null;
-    return portfolios.find((portfolio) => portfolio.portfolio_id === managerPortfolioId) ?? null;
+    return portfolios.find((portfolio) => portfolio.portfolios_id === managerPortfolioId) ?? null;
   }, [managerPortfolioId, portfolios]);
 
   const openCreateTransactionModal = () => {
@@ -305,7 +308,7 @@ export function InvestmentsTable({
     const finalEurAmount = isTransfer ? 0 : Number(draft.eurAmount);
 
     const payload = {
-      portfolio_id: selectedPortfolioId ?? undefined,
+      portfolios_id: selectedPortfolioId ?? undefined,
       asset: draft.asset.trim(),
       amount: Number(draft.amount),
       eur_amount: finalEurAmount,
@@ -482,7 +485,7 @@ export function InvestmentsTable({
                 disabled={loading || !portfolios.length}
               >
                 {portfolios.map((portfolio) => (
-                  <option key={portfolio.portfolio_id} value={portfolio.portfolio_id}>
+                  <option key={portfolio.portfolios_id} value={portfolio.portfolios_id}>
                     {portfolio.name}
                   </option>
                 ))}
@@ -652,7 +655,7 @@ export function InvestmentsTable({
                 disabled={!portfolios.length}
               >
                 {portfolios.map((portfolio) => (
-                  <option key={portfolio.portfolio_id} value={portfolio.portfolio_id}>
+                  <option key={portfolio.portfolios_id} value={portfolio.portfolios_id}>
                     {portfolio.name}
                   </option>
                 ))}

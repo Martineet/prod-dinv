@@ -46,8 +46,8 @@ export function buildInvestmentRows(
     }
 
     return {
-      id: String(investment.id ?? `${investment.portfolio_id}-${investment.date_swap}`),
-      portfolioId: investment.portfolio_id,
+      id: String(investment.investments_id ?? `${investment.portfolios_id}-${investment.date_swap}`),
+      portfolioId: investment.portfolios_id,
       date: investment.date_swap,
       type: investment.type ?? '-',
       notes: investment.notes ?? '-',

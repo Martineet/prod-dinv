@@ -11,9 +11,9 @@ import {
   updateInvestment as updateInvestmentRecord
 } from '@/services/investmentsService';
 import {
-  getInvestmentsByPortfolioId,
-  getMemberProfileByEmail,
-  getPortfoliosByMemberId
+  getMemberProfileByUserId,
+  getPortfoliosByMembersId,
+  getInvestmentsByPortfoliosId
 } from '@/services/portfolio';
 import { Investment, InvestmentFormInput, MemberProfile, Portfolio } from '@/lib/types';
 
@@ -51,7 +51,7 @@ export function useInvestments(user: User | null) {
 
   const refresh = useCallback(
     async (portfolioIdOverride?: string | null) => {
-      if (!user?.email) {
+      if (!user?.id) {
         setMember(null);
         setPortfolios([]);
         setSelectedPortfolioId(null);
@@ -64,7 +64,7 @@ export function useInvestments(user: User | null) {
       setLoading(true);
 
       try {
-        const memberProfile = await getMemberProfileByEmail(user.email);
+        const memberProfile = await getMemberProfileByUserId(user.id);
         if (!memberProfile) {
           setError('Could not find your account. Contact the administrator.');
           setMember(null);
@@ -75,17 +75,17 @@ export function useInvestments(user: User | null) {
           return;
         }
 
-        const memberPortfolios = await getPortfoliosByMemberId(memberProfile.member_id);
+        const memberPortfolios = await getPortfoliosByMembersId(memberProfile.members_id);
         const nextSelectedPortfolioId =
           portfolioIdOverride ??
           (selectedPortfolioIdRef.current &&
-          memberPortfolios.some((portfolio) => portfolio.portfolio_id === selectedPortfolioIdRef.current)
+          memberPortfolios.some((portfolio) => portfolio.portfolios_id === selectedPortfolioIdRef.current)
             ? selectedPortfolioIdRef.current
-            : memberPortfolios[0]?.portfolio_id ?? null);
+            : memberPortfolios[0]?.portfolios_id ?? null);
 
         let data: Investment[] = [];
         if (nextSelectedPortfolioId) {
-          data = await getInvestmentsByPortfolioId(nextSelectedPortfolioId);
+          data = await getInvestmentsByPortfoliosId(nextSelectedPortfolioId);
         }
 
         setMember(memberProfile);
@@ -123,13 +123,13 @@ export function useInvestments(user: User | null) {
         return false;
       }
 
-      if (!member?.member_id) {
+      if (!member?.members_id) {
         setCreatingPortfolio({ loading: false, error: 'No member loaded.', success: false });
         return false;
       }
 
       setCreatingPortfolio({ loading: true, error: null, success: false });
-      const { data, error: createError } = await createPortfolioRecord(trimmed, member.member_id);
+      const { data, error: createError } = await createPortfolioRecord(trimmed, member.members_id);
 
       if (createError || !data) {
         setCreatingPortfolio({
@@ -140,7 +140,7 @@ export function useInvestments(user: User | null) {
         return false;
       }
 
-      await refresh(data.portfolio_id);
+      await refresh(data.portfolios_id);
       setCreatingPortfolio({ loading: false, error: null, success: true });
       return true;
     },
@@ -188,15 +188,15 @@ export function useInvestments(user: User | null) {
   );
 
   const createInvestment = useCallback(
-    async (investmentData: Omit<InvestmentFormInput, 'portfolio_id'> & { portfolio_id?: string }) => {
-      const portfolioId = investmentData.portfolio_id ?? selectedPortfolioIdRef.current;
+    async (investmentData: Omit<InvestmentFormInput, 'portfolios_id'> & { portfolios_id?: string }) => {
+      const portfolioId = investmentData.portfolios_id ?? selectedPortfolioIdRef.current;
       if (!portfolioId) {
         setCreatingInvestment({ loading: false, error: 'Select a portfolio first.', success: false });
         return false;
       }
 
       setCreatingInvestment({ loading: true, error: null, success: false });
-      const { error: createError } = await createInvestmentRecord({ ...investmentData, portfolio_id: portfolioId });
+      const { error: createError } = await createInvestmentRecord({ ...investmentData, portfolios_id: portfolioId });
 
       if (createError) {
         setCreatingInvestment({ loading: false, error: createError.message, success: false });
@@ -211,8 +211,8 @@ export function useInvestments(user: User | null) {
   );
 
   const updateInvestment = useCallback(
-    async (investmentId: string, updates: Omit<InvestmentFormInput, 'portfolio_id'> & { portfolio_id?: string }) => {
-      const portfolioId = updates.portfolio_id ?? selectedPortfolioIdRef.current;
+    async (investmentId: string, updates: Omit<InvestmentFormInput, 'portfolios_id'> & { portfolios_id?: string }) => {
+      const portfolioId = updates.portfolios_id ?? selectedPortfolioIdRef.current;
       if (!portfolioId) {
         setUpdatingInvestment({ loading: false, error: 'Select a portfolio first.', success: false });
         return false;
@@ -221,7 +221,7 @@ export function useInvestments(user: User | null) {
       setUpdatingInvestment({ loading: true, error: null, success: false });
       const { error: updateError } = await updateInvestmentRecord(investmentId, {
         ...updates,
-        portfolio_id: portfolioId
+        portfolios_id: portfolioId
       });
 
       if (updateError) {
@@ -274,7 +274,7 @@ export function useInvestments(user: User | null) {
   }, [refresh]);
 
   const selectedPortfolio =
-    selectedPortfolioId ? portfolios.find((portfolio) => portfolio.portfolio_id === selectedPortfolioId) ?? null : null;
+    selectedPortfolioId ? portfolios.find((portfolio) => portfolio.portfolios_id === selectedPortfolioId) ?? null : null;
 
   return {
     member,

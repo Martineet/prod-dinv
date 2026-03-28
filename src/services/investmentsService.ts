@@ -8,12 +8,12 @@ type ServiceResult<T> = {
 };
 
 type PortfolioInsert = {
-  member_id: string;
+  members_id: string;
   name: string;
 };
 
 type InvestmentInsert = {
-  portfolio_id: string;
+  portfolios_id: string;
   type: string;
   btc_amount: number;
   price: number;
@@ -30,7 +30,7 @@ function normalizePortfolioName(name: string): string {
 
 function toInvestmentInsert(payload: InvestmentFormInput): InvestmentInsert {
   return {
-    portfolio_id: payload.portfolio_id,
+    portfolios_id: payload.portfolios_id,
     type: payload.asset.trim(),
     btc_amount: payload.amount,
     price: payload.price,
@@ -44,14 +44,14 @@ function toInvestmentInsert(payload: InvestmentFormInput): InvestmentInsert {
 
 export async function createPortfolio(name: string, memberId: string): Promise<ServiceResult<Portfolio>> {
   const portfolio: PortfolioInsert = {
-    member_id: memberId,
+    members_id: memberId,
     name: normalizePortfolioName(name)
   };
 
   const { data, error } = await supabase
     .from('portfolios')
     .insert(portfolio)
-    .select('portfolio_id, member_id, name')
+    .select('portfolios_id, members_id, name')
     .single();
 
   return {
@@ -64,8 +64,8 @@ export async function renamePortfolio(portfolioId: string, newName: string): Pro
   const { data, error } = await supabase
     .from('portfolios')
     .update({ name: normalizePortfolioName(newName) })
-    .eq('portfolio_id', portfolioId)
-    .select('portfolio_id, member_id, name')
+    .eq('portfolios_id', portfolioId)
+    .select('portfolios_id, members_id, name')
     .single();
 
   return {
@@ -75,7 +75,7 @@ export async function renamePortfolio(portfolioId: string, newName: string): Pro
 }
 
 export async function deletePortfolio(portfolioId: string): Promise<ServiceResult<true>> {
-  const { error } = await supabase.from('portfolios').delete().eq('portfolio_id', portfolioId);
+  const { error } = await supabase.from('portfolios').delete().eq('portfolios_id', portfolioId);
   return { data: error ? null : true, error };
 }
 
@@ -105,8 +105,8 @@ export async function updateInvestment(
   const { data, error } = await supabase
     .from('investments')
     .update(payload)
-    .eq('id', investmentId)
-    .eq('portfolio_id', updates.portfolio_id)
+    .eq('investments_id', investmentId)
+    .eq('portfolios_id', updates.portfolios_id)
     .select('*')
     .single();
 
@@ -123,8 +123,8 @@ export async function deleteInvestment(
   const { error } = await supabase
     .from('investments')
     .delete()
-    .eq('id', investmentId)
-    .eq('portfolio_id', portfolioId);
+    .eq('investments_id', investmentId)
+    .eq('portfolios_id', portfolioId);
 
   return { data: error ? null : true, error };
 }
