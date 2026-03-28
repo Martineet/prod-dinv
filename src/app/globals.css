@@ -1011,14 +1011,24 @@ button:disabled {
     z-index: 30;
   }
 
-  .stat-card-net .stat-tooltip {
-    left: 6px;
-    right: auto;
+  .stat-card-result .stat-result-values {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .stat-card-result .stat-final-result {
+    align-self: flex-start;
   }
 
   .stat-card-net .tooltip-bubble {
-    left: 0;
-    right: auto;
+    left: auto;
+    right: 0;
+    transform: translate(-100%, -4px);
+  }
+
+  .stat-card-net .stat-tooltip:hover .tooltip-bubble,
+  .stat-card-net .stat-tooltip:focus-within .tooltip-bubble {
+    transform: translate(-100%, 0);
   }
 
   .desktop-only {
@@ -1318,11 +1328,13 @@ tr:hover {
   .landing-top-nav {
     padding: 12px 14px;
     gap: 10px;
+    max-width: 100%;
   }
 
   .landing-top-nav-left {
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: 0;
   }
 
   .landing-top-nav-middle {
@@ -1353,6 +1365,9 @@ tr:hover {
 
   .nav-title-link {
     font-size: 1.3em;
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-quote {
@@ -1365,9 +1380,11 @@ tr:hover {
   }
 
   .header-btc-price {
-    font-size: 1.3em;
-    white-space: normal;
-    width: 100%;
+    font-size: 1.1em;
+    white-space: nowrap;
+    max-width: 45vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .stats-grid {
