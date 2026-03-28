@@ -80,7 +80,7 @@ export function StatsGrid({ totals, taxRate: _taxRate }: StatsGridProps) {
             </div>
           </div>
         </div>
-        <div className="stat-card stat-card-divested order-6">
+        <div className="stat-card stat-card-divested hide-mobile order-6">
           <div className="stat-label">Total divested</div>
           <div className="stat-value">{display(totalDivested)}</div>
         </div>
