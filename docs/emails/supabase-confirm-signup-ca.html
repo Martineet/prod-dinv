@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Confirma el teu registre</title>
+  </head>
+  <body style="margin:0; padding:0; background:#0a0e27; font-family: Arial, sans-serif; color:#e5e7eb;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0e27; padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px; background:#1a1d2e; border:1px solid #2d3548; border-radius:16px; overflow:hidden;">
+            <tr>
+              <td style="padding:28px 28px 10px;">
+                <h1 style="margin:0 0 8px; font-size:22px; color:#ffffff;">Confirma el teu registre</h1>
+                <p style="margin:0; font-size:14px; color:#9ca3af;">Gràcies per unir-te! Confirma el teu correu per activar el teu compte.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 28px 28px;">
+                <a href="{{ .ConfirmationURL }}"
+                   style="display:inline-block; background:#f59e0b; color:#0a0e27; text-decoration:none; font-weight:700; padding:12px 18px; border-radius:10px; font-size:15px;">
+                  Confirma el teu correu
+                </a>
+                <p style="margin:18px 0 0; font-size:12px; color:#9ca3af;">
+                  Si el botó no funciona, copia i enganxa aquest enllaç al navegador:
+                </p>
+                <p style="word-break:break-all; font-size:12px; color:#cbd5f5; margin:6px 0 0;">
+                  {{ .ConfirmationURL }}
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 28px 24px; border-top:1px solid #2d3548;">
+                <p style="margin:0; font-size:11px; color:#6b7280;">
+                  Si no has sol·licitat això, pots ignorar aquest correu amb seguretat.
+                </p>
+              </td>
+            </tr>
+          </table>
+          <p style="margin:16px 0 0; font-size:14px; color:#ffffff; font-weight:600;">D.Inversions</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
