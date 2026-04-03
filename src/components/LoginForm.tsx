@@ -59,7 +59,7 @@ export function LoginForm() {
       if (profileError) {
         setInfo('Account created, but your profile is pending. Please log in after confirmation.');
       } else if (requiresEmailConfirmation) {
-        setInfo('Account created. Check your email to confirm your account.');
+        setInfo('Account created. An email has been sent to confirm your account.');
       } else {
         setInfo('Account created. You can log in now.');
       }
