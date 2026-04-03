@@ -15,6 +15,7 @@ import {
   getPortfoliosByMembersId,
   getInvestmentsByPortfoliosId
 } from '@/services/portfolio';
+import { createMemberProfile } from '@/services/members';
 import { Investment, InvestmentFormInput, MemberProfile, Portfolio } from '@/lib/types';
 
 type MutationState = {
@@ -64,15 +65,19 @@ export function useInvestments(user: User | null) {
       setLoading(true);
 
       try {
-        const memberProfile = await getMemberProfileByUserId(user.id);
+        let memberProfile = await getMemberProfileByUserId(user.id);
         if (!memberProfile) {
-          setError('Could not find your account. Contact the administrator.');
-          setMember(null);
-          setPortfolios([]);
-          setSelectedPortfolioId(null);
-          setInvestments([]);
-          setLoading(false);
-          return;
+          try {
+            memberProfile = await createMemberProfile(user);
+          } catch (err) {
+            setError(err instanceof Error ? err.message : 'Could not find your account. Contact the administrator.');
+            setMember(null);
+            setPortfolios([]);
+            setSelectedPortfolioId(null);
+            setInvestments([]);
+            setLoading(false);
+            return;
+          }
         }
 
         const memberPortfolios = await getPortfoliosByMembersId(memberProfile.members_id);

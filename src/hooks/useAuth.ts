@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/services/supabaseClient';
+import { createMemberProfile } from '@/services/members';
 
 export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
@@ -29,6 +30,33 @@ export function useAuth() {
 
   const signIn = useCallback(async (email: string, password: string) => {
     return supabase.auth.signInWithPassword({ email, password });
+  }, []);
+
+  const signUp = useCallback(async (email: string, password: string, displayName?: string) => {
+    const trimmedEmail = email.trim();
+    const trimmedName = displayName?.trim() ?? '';
+    const { data, error } = await supabase.auth.signUp({
+      email: trimmedEmail,
+      password,
+      options: trimmedName ? { data: { display_name: trimmedName } } : undefined
+    });
+
+    if (error) {
+      return { error, profileError: null, requiresEmailConfirmation: false };
+    }
+
+    const user = data.user ?? data.session?.user ?? null;
+    let profileError: Error | null = null;
+
+    if (user) {
+      try {
+        await createMemberProfile(user, { displayName: trimmedName, email: trimmedEmail });
+      } catch (err) {
+        profileError = err instanceof Error ? err : new Error('Failed to create member profile.');
+      }
+    }
+
+    return { error: null, profileError, requiresEmailConfirmation: !data.session };
   }, []);
 
   const signOut = useCallback(async () => {
@@ -62,6 +90,7 @@ export function useAuth() {
     user: session?.user ?? null,
     loading,
     signIn,
+    signUp,
     signOut,
     changePassword
   };
