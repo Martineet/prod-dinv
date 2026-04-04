@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/useAuth';
 const LOCK_ICON = '\u{1F510}';
 
 export function LoginForm() {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, requestPasswordReset } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -15,6 +15,12 @@ export function LoginForm() {
   const [info, setInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
+  const [showReset, setShowReset] = useState(false);
+  const [showResetForm, setShowResetForm] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetError, setResetError] = useState('');
+  const [resetInfo, setResetInfo] = useState('');
+  const [resetLoading, setResetLoading] = useState(false);
 
   useEffect(() => {
     const changed = sessionStorage.getItem('pw_changed');
@@ -23,6 +29,12 @@ export function LoginForm() {
       sessionStorage.removeItem('pw_changed');
     }
   }, []);
+
+  useEffect(() => {
+    if (!resetEmail && email) {
+      setResetEmail(email);
+    }
+  }, [email, resetEmail]);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -67,6 +79,7 @@ export function LoginForm() {
       setIsSignup(false);
       setPassword('');
       setConfirmPassword('');
+      setShowReset(false);
       return;
     }
 
@@ -75,7 +88,35 @@ export function LoginForm() {
 
     if (signInError) {
       setError(signInError.message);
+      if (signInError.message.toLowerCase().includes('invalid login credentials')) {
+        setShowReset(true);
+        setShowResetForm(false);
+        setResetEmail(email.trim());
+      }
     }
+  };
+
+  const handleResetRequest = async (event: FormEvent) => {
+    event.preventDefault();
+    setResetError('');
+    setResetInfo('');
+
+    const trimmedEmail = resetEmail.trim();
+    if (!trimmedEmail) {
+      setResetError('Email is required.');
+      return;
+    }
+
+    setResetLoading(true);
+    const { error: resetRequestError } = await requestPasswordReset(trimmedEmail);
+    setResetLoading(false);
+
+    if (resetRequestError) {
+      setResetError(resetRequestError.message);
+      return;
+    }
+
+    setResetInfo('Recovery email sent. Check your inbox to reset your password.');
   };
 
   return (
@@ -143,6 +184,10 @@ export function LoginForm() {
             setError('');
             setInfo('');
             setIsSignup((prev) => !prev);
+            setShowReset(false);
+            setShowResetForm(false);
+            setResetError('');
+            setResetInfo('');
           }}
         >
           {isSignup ? '\u2190 Back to login' : '\u2192 Sign up'}
@@ -150,6 +195,41 @@ export function LoginForm() {
         {error ? <div className="error">{error}</div> : null}
         {info ? <div className="info-msg">{info}</div> : null}
       </form>
+      {!isSignup && showReset ? (
+        <div className="reset-panel">
+          <button
+            type="button"
+            className="reset-link"
+            onClick={() => {
+              setResetError('');
+              setResetInfo('');
+              setShowResetForm(true);
+            }}
+          >
+            Click here to reset your password
+          </button>
+          {showResetForm ? (
+            <form className="reset-form" onSubmit={handleResetRequest}>
+              <div className="form-group">
+                <label htmlFor="resetEmail">Recovery email</label>
+                <input
+                  type="email"
+                  id="resetEmail"
+                  value={resetEmail}
+                  onChange={(event) => setResetEmail(event.target.value)}
+                  placeholder="your@email.com"
+                  autoComplete="email"
+                />
+              </div>
+              <button type="submit" disabled={resetLoading}>
+                {resetLoading ? 'Sending email...' : 'Send recovery email'}
+              </button>
+              {resetError ? <div className="error">{resetError}</div> : null}
+              {resetInfo ? <div className="info-msg">{resetInfo}</div> : null}
+            </form>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

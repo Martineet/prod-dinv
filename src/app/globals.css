@@ -377,6 +377,38 @@ button:disabled {
   width: 100%;
 }
 
+.reset-panel {
+  max-width: 400px;
+  margin: 16px auto 0;
+  text-align: center;
+}
+
+.reset-link {
+  background: transparent;
+  border: none;
+  color: #f59e0b;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.reset-link:hover {
+  color: #fbbf24;
+}
+
+.reset-form {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid #2d3548;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.reset-form .form-group {
+  margin-bottom: 12px;
+}
+
 .signup-placeholder-btn {
   width: 80%;
   margin: 12px auto 0;

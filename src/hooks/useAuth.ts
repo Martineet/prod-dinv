@@ -63,6 +63,18 @@ export function useAuth() {
     return supabase.auth.signOut();
   }, []);
 
+  const requestPasswordReset = useCallback(async (email: string) => {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) {
+      return { data: null, error: new Error('Email is required.') };
+    }
+
+    const redirectTo =
+      typeof window !== 'undefined' ? `${window.location.origin}/reset-password` : undefined;
+
+    return supabase.auth.resetPasswordForEmail(trimmedEmail, redirectTo ? { redirectTo } : undefined);
+  }, []);
+
   const changePassword = useCallback(async (currentPassword: string, newPassword: string) => {
     const { data: userData } = await supabase.auth.getUser();
     const user = userData.user as User | null;
@@ -92,6 +104,7 @@ export function useAuth() {
     signIn,
     signUp,
     signOut,
+    requestPasswordReset,
     changePassword
   };
 }
