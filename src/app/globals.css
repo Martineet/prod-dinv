@@ -1157,7 +1157,8 @@ button:disabled {
 }
 
 .portfolio-select-wrap {
-  min-width: 220px;
+  width: 165px;
+  min-width: 165px;
 }
 
 .portfolio-controls {
@@ -1177,6 +1178,18 @@ button:disabled {
   width: auto;
   padding: 8px 12px;
   font-size: 13px;
+}
+
+.portfolio-add-btn {
+  order: 2;
+}
+
+.portfolio-manage-btn {
+  min-width: 44px;
+  padding: 8px 10px;
+  font-size: 18px;
+  line-height: 1;
+  order: 3;
 }
 
 .table-actions {
@@ -1486,11 +1499,25 @@ tr:hover {
   }
 
   .portfolio-controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
     justify-content: stretch;
+    align-items: center;
   }
 
   .btn-inline {
     width: 100%;
+  }
+
+  .portfolio-add-btn {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .portfolio-manage-btn {
+    order: 2;
+    width: auto;
   }
 
   .dinversions-logo {

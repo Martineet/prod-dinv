@@ -493,19 +493,21 @@ export function InvestmentsTable({
             </div>
             <button
               type="button"
-              className="btn-inline btn-secondary"
-              onClick={() => setIsPortfolioManagerOpen(true)}
-              disabled={!portfolios.length}
-            >
-              Manage Portfolios
-            </button>
-            <button
-              type="button"
-              className="btn-inline"
+              className="btn-inline portfolio-add-btn"
               onClick={openCreateTransactionModal}
               disabled={!selectedPortfolioId}
             >
               Add Transaction
+            </button>
+            <button
+              type="button"
+              className="btn-inline btn-secondary portfolio-manage-btn"
+              onClick={() => setIsPortfolioManagerOpen(true)}
+              disabled={!portfolios.length}
+              aria-label="Manage portfolios"
+              title="Manage portfolios"
+            >
+              &#8942;
             </button>
           </div>
         </div>
