@@ -178,6 +178,7 @@ export function InvestmentsTable({
   portfolios,
   selectedPortfolioId,
   selectedPortfolioName,
+  onSelectPortfolio,
   onCreatePortfolio,
   onRenamePortfolio,
   onDeletePortfolio,
