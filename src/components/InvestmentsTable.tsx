@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { Investment, InvestmentFormInput, InvestmentRow, Portfolio } from '@/lib/types';
 
@@ -178,7 +178,6 @@ export function InvestmentsTable({
   portfolios,
   selectedPortfolioId,
   selectedPortfolioName,
-  onSelectPortfolio,
   onCreatePortfolio,
   onRenamePortfolio,
   onDeletePortfolio,
@@ -202,14 +201,11 @@ export function InvestmentsTable({
   const [newPortfolioName, setNewPortfolioName] = useState('');
   const [renamePortfolioName, setRenamePortfolioName] = useState('');
   const [managerPortfolioId, setManagerPortfolioId] = useState<string | null>(selectedPortfolioId);
+  const [expandedPortfolioSection, setExpandedPortfolioSection] = useState<'rename' | 'create' | null>(null);
+  const portfolioMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setManagerPortfolioId((previous) => {
-      if (previous && portfolios.some((portfolio) => portfolio.portfolios_id === previous)) {
-        return previous;
-      }
-      return selectedPortfolioId ?? portfolios[0]?.portfolios_id ?? null;
-    });
+    setManagerPortfolioId(selectedPortfolioId ?? portfolios[0]?.portfolios_id ?? null);
   }, [portfolios, selectedPortfolioId]);
 
   useEffect(() => {
@@ -346,12 +342,16 @@ export function InvestmentsTable({
     const ok = await onCreatePortfolio(newPortfolioName);
     if (ok) {
       setNewPortfolioName('');
+      setExpandedPortfolioSection(null);
     }
   };
 
   const handleRenamePortfolio = async () => {
     if (!managerPortfolioId) return;
-    await onRenamePortfolio(managerPortfolioId, renamePortfolioName);
+    const ok = await onRenamePortfolio(managerPortfolioId, renamePortfolioName);
+    if (ok) {
+      setExpandedPortfolioSection(null);
+    }
   };
 
   const handleDeletePortfolio = async () => {
@@ -365,6 +365,23 @@ export function InvestmentsTable({
       setIsPortfolioManagerOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (!isPortfolioManagerOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!portfolioMenuRef.current) return;
+      if (!portfolioMenuRef.current.contains(event.target as Node)) {
+        setIsPortfolioManagerOpen(false);
+        setExpandedPortfolioSection(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isPortfolioManagerOpen]);
 
   const renderTableBody = () => {
     if (loading) {
@@ -476,21 +493,6 @@ export function InvestmentsTable({
         <div className="investments-header">
           <h2>{selectedPortfolioName ?? 'Portfolio'}</h2>
           <div className="portfolio-controls">
-            <div className="portfolio-select-wrap">
-              <select
-                id="portfolio-selector"
-                className="portfolio-selector"
-                value={selectedPortfolioId ?? ''}
-                onChange={(event) => onSelectPortfolio(event.target.value)}
-                disabled={loading || !portfolios.length}
-              >
-                {portfolios.map((portfolio) => (
-                  <option key={portfolio.portfolios_id} value={portfolio.portfolios_id}>
-                    {portfolio.name}
-                  </option>
-                ))}
-              </select>
-            </div>
             <button
               type="button"
               className="btn-inline portfolio-add-btn"
@@ -499,16 +501,95 @@ export function InvestmentsTable({
             >
               Add Transaction
             </button>
-            <button
-              type="button"
-              className="btn-inline btn-secondary portfolio-manage-btn"
-              onClick={() => setIsPortfolioManagerOpen(true)}
-              disabled={!portfolios.length}
-              aria-label="Manage portfolios"
-              title="Manage portfolios"
-            >
-              &#8942;
-            </button>
+            <div className="portfolio-menu" ref={portfolioMenuRef}>
+              <button
+                type="button"
+                className="btn-inline btn-secondary portfolio-manage-btn"
+                onClick={() => {
+                  setIsPortfolioManagerOpen((previous) => !previous);
+                  setExpandedPortfolioSection(null);
+                }}
+                disabled={!portfolios.length}
+                aria-label="Manage portfolios"
+                title="Manage portfolios"
+                aria-expanded={isPortfolioManagerOpen}
+                aria-haspopup="true"
+              >
+                &#8942;
+              </button>
+              <div className={`portfolio-menu-dropdown ${isPortfolioManagerOpen ? 'open' : ''}`} aria-hidden={!isPortfolioManagerOpen}>
+                <button
+                  type="button"
+                  className="portfolio-menu-item"
+                  onClick={() =>
+                    setExpandedPortfolioSection((previous) => (previous === 'rename' ? null : 'rename'))
+                  }
+                >
+                  Rename portfolio
+                </button>
+                {expandedPortfolioSection === 'rename' ? (
+                  <div className="portfolio-menu-panel">
+                    <input
+                      id="rename-portfolio"
+                      value={renamePortfolioName}
+                      onChange={(event) => setRenamePortfolioName(event.target.value)}
+                      placeholder="New name"
+                      disabled={!selectedManagerPortfolio}
+                    />
+                    <div className="portfolio-menu-actions">
+                      <button
+                        type="button"
+                        onClick={handleRenamePortfolio}
+                        disabled={!selectedManagerPortfolio || renamingPortfolio.loading || creatingPortfolio.loading}
+                      >
+                        {renamingPortfolio.loading ? 'Saving...' : 'Save'}
+                      </button>
+                    </div>
+                    {renamingPortfolio.error ? <p className="field-error">{renamingPortfolio.error}</p> : null}
+                    {renamingPortfolio.success ? <p className="info-msg">Portfolio renamed.</p> : null}
+                  </div>
+                ) : null}
+                <button
+                  type="button"
+                  className="portfolio-menu-item"
+                  onClick={() =>
+                    setExpandedPortfolioSection((previous) => (previous === 'create' ? null : 'create'))
+                  }
+                >
+                  Create portfolio
+                </button>
+                {expandedPortfolioSection === 'create' ? (
+                  <div className="portfolio-menu-panel">
+                    <input
+                      id="new-portfolio"
+                      value={newPortfolioName}
+                      onChange={(event) => setNewPortfolioName(event.target.value)}
+                      placeholder="Portfolio name"
+                    />
+                    <div className="portfolio-menu-actions">
+                      <button
+                        type="button"
+                        onClick={handleCreatePortfolio}
+                        disabled={creatingPortfolio.loading || deletingPortfolio.loading || renamingPortfolio.loading}
+                      >
+                        {creatingPortfolio.loading ? 'Saving...' : 'Save'}
+                      </button>
+                    </div>
+                    {creatingPortfolio.error ? <p className="field-error">{creatingPortfolio.error}</p> : null}
+                    {creatingPortfolio.success ? <p className="info-msg">Portfolio created.</p> : null}
+                  </div>
+                ) : null}
+                <button
+                  type="button"
+                  className="portfolio-menu-item danger"
+                  onClick={handleDeletePortfolio}
+                  disabled={!selectedManagerPortfolio || deletingPortfolio.loading}
+                >
+                  {deletingPortfolio.loading ? 'Deleting...' : 'Delete portfolio'}
+                </button>
+                {deletingPortfolio.error ? <p className="field-error">{deletingPortfolio.error}</p> : null}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -641,91 +722,6 @@ export function InvestmentsTable({
         </div>
       ) : null}
 
-      {isPortfolioManagerOpen ? (
-        <div
-          className="modal-overlay open"
-          onClick={(event) => event.currentTarget === event.target && setIsPortfolioManagerOpen(false)}
-        >
-          <div className="modal">
-            <h3>Manage Portfolios</h3>
-            <div className="form-group">
-              <label htmlFor="manager-portfolio">Portfolio</label>
-              <select
-                id="manager-portfolio"
-                value={managerPortfolioId ?? ''}
-                onChange={(event) => setManagerPortfolioId(event.target.value)}
-                disabled={!portfolios.length}
-              >
-                {portfolios.map((portfolio) => (
-                  <option key={portfolio.portfolios_id} value={portfolio.portfolios_id}>
-                    {portfolio.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="new-portfolio">Create new portfolio</label>
-              <input
-                id="new-portfolio"
-                value={newPortfolioName}
-                onChange={(event) => setNewPortfolioName(event.target.value)}
-                placeholder="Portfolio name"
-              />
-              {creatingPortfolio.error ? <p className="field-error">{creatingPortfolio.error}</p> : null}
-              {creatingPortfolio.success ? <p className="info-msg">Portfolio created.</p> : null}
-            </div>
-            <div className="modal-actions">
-              <button
-                type="button"
-                onClick={handleCreatePortfolio}
-                disabled={creatingPortfolio.loading || deletingPortfolio.loading || renamingPortfolio.loading}
-              >
-                {creatingPortfolio.loading ? 'Creating...' : 'Create Portfolio'}
-              </button>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="rename-portfolio">Rename selected portfolio</label>
-              <input
-                id="rename-portfolio"
-                value={renamePortfolioName}
-                onChange={(event) => setRenamePortfolioName(event.target.value)}
-                placeholder="New name"
-                disabled={!selectedManagerPortfolio}
-              />
-              {renamingPortfolio.error ? <p className="field-error">{renamingPortfolio.error}</p> : null}
-              {renamingPortfolio.success ? <p className="info-msg">Portfolio renamed.</p> : null}
-            </div>
-            <div className="modal-actions">
-              <button
-                type="button"
-                onClick={handleRenamePortfolio}
-                disabled={!selectedManagerPortfolio || renamingPortfolio.loading || creatingPortfolio.loading}
-              >
-                {renamingPortfolio.loading ? 'Saving...' : 'Rename Portfolio'}
-              </button>
-            </div>
-
-            <div className="modal-actions modal-actions-delete">
-              <button
-                type="button"
-                className="btn-danger"
-                onClick={handleDeletePortfolio}
-                disabled={!selectedManagerPortfolio || deletingPortfolio.loading}
-              >
-                {deletingPortfolio.loading ? 'Deleting...' : 'Delete Portfolio'}
-              </button>
-            </div>
-            {deletingPortfolio.error ? <p className="field-error">{deletingPortfolio.error}</p> : null}
-            <div className="modal-actions">
-              <button type="button" className="btn-secondary" onClick={() => setIsPortfolioManagerOpen(false)}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </section>
   );
 }
