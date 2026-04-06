@@ -203,6 +203,8 @@ export function InvestmentsTable({
   const [renamePortfolioName, setRenamePortfolioName] = useState('');
   const [managerPortfolioId, setManagerPortfolioId] = useState<string | null>(selectedPortfolioId);
   const [expandedPortfolioSection, setExpandedPortfolioSection] = useState<'rename' | 'create' | null>(null);
+  const [isPortfolioSelectorOpen, setIsPortfolioSelectorOpen] = useState(false);
+  const portfolioSelectorRef = useRef<HTMLDivElement | null>(null);
   const portfolioMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -384,6 +386,22 @@ export function InvestmentsTable({
     };
   }, [isPortfolioManagerOpen]);
 
+  useEffect(() => {
+    if (!isPortfolioSelectorOpen) return;
+    const handleClickOutside = (event: Event) => {
+      if (!portfolioSelectorRef.current) return;
+      if (!portfolioSelectorRef.current.contains(event.target as Node)) {
+        setIsPortfolioSelectorOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isPortfolioSelectorOpen]);
+
   const renderTableBody = () => {
     if (loading) {
       return <div className="loading">Loading your investments...</div>;
@@ -492,9 +510,39 @@ export function InvestmentsTable({
     <section className="investments-shell">
       <div className="investments-table">
         <div className="investments-header">
-          <div className="portfolio-title">
+          <div className="portfolio-title" ref={portfolioSelectorRef}>
             <h2>{selectedPortfolioName ?? 'Portfolio'}</h2>
-            <div className="portfolio-select-trigger">
+            <div className="portfolio-select-trigger desktop-only">
+              <button
+                type="button"
+                className="portfolio-select-arrow"
+                aria-label="Select portfolio"
+                disabled={loading || !portfolios.length}
+                onClick={() => setIsPortfolioSelectorOpen((previous) => !previous)}
+                aria-expanded={isPortfolioSelectorOpen}
+                aria-haspopup="listbox"
+              >
+                ▼
+              </button>
+              <div className={`portfolio-selector-menu ${isPortfolioSelectorOpen ? 'open' : ''}`} role="listbox">
+                {portfolios.map((portfolio) => (
+                  <button
+                    key={portfolio.portfolios_id}
+                    type="button"
+                    className={`portfolio-selector-item ${
+                      portfolio.portfolios_id === selectedPortfolioId ? 'active' : ''
+                    }`}
+                    onClick={() => {
+                      onSelectPortfolio(portfolio.portfolios_id);
+                      setIsPortfolioSelectorOpen(false);
+                    }}
+                  >
+                    {portfolio.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="portfolio-select-trigger mobile-only">
               <button
                 type="button"
                 className="portfolio-select-arrow"

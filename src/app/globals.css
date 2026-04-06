@@ -1169,7 +1169,7 @@ button:disabled {
   top: 0;
   left: 0;
   height: 100%;
-  width: 150%;
+  width: 100%;
   opacity: 0;
   cursor: pointer;
   text-align: left;
@@ -1205,6 +1205,56 @@ button:disabled {
   position: relative;
   width: 28px;
   height: 28px;
+}
+
+.portfolio-selector-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  max-width: 320px;
+  padding: 8px 0;
+  background: #1a1d2e;
+  border: 1px solid #2d3548;
+  border-radius: 12px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 140;
+}
+
+.portfolio-selector-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.portfolio-selector-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  letter-spacing: 0;
+}
+
+.portfolio-selector-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: none;
+}
+
+.portfolio-selector-item.active {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
 }
 
 .portfolio-select-arrow {
