@@ -1156,13 +1156,6 @@ button:disabled {
   margin-bottom: 20px;
 }
 
-.portfolio-select-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-}
-
 .portfolio-controls {
   display: flex;
   align-items: center;
@@ -1196,14 +1189,11 @@ button:disabled {
   order: 3;
 }
 
-.portfolio-selected-name {
-  font-size: 14px;
-  color: #e5e7eb;
-  font-weight: 500;
-  white-space: nowrap;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.portfolio-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
 .portfolio-select-trigger {
@@ -1620,11 +1610,6 @@ tr:hover {
     align-items: stretch;
   }
 
-  .portfolio-select-wrap {
-    width: 100%;
-    min-width: 0;
-  }
-
   .portfolio-controls {
     display: flex;
     gap: 10px;
@@ -1645,11 +1630,6 @@ tr:hover {
   .portfolio-manage-btn {
     order: 3;
     width: auto;
-  }
-
-  .portfolio-select-wrap {
-    flex: 1 1 100%;
-    justify-content: space-between;
   }
 
   .dinversions-logo {
