@@ -368,7 +368,7 @@ export function InvestmentsTable({
 
   useEffect(() => {
     if (!isPortfolioManagerOpen) return;
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       if (!portfolioMenuRef.current) return;
       if (!portfolioMenuRef.current.contains(event.target as Node)) {
         setIsPortfolioManagerOpen(false);
