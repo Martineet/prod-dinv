@@ -1166,9 +1166,14 @@ button:disabled {
 
 .portfolio-selector {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 150%;
   opacity: 0;
   cursor: pointer;
+  text-align: left;
+  text-align-last: left;
 }
 
 .btn-inline {
@@ -1178,7 +1183,7 @@ button:disabled {
 }
 
 .portfolio-add-btn {
-  order: 2;
+  order: 1;
 }
 
 .portfolio-manage-btn {
@@ -1186,7 +1191,7 @@ button:disabled {
   padding: 8px 10px;
   font-size: 18px;
   line-height: 1;
-  order: 3;
+  order: 2;
 }
 
 .portfolio-title {
