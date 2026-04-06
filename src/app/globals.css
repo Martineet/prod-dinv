@@ -1236,6 +1236,7 @@ button:disabled {
   position: relative;
   display: inline-flex;
   align-items: center;
+  order: 2;
 }
 
 .portfolio-menu-dropdown {
@@ -1635,6 +1636,10 @@ tr:hover {
   .portfolio-manage-btn {
     order: 3;
     width: auto;
+  }
+
+  .portfolio-menu {
+    order: 3;
   }
 
   .dinversions-logo {
