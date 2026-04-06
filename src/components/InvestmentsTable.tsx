@@ -493,6 +493,33 @@ export function InvestmentsTable({
         <div className="investments-header">
           <h2>{selectedPortfolioName ?? 'Portfolio'}</h2>
           <div className="portfolio-controls">
+            <div className="portfolio-select-wrap">
+              <span className="portfolio-selected-name">{selectedPortfolioName ?? 'Select portfolio'}</span>
+              <div className="portfolio-select-trigger">
+                <button
+                  type="button"
+                  className="portfolio-select-arrow"
+                  aria-label="Select portfolio"
+                  disabled={loading || !portfolios.length}
+                >
+                  ▼
+                </button>
+                <select
+                  id="portfolio-selector"
+                  className="portfolio-selector"
+                  value={selectedPortfolioId ?? ''}
+                  onChange={(event) => onSelectPortfolio(event.target.value)}
+                  disabled={loading || !portfolios.length}
+                  aria-label="Select portfolio"
+                >
+                  {portfolios.map((portfolio) => (
+                    <option key={portfolio.portfolios_id} value={portfolio.portfolios_id}>
+                      {portfolio.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <button
               type="button"
               className="btn-inline portfolio-add-btn"
