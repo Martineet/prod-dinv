@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { Investment, InvestmentFormInput, InvestmentRow, Portfolio } from '@/lib/types';
 
@@ -192,6 +193,7 @@ export function InvestmentsTable({
   updatingInvestment,
   deletingInvestment
 }: InvestmentsTableProps) {
+  const router = useRouter();
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
   const [transactionMode, setTransactionMode] = useState<'create' | 'edit'>('create');
   const [editingInvestmentId, setEditingInvestmentId] = useState<string | null>(null);
@@ -204,6 +206,7 @@ export function InvestmentsTable({
   const [managerPortfolioId, setManagerPortfolioId] = useState<string | null>(selectedPortfolioId);
   const [expandedPortfolioSection, setExpandedPortfolioSection] = useState<'rename' | 'create' | null>(null);
   const [isPortfolioSelectorOpen, setIsPortfolioSelectorOpen] = useState(false);
+  const [isFudModalOpen, setIsFudModalOpen] = useState(false);
   const portfolioSelectorRef = useRef<HTMLDivElement | null>(null);
   const portfolioMenuRef = useRef<HTMLDivElement | null>(null);
 
@@ -253,6 +256,14 @@ export function InvestmentsTable({
     setDraft(EMPTY_DRAFT);
     setDraftErrors({});
     setIsPriceManuallyEdited(false);
+  };
+
+  const openFudModal = () => {
+    setIsFudModalOpen(true);
+  };
+
+  const closeFudModal = () => {
+    setIsFudModalOpen(false);
   };
 
   const showEurAmount = !isTransferType(draft.asset);
@@ -576,6 +587,14 @@ export function InvestmentsTable({
             >
               Add Transaction
             </button>
+            <button
+              type="button"
+              className="btn-inline btn-outline portfolio-fud-btn"
+              onClick={openFudModal}
+              disabled={!selectedPortfolioId}
+            >
+              FUD
+            </button>
             <div className="portfolio-menu" ref={portfolioMenuRef}>
               <button
                 type="button"
@@ -793,6 +812,34 @@ export function InvestmentsTable({
                 </button>
               </div>
             ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {isFudModalOpen ? (
+        <div className="modal-overlay open" onClick={(event) => event.currentTarget === event.target && closeFudModal()}>
+          <div className="modal">
+            <h3>Are you sure you want to sell your bitcoin?</h3>
+            <div className="fud-modal-content">
+              <p>Is this a situation of life and death?</p>
+              <p>Are we in ATH? Have you checked the metrics?</p>
+              <p>The RSI? The power law? The rainbow? The cycle?</p>
+            </div>
+            <div className="modal-actions">
+              <button type="button" onClick={closeFudModal}>
+                NO
+              </button>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => {
+                  closeFudModal();
+                  router.push('/sell-simulation');
+                }}
+              >
+                YES
+              </button>
+            </div>
           </div>
         </div>
       ) : null}

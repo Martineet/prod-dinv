@@ -128,3 +128,39 @@ export async function deleteInvestment(
 
   return { data: error ? null : true, error };
 }
+
+type SellSimulationInsert = {
+  portfolios_id: string;
+  btc_amount: number;
+  price: number;
+  eur_amount: number;
+  date_swap: string;
+  notes?: string | null;
+};
+
+export async function createSellSimulationInvestment(
+  payload: SellSimulationInsert
+): Promise<ServiceResult<Investment>> {
+  const insertPayload: InvestmentInsert = {
+    portfolios_id: payload.portfolios_id,
+    type: 'sell',
+    btc_amount: payload.btc_amount,
+    price: payload.price,
+    eur_amount: payload.eur_amount,
+    date_swap: payload.date_swap,
+    notes: payload.notes ?? null,
+    commission: 0,
+    guaranteed: false
+  };
+
+  const { data, error } = await supabase
+    .from('investments')
+    .insert(insertPayload)
+    .select('*')
+    .single();
+
+  return {
+    data: (data as Investment | null) ?? null,
+    error
+  };
+}
