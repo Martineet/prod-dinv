@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+// Cache Stooq responses on the server for 5 minutes
+export const revalidate = 300;
+
 type StooqQuote = {
   date: string;
   close: number;
@@ -8,7 +11,7 @@ type StooqQuote = {
 async function fetchStooqQuote(symbol: string): Promise<StooqQuote> {
   const response = await fetch(
     `https://stooq.com/q/l/?s=${encodeURIComponent(symbol)}&f=sd2t2ohlcv&h&e=csv`,
-    { cache: 'no-store' }
+    { next: { revalidate: 300 } }
   );
 
   if (!response.ok) {
@@ -38,12 +41,15 @@ export async function GET() {
       fetchStooqQuote('eurusd')
     ]);
 
-    return NextResponse.json({
-      asOf: [goldUsd.date, sp500Usd.date, ibex35Eur.date, eurUsd.date].sort().slice(-1)[0],
-      goldEur: goldUsd.close / eurUsd.close,
-      sp500Eur: sp500Usd.close / eurUsd.close,
-      ibex35Eur: ibex35Eur.close
-    });
+    return NextResponse.json(
+      {
+        asOf: [goldUsd.date, sp500Usd.date, ibex35Eur.date, eurUsd.date].sort().slice(-1)[0],
+        goldEur: goldUsd.close / eurUsd.close,
+        sp500Eur: sp500Usd.close / eurUsd.close,
+        ibex35Eur: ibex35Eur.close
+      },
+      { headers: { 'Cache-Control': 'public, max-age=300, stale-while-revalidate=300' } }
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Could not fetch current assets quotes.';
     return NextResponse.json({ error: message }, { status: 502 });

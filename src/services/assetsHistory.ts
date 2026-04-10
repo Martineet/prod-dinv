@@ -1,8 +1,11 @@
 import { AssetsDailyPrice } from '@/lib/types';
 import { supabase } from '@/services/supabaseClient';
 
-export async function getAssetsMonthlyPrices(fromDate = '2013-05-01'): Promise<AssetsDailyPrice[]> {
-  const { data, error } = await supabase
+export async function getAssetsMonthlyPrices(
+  fromDate = '2013-05-01',
+  toDate?: string
+): Promise<AssetsDailyPrice[]> {
+  let query = supabase
     .from('assets_daily_prices')
     .select(
       [
@@ -20,12 +23,17 @@ export async function getAssetsMonthlyPrices(fromDate = '2013-05-01'): Promise<A
     .gte('price_date', fromDate)
     .order('price_date', { ascending: true });
 
+  if (toDate) {
+    query = query.lte('price_date', toDate);
+  }
+
+  const { data, error } = await query;
   if (error) throw error;
   return (data ?? []) as unknown as AssetsDailyPrice[];
 }
 
 export async function getCurrentComparisonAssetPrices() {
-  const response = await fetch('/api/asset-quotes', { cache: 'no-store' });
+  const response = await fetch('/api/asset-quotes');
   if (!response.ok) throw new Error('Could not fetch current comparison assets prices.');
 
   const payload = (await response.json()) as {
