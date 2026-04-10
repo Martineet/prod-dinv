@@ -15,6 +15,7 @@ export type SimulationResult = {
   eur_with_tax: number;
   tax_eur: number;
   buy_value: number;
+  profit_loss: number;
 };
 
 export type SimulationOutcome =
@@ -155,7 +156,8 @@ function finalizeResult(
       eur_without_tax: sellValue,
       eur_with_tax: sellValue - tax,
       tax_eur: tax,
-      buy_value: buyValue
+      buy_value: buyValue,
+      profit_loss: profit
     }
   };
 }

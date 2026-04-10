@@ -318,6 +318,10 @@ export default function SellSimulationPage() {
               <span className="simulation-output-value">{formatMoneyRounded(result.eur_with_tax)} {EUR}</span>
             </div>
             <div className="simulation-output-item">
+              <span className="simulation-output-label">Profit / Loss</span>
+              <span className="simulation-output-value">{formatMoneyRounded(result.profit_loss)} {EUR}</span>
+            </div>
+            <div className="simulation-output-item">
               <span className="simulation-output-label">Taxes ({EUR})</span>
               <span className="simulation-output-value">{formatMoneyRounded(result.tax_eur)} {EUR}</span>
             </div>
