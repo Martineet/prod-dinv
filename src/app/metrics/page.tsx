@@ -21,7 +21,7 @@ const TV_CONFIG = {
   studies: ['RSI@tv-basicstudies'],
   hide_volume: true,
   hide_top_toolbar: false,
-  hide_legend: false,
+  hide_legend: true,
   save_image: false,
   backgroundColor: 'rgba(10, 14, 39, 1)',
   gridColor: 'rgba(45, 53, 72, 0.5)',

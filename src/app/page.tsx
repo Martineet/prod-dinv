@@ -58,7 +58,7 @@ export default function HomePage() {
   return (
     <div className="landing-page">
       <main className="landing-main">
-        <BtcHistoricalChart currentPrice={price} />
+        <BtcHistoricalChart />
         <SummarySection summary={summary} btcPrice={price} />
         <CalculatorsSection btcPrice={price} />
         <Footer />

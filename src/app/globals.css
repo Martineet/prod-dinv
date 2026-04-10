@@ -516,6 +516,13 @@ h1 {
   padding: 20px;
 }
 
+.historical-chart-tv-container {
+  width: 100%;
+  aspect-ratio: 2.2;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
 .historical-chart-canvas-wrap {
   width: 100%;
   max-width: 100%;
@@ -1931,6 +1938,10 @@ tr:hover {
 
   .historical-chart-card {
     padding: 14px;
+  }
+
+  .historical-chart-tv-container {
+    aspect-ratio: 1.4;
   }
 
   .calculator-card {
