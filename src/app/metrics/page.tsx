@@ -19,6 +19,7 @@ const TV_CONFIG = {
   style: '1',
   locale: 'en',
   studies: ['RSI@tv-basicstudies'],
+  pricescale: 1,
   hide_volume: true,
   hide_top_toolbar: false,
   hide_legend: true,
