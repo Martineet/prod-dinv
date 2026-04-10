@@ -256,6 +256,179 @@ h1 {
   letter-spacing: 2px;
 }
 
+/* ── Metrics page ─────────────────────────────────────────── */
+
+.metrics-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.metrics-panel {
+  background: #0a0e27;
+  border: 1px solid #2d3548;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.metrics-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.metrics-panel-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.metrics-panel-subtitle {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.metrics-source {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.metrics-source a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.metrics-source a:hover {
+  color: #f59e0b;
+  text-decoration: none;
+}
+
+.metrics-tv-container {
+  height: 520px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.metrics-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.metrics-card {
+  margin-bottom: 0;
+}
+
+.metrics-panel-title.h3 {
+  font-size: 16px;
+}
+
+.metrics-description {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.metrics-chart-link {
+  display: inline-block;
+  color: #f59e0b;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.metrics-chart-link:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.6);
+  text-decoration: none;
+}
+
+/* Fear & Greed gauge */
+.fg-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0 16px;
+}
+
+.fg-value {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fg-classification {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.fg-bar-wrap {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.fg-bar-track {
+  position: relative;
+  height: 10px;
+  background: linear-gradient(to right, #ef4444 0%, #f97316 25%, #eab308 50%, #22c55e 75%, #16a34a 100%);
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.fg-bar-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.fg-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 900px) {
+  .metrics-cards-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .metrics-shell {
+    padding: 20px 16px 40px;
+  }
+
+  .metrics-tv-container {
+    height: 380px;
+  }
+
+  .metrics-panel-header {
+    flex-direction: column;
+  }
+}
+
 .nav-brand-logo {
   width: 36px;
   height: 36px;
