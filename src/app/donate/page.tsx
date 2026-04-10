@@ -5,7 +5,7 @@ export default function DonatePage() {
   return (
     <>
       <LandingHeader />
-      <div className="container wip-container">
+      <div className="wip-container">
         <p className="wip-text">WIP</p>
       </div>
       <Footer />
