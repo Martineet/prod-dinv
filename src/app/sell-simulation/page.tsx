@@ -302,15 +302,19 @@ export default function SellSimulationPage() {
               <span className="simulation-output-value">{formatMoneyRounded(result.avg_buy_price)} {EUR}</span>
             </div>
             <div className="simulation-output-item">
+              <span className="simulation-output-label">EUR invested</span>
+              <span className="simulation-output-value">{formatMoneyRounded(result.avg_buy_price * result.btc_sold)} {EUR}</span>
+            </div>
+            <div className="simulation-output-item">
               <span className="simulation-output-label">Current BTC price</span>
               <span className="simulation-output-value">{formatMoneyRounded(result.current_price)} {EUR}</span>
             </div>
             <div className="simulation-output-item">
-              <span className="simulation-output-label">EUR without taxes</span>
+              <span className="simulation-output-label">EUR divested</span>
               <span className="simulation-output-value">{formatMoneyRounded(result.eur_without_tax)} {EUR}</span>
             </div>
             <div className="simulation-output-item">
-              <span className="simulation-output-label">EUR with taxes</span>
+              <span className="simulation-output-label">EUR net</span>
               <span className="simulation-output-value">{formatMoneyRounded(result.eur_with_tax)} {EUR}</span>
             </div>
             <div className="simulation-output-item">
@@ -326,10 +330,10 @@ export default function SellSimulationPage() {
         {error ? <p className="error">{error}</p> : null}
 
         <div className="simulation-actions">
-          <button type="button" className="btn-secondary" onClick={() => router.push('/dashboard')}>
+          <button type="button" onClick={() => router.push('/dashboard')}>
             I&apos;M HODLING {'<3'}
           </button>
-          <button type="button" onClick={handleConfirmSell} disabled={!result || saving}>
+          <button type="button" className="btn-secondary" onClick={handleConfirmSell} disabled={!result || saving}>
             {saving ? 'Saving...' : 'Sorry Satoshi, I need the fake money'}
           </button>
         </div>
