@@ -21,3 +21,10 @@ export function formatBtc(value: number): string {
     maximumFractionDigits: 5
   });
 }
+
+export function formatBtcFull(value: number): string {
+  return value.toLocaleString('de-DE', {
+    minimumFractionDigits: 8,
+    maximumFractionDigits: 8
+  });
+}

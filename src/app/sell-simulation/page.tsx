@@ -8,7 +8,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useBtcPrice } from '@/hooks/useBtcPrice';
 import { useInvestments } from '@/hooks/useInvestments';
 import { calculatePortfolioTotals } from '@/lib/calculations';
-import { formatBtc, formatMoneyRounded } from '@/lib/format';
+import { formatBtcFull, formatMoneyRounded } from '@/lib/format';
 import { createSellSimulationInvestment } from '@/services/investmentsService';
 import {
   getAvailableBtc,
@@ -197,7 +197,7 @@ export default function SellSimulationPage() {
               <div className="simulation-stat">
                 <span className="simulation-stat-label">BTC hodled</span>
                 <span className="simulation-stat-value">
-                  {totals ? `${formatBtc(totals.totalBTC)} BTC` : '--'}
+                  {totals ? `${formatBtcFull(totals.totalBTC)} BTC` : '--'}
                 </span>
               </div>
               <div className="simulation-stat">
@@ -236,7 +236,7 @@ export default function SellSimulationPage() {
                     type="number"
                     min="0"
                     step="any"
-                    value={allPortfolio ? String(availableBtc) : btcAmount}
+                    value={allPortfolio ? availableBtc.toFixed(8) : btcAmount}
                     onChange={(event) => setBtcAmount(event.target.value)}
                     disabled={allPortfolio}
                   />
@@ -292,38 +292,51 @@ export default function SellSimulationPage() {
         </div>
 
         {result ? (
-          <div className="simulation-output-grid">
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">BTC sold</span>
-              <span className="simulation-output-value">{formatBtc(result.btc_sold)} BTC</span>
+          <div className="simulation-output-wrap">
+            <div className="sim-box sim-box-btc">
+              <span className="sim-row-label">BTC SOLD:</span>
+              <span className="sim-row-value">{formatBtcFull(result.btc_sold)} BTC</span>
             </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">Average buy price</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.avg_buy_price)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">EUR invested</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.avg_buy_price * result.btc_sold)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">Current BTC price</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.current_price)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">EUR divested</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.eur_without_tax)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">EUR net</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.eur_with_tax)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">Profit / Loss</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.profit_loss)} {EUR}</span>
-            </div>
-            <div className="simulation-output-item">
-              <span className="simulation-output-label">Taxes ({EUR})</span>
-              <span className="simulation-output-value">{formatMoneyRounded(result.tax_eur)} {EUR}</span>
+
+            <div className="sim-boxes-row">
+              <div className="sim-box">
+                <div className="sim-row">
+                  <span className="sim-row-label">EUR invested</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.buy_value)} {EUR}</span>
+                </div>
+                <div className="sim-row">
+                  <span className="sim-row-label">Average price</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.avg_buy_price)} {EUR}</span>
+                </div>
+              </div>
+
+              <div className="sim-box">
+                <div className="sim-row">
+                  <span className="sim-row-label">EUR divested</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.eur_without_tax)} {EUR}</span>
+                </div>
+                <div className="sim-row">
+                  <span className="sim-row-label">Current price</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.current_price)} {EUR}</span>
+                </div>
+              </div>
+
+              <div className="sim-box">
+                <div className="sim-row">
+                  <span className="sim-row-label">EUR net</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.eur_with_tax)} {EUR}</span>
+                </div>
+                <div className="sim-row">
+                  <span className="sim-row-label">Profit / Loss</span>
+                  <span className={`sim-row-value ${result.profit_loss >= 0 ? 'positive' : 'negative'}`}>
+                    {result.profit_loss >= 0 ? '+' : ''}{formatMoneyRounded(result.profit_loss)} {EUR}
+                  </span>
+                </div>
+                <div className="sim-row">
+                  <span className="sim-row-label">Taxes</span>
+                  <span className="sim-row-value">{formatMoneyRounded(result.tax_eur)} {EUR}</span>
+                </div>
+              </div>
             </div>
           </div>
         ) : (

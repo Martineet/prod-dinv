@@ -1813,6 +1813,12 @@ tr:hover {
   gap: 12px;
 }
 
+.simulation-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
 .simulation-stat-label {
   color: #9ca3af;
   font-size: 12px;
@@ -1872,33 +1878,65 @@ tr:hover {
   flex: 1;
 }
 
-.simulation-output-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+.simulation-output-wrap {
   margin-bottom: 16px;
 }
 
-.simulation-output-item {
+.sim-box {
   background: rgba(10, 14, 39, 0.7);
   border: 1px solid #2d3548;
   border-radius: 10px;
-  padding: 14px;
+  padding: 14px 18px;
 }
 
-.simulation-output-label {
+.sim-box-btc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.sim-box-btc .sim-row-label {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.sim-box-btc .sim-row-value {
+  font-size: 18px;
+}
+
+.sim-boxes-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.sim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.sim-row:not(:last-child) {
+  border-bottom: 1px solid rgba(45, 53, 72, 0.5);
+}
+
+.sim-row-label {
   color: #9ca3af;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  white-space: nowrap;
 }
 
-.simulation-output-value {
-  display: block;
-  margin-top: 6px;
+.sim-row-value {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  text-align: right;
 }
 
 .simulation-output-empty {
@@ -1911,7 +1949,7 @@ tr:hover {
     grid-template-columns: 1fr;
   }
 
-  .simulation-output-grid {
+  .sim-boxes-row {
     grid-template-columns: 1fr;
   }
 }
