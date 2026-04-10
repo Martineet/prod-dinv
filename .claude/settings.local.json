@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.degiro.es)"
+      "WebFetch(domain:www.degiro.es)",
+      "WebFetch(domain:www.bitcoinmagazinepro.com)",
+      "WebFetch(domain:alternative.me)",
+      "WebFetch(domain:www.tradingview.com)"
     ]
   }
 }
