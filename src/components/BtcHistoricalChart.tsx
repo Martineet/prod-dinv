@@ -17,6 +17,14 @@ const TV_CONFIG = {
   save_image: false,
   backgroundColor: 'rgba(10, 14, 39, 1)',
   gridColor: 'rgba(45, 53, 72, 0.5)',
+  overrides: {
+    'mainSeriesProperties.lineStyle.color': '#f59e0b',
+    'mainSeriesProperties.lineStyle.linestyle': 0,
+    'mainSeriesProperties.lineStyle.linewidth': 2,
+    'mainSeriesProperties.areaStyle.linecolor': '#f59e0b',
+    'mainSeriesProperties.areaStyle.color1': 'rgba(245, 158, 11, 0.3)',
+    'mainSeriesProperties.areaStyle.color2': 'rgba(245, 158, 11, 0)',
+  },
 };
 
 export function BtcHistoricalChart() {
