@@ -208,7 +208,7 @@ export default function MetricsPage() {
 
         </div>
       </div>
-      <Footer />
+      <Footer variant="simple" />
     </>
   );
 }

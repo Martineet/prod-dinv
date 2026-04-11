@@ -252,7 +252,7 @@ export default function TributePage() {
 
         </div>
       </main>
-      <Footer />
+      <Footer variant="blank" />
     </>
   );
 }

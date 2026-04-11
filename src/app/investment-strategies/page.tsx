@@ -8,7 +8,7 @@ export default function InvestmentStrategiesPage() {
       <div className="wip-container">
         <p className="wip-text">WIP</p>
       </div>
-      <Footer />
+      <Footer variant="simple" />
     </>
   );
 }
