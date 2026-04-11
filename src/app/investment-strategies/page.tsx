@@ -63,7 +63,7 @@ export default function InvestmentStrategiesPage() {
               <p className="istrat-strategy-body">
                 Pick a fixed affordable monthly amount (e.g. 50€). Buy bitcoin with it every month,
                 regardless of price. Some months you get more bitcoin, some less — it evens out over
-                time. No market knowledge needed. Just patience and discipline. Hodl for more than 5 years.
+                time. No market knowledge needed. Just patience and discipline. Hodl for at least one full bitcoin cycle (~4 years).
               </p>
               <div className="istrat-tip">
                 <span className="istrat-tip-label">Tip</span>
