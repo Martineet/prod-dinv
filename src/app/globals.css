@@ -256,6 +256,179 @@ h1 {
   letter-spacing: 2px;
 }
 
+/* ── Lecture mode ──────────────────────────────────────────── */
+
+.lecture-toggle-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.lecture-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1px solid #2d3548;
+  border-radius: 20px;
+  color: #6b7280;
+  font-size: 0.8rem;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.lecture-toggle-btn:hover {
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+.lecture-toggle-btn.active {
+  color: #1c1810;
+  background: #f0ece0;
+  border-color: #c8b888;
+}
+
+.lecture-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Lecture background wrapper */
+.lecture-bg {
+  background: #faf8f3;
+  min-height: calc(100vh - var(--top-nav-height));
+}
+
+/* Override button text in lecture mode */
+.lecture-bg .lecture-toggle-btn {
+  color: #4a3f2f;
+  border-color: #c8b888;
+  background: transparent;
+}
+
+.lecture-bg .lecture-toggle-btn:hover {
+  background: #f0ece0;
+  color: #1c1810;
+}
+
+.lecture-bg .lecture-toggle-btn.active {
+  background: #e8e0cc;
+  border-color: #a89060;
+  color: #1c1810;
+}
+
+/* ── What is Bitcoin — lecture overrides ── */
+.lecture-bg .wib-page-title,
+.lecture-bg .wib-section-title {
+  color: #1c1810;
+}
+
+.lecture-bg .wib-section-title {
+  border-bottom-color: #c8b888;
+}
+
+.lecture-bg .wib-section-label {
+  color: #8b6914;
+}
+
+.lecture-bg .wib-lead,
+.lecture-bg .wib-paragraph {
+  color: #2c2010;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.lecture-bg .wib-list li,
+.lecture-bg .wib-sources-list li {
+  color: #2c2010;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.lecture-bg .wib-list li::before,
+.lecture-bg .wib-sources-list li::before {
+  color: #8b6914;
+}
+
+.lecture-bg .wib-toc {
+  background: #f0ece0;
+  border-color: #c8b888;
+  border-left-color: #8b6914;
+}
+
+.lecture-bg .wib-toc-title {
+  color: #8b6914;
+}
+
+.lecture-bg .wib-toc-list li a {
+  color: #5b3a29;
+}
+
+.lecture-bg .wib-toc-list li a:hover {
+  color: #8b6914;
+}
+
+.lecture-bg .wib-paragraph a,
+.lecture-bg .wib-sources-list a {
+  color: #1a4a8a;
+}
+
+.lecture-bg .wib-paragraph a:hover,
+.lecture-bg .wib-sources-list a:hover {
+  color: #0d2d5c;
+}
+
+/* ── Tribute — lecture overrides ── */
+.lecture-bg .tribute-title {
+  color: #1c1810;
+}
+
+.lecture-bg .tribute-subtitle {
+  color: #5b4a30;
+}
+
+.lecture-bg .tribute-section-title {
+  color: #8b6914;
+}
+
+.lecture-bg .tribute-paragraph {
+  color: #2c2010;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.lecture-bg .tribute-embed-quote {
+  background: rgba(139, 105, 20, 0.07);
+  border-left-color: #8b6914;
+  color: #6b4e10;
+}
+
+.lecture-bg .tribute-address-link {
+  color: #1a4a8a;
+}
+
+.lecture-bg .tribute-commandment {
+  border: none;
+}
+
+.lecture-bg .tribute-commandment-text {
+  color: #1c1810;
+}
+
+.lecture-bg .tribute-closing-verse {
+  color: #5b4a30;
+}
+
+.lecture-bg .tribute-signature-line {
+  color: #5b4a30;
+}
+
+.lecture-bg .tribute-signature-ff {
+  color: #8b6914;
+}
+
+.lecture-bg .tribute-signature {
+  border-top-color: #c8b888;
+}
+
 /* ── Tribute page ─────────────────────────────────────────── */
 
 @keyframes tribute-beat {
