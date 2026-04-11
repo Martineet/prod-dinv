@@ -1,16 +1,29 @@
+'use client';
+
+import { useState } from 'react';
 import { LandingHeader } from '@/components/LandingHeader';
 import { Footer } from '@/components/Footer';
-import { LectureToggle } from '@/components/LectureToggle';
 
 export default function TributePage() {
+  const [lecture, setLecture] = useState(false);
+
   return (
     <>
       <LandingHeader />
-      <LectureToggle>
-        {(toggleBar) => (
+      <div className={lecture ? 'lecture-bg' : ''}>
         <main className="tribute-shell">
           <div className="tribute-content">
-            {toggleBar}
+
+            {/* Lecture mode toggle */}
+            <div className="lecture-toggle-bar">
+              <button
+                type="button"
+                className={`lecture-toggle-btn${lecture ? ' active' : ''}`}
+                onClick={() => setLecture((v) => !v)}
+              >
+                <span className="lecture-toggle-icon">📖</span>
+              </button>
+            </div>
 
             {/* Header */}
             <div className="tribute-header">
@@ -256,8 +269,7 @@ export default function TributePage() {
 
           </div>
         </main>
-        )}
-      </LectureToggle>
+      </div>
       <Footer variant="blank" />
     </>
   );
