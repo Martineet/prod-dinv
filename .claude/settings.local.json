@@ -7,7 +7,12 @@
       "WebFetch(domain:www.tradingview.com)",
       "WebFetch(domain:cryptobriefing.com)",
       "WebFetch(domain:theconversation.com)",
-      "WebFetch(domain:www.blockchain-council.org)"
+      "WebFetch(domain:www.blockchain-council.org)",
+      "WebFetch(domain:academy.bit2me.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:bitcoin-well.gitbook.io)",
+      "WebFetch(domain:www.bitcoin.com)",
+      "WebFetch(domain:learnmeabitcoin.com)"
     ]
   }
 }

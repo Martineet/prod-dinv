@@ -354,16 +354,6 @@ export default function WhatIsBitcoinPage() {
                 and every wave of mockery from the mainstream.
               </p>
               <p className="wib-paragraph">
-                <strong>The rituals.</strong> Like any religion, Bitcoin has its practices — acts of
-                devotion that reinforce commitment and identity. <em>Stacking sats</em>: buying small
-                amounts of bitcoin regularly, regardless of price, as an act of quiet faith in the long
-                arc of the protocol. <em>HODLing</em>: refusing to sell during crashes, treating
-                volatility not as a threat but as a test of conviction. <em>DCA</em> — dollar-cost
-                averaging — buying on a fixed schedule, removing emotion from the equation, letting
-                discipline do the work that willpower cannot sustain. These are not mere investment
-                strategies. They are practices. Ways of living out a belief system in daily life.
-              </p>
-              <p className="wib-paragraph">
                 Whether you call it a religion or not is a matter of definition. What is not up for debate
                 is the depth of conviction, the coherence of the worldview, and the scale of the community
                 that has organised itself around it. Bitcoin is not just a bet on a technology. It is a
