@@ -267,15 +267,14 @@ h1 {
 .lecture-toggle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
   background: transparent;
   border: 1px solid #2d3548;
-  border-radius: 20px;
-  color: #6b7280;
-  font-size: 0.8rem;
-  padding: 5px 14px;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  transition: border-color 0.15s, background 0.15s;
 }
 
 .lecture-toggle-btn:hover {

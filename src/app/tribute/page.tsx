@@ -22,7 +22,6 @@ export default function TributePage() {
                 onClick={() => setLecture((v) => !v)}
               >
                 <span className="lecture-toggle-icon">📖</span>
-                Lecture mode
               </button>
             </div>
 

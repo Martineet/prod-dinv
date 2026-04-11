@@ -22,7 +22,6 @@ export default function WhatIsBitcoinPage() {
                 onClick={() => setLecture((v) => !v)}
               >
                 <span className="lecture-toggle-icon">📖</span>
-                Lecture mode
               </button>
             </div>
 
@@ -43,22 +42,22 @@ export default function WhatIsBitcoinPage() {
             <nav className="wib-toc" aria-label="Table of contents">
               <p className="wib-toc-title">Contents</p>
               <ol className="wib-toc-list">
-                <li><a href="#origins">1 — Origins of a revolutionary idea</a></li>
-                <li><a href="#open-source">2 — Open source philosophy and Nakamoto&apos;s legacy</a></li>
-                <li><a href="#blockchain">3 — Blockchain</a></li>
-                <li><a href="#validation">4 — The validation process and cryptographic security</a></li>
-                <li><a href="#scarcity">5 — Digital scarcity and monetary sovereignty</a></li>
-                <li><a href="#storage">6 — How to store your Bitcoin</a></li>
-                <li><a href="#buy">7 — Where to buy Bitcoin</a></li>
-                <li><a href="#price">8 — How is the price of Bitcoin determined?</a></li>
-                <li><a href="#religion">9 — Bitcoin as the first true religion of the 21st century</a></li>
-                <li><a href="#sources">10 — Sources &amp; Resources</a></li>
+                <li><a href="#origins">1. Origins of a revolutionary idea</a></li>
+                <li><a href="#open-source">2. Open source philosophy and Nakamoto&apos;s legacy</a></li>
+                <li><a href="#blockchain">3. Blockchain</a></li>
+                <li><a href="#validation">4. The validation process and cryptographic security</a></li>
+                <li><a href="#scarcity">5. Digital scarcity and monetary sovereignty</a></li>
+                <li><a href="#storage">6. How to store your Bitcoin</a></li>
+                <li><a href="#buy">7. Where to buy Bitcoin</a></li>
+                <li><a href="#price">8. How is the price of Bitcoin determined?</a></li>
+                <li><a href="#religion">9. Bitcoin as the first true religion of the 21st century</a></li>
+                <li><a href="#sources">10. Sources &amp; Resources</a></li>
               </ol>
             </nav>
 
             {/* 3.1 Origins */}
             <section className="wib-section" id="origins">
-              <p className="wib-section-label">3.1</p>
+              <p className="wib-section-label">1.</p>
               <h2 className="wib-section-title">Origins of a revolutionary and decentralised idea</h2>
               <p className="wib-paragraph">
                 Bitcoin was born in the wake of the 2008 global financial crisis. In October of that year,
@@ -84,7 +83,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.2 Open source */}
             <section className="wib-section" id="open-source">
-              <p className="wib-section-label">3.2</p>
+              <p className="wib-section-label">2.</p>
               <h2 className="wib-section-title">Open source philosophy and Nakamoto&apos;s legacy</h2>
               <p className="wib-paragraph">
                 Bitcoin is open-source software. Its code is publicly available for anyone in the world to
@@ -114,7 +113,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.3 Blockchain */}
             <section className="wib-section" id="blockchain">
-              <p className="wib-section-label">3.3</p>
+              <p className="wib-section-label">3.</p>
               <h2 className="wib-section-title">Blockchain</h2>
               <p className="wib-paragraph">
                 A blockchain is a distributed digital ledger — a record of transactions that is stored not
@@ -144,7 +143,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.4 Validation */}
             <section className="wib-section" id="validation">
-              <p className="wib-section-label">3.4</p>
+              <p className="wib-section-label">4.</p>
               <h2 className="wib-section-title">The validation process and cryptographic security</h2>
               <p className="wib-paragraph">
                 When you send bitcoin, your transaction is broadcast to the entire network. Thousands of
@@ -177,7 +176,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.5 Scarcity */}
             <section className="wib-section" id="scarcity">
-              <p className="wib-section-label">3.5</p>
+              <p className="wib-section-label">5.</p>
               <h2 className="wib-section-title">Digital scarcity and monetary sovereignty</h2>
               <p className="wib-paragraph">
                 There will only ever be 21 million bitcoin. This is not a company policy or a government
@@ -208,7 +207,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.6 Storage */}
             <section className="wib-section" id="storage">
-              <p className="wib-section-label">3.6</p>
+              <p className="wib-section-label">6.</p>
               <h2 className="wib-section-title">How to store your Bitcoin</h2>
               <p className="wib-paragraph">
                 &ldquo;Not your keys, not your coins.&rdquo; This is the first principle of Bitcoin
@@ -251,7 +250,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.7 Buy */}
             <section className="wib-section" id="buy">
-              <p className="wib-section-label">3.7</p>
+              <p className="wib-section-label">7.</p>
               <h2 className="wib-section-title">Where to buy Bitcoin</h2>
               <p className="wib-paragraph">
                 Bitcoin is bought and sold on exchanges — platforms that match buyers and sellers and
@@ -282,7 +281,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.8 Price */}
             <section className="wib-section" id="price">
-              <p className="wib-section-label">3.8</p>
+              <p className="wib-section-label">8.</p>
               <h2 className="wib-section-title">How is the price of Bitcoin determined?</h2>
               <p className="wib-paragraph">
                 Bitcoin has no central authority setting its price. There is no board of directors, no
@@ -315,7 +314,7 @@ export default function WhatIsBitcoinPage() {
 
             {/* 3.9 Religion */}
             <section className="wib-section" id="religion">
-              <p className="wib-section-label">3.9</p>
+              <p className="wib-section-label">9.</p>
               <h2 className="wib-section-title">Bitcoin as the first true religion of the 21st century</h2>
               <p className="wib-paragraph">
                 Sometimes people call Bitcoin a religion pejoratively — as a way to sneer at its disciples,
