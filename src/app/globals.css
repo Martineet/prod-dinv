@@ -444,6 +444,185 @@ h1 {
   }
 }
 
+/* ── Investment Strategies page ───────────────────────────── */
+
+.istrat-shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.istrat-section {
+  margin-bottom: 64px;
+}
+
+.istrat-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f59e0b;
+  margin-bottom: 6px;
+}
+
+.istrat-section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+/* Principle cards — 2×2 grid */
+.istrat-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.istrat-principle-card {
+  background: #0a0e27;
+  border: 1px solid #2d3548;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.istrat-principle-icon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.istrat-principle-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.istrat-principle-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #9ca3af;
+}
+
+/* Strategy cards — stacked vertically */
+.istrat-strategies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.istrat-strategy-card {
+  background: #0a0e27;
+  border: 1px solid #2d3548;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.istrat-strategy-featured {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 4px 24px rgba(245, 158, 11, 0.08);
+}
+
+.istrat-strategy-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.istrat-strategy-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.istrat-strategy-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.istrat-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.istrat-badge-info {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.istrat-badge-warning {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.istrat-badge-danger {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+.istrat-badge-muted {
+  color: #9ca3af;
+  background: rgba(156, 163, 175, 0.1);
+  border-color: rgba(156, 163, 175, 0.25);
+}
+
+.istrat-strategy-body {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.istrat-tip {
+  border-left: 3px solid #2d3548;
+  padding: 10px 16px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.istrat-strategy-featured .istrat-tip {
+  border-left-color: rgba(245, 158, 11, 0.5);
+}
+
+.istrat-tip-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  margin-right: 8px;
+}
+
+@media (max-width: 640px) {
+  .istrat-shell {
+    padding: 32px 16px 60px;
+  }
+  .istrat-principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .istrat-strategy-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .istrat-section-title {
+    font-size: 1.4rem;
+  }
+}
+
 /* ── Metrics page ─────────────────────────────────────────── */
 
 .metrics-shell {
