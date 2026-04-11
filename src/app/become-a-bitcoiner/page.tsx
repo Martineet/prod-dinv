@@ -92,7 +92,7 @@ export default function BecomeABitcoinerPage() {
                   <h3 className="bbtc-card-name">HODL HODL</h3>
                   <p className="bbtc-card-subtitle">Without traces for those who value privacy</p>
                 </div>
-                <span className="istrat-badge istrat-badge-muted">Anonymous</span>
+                <span className="istrat-badge istrat-badge-anon">Anonymous</span>
               </div>
               <p className="bbtc-card-body">
                 In this platform you contact other people like you and make the deal without
@@ -136,7 +136,7 @@ export default function BecomeABitcoinerPage() {
           {/* Hardware wallets — 3-col grid */}
           <div className="bbtc-hw-grid">
 
-            <div className="bbtc-hw-card">
+            <div className="bbtc-hw-card bbtc-hw-featured">
               <h3 className="bbtc-card-name">Trezor Safe 3</h3>
               <p className="bbtc-card-subtitle">The basic</p>
               <p className="bbtc-card-body">

@@ -924,6 +924,12 @@ h1 {
   text-shadow: 0 0 8px rgba(240, 192, 64, 0.4);
 }
 
+.istrat-badge-anon {
+  color: #6b7280;
+  background: rgba(107, 114, 128, 0.1);
+  border-color: rgba(107, 114, 128, 0.25);
+}
+
 .istrat-strategy-body {
   font-size: 0.95rem;
   line-height: 1.75;
@@ -3123,6 +3129,11 @@ tr:hover {
   padding: 24px;
   display: flex;
   flex-direction: column;
+}
+
+.bbtc-hw-featured {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 4px 24px rgba(245, 158, 11, 0.08);
 }
 
 .bbtc-hw-card .bbtc-card-name {
