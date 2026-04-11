@@ -10,7 +10,7 @@ export default function BecomeABitcoinerPage() {
         {/* Section 1 — Buying Bitcoins */}
         <section className="bbtc-section">
           <p className="bbtc-section-label">Exchanges</p>
-          <h1 className="bbtc-section-title">Buying Bitcoins</h1>
+          <h1 className="bbtc-section-title">Buying bitcoins</h1>
           <p className="bbtc-section-tagline">selling your fake money</p>
           <p className="bbtc-intro">
             There are different ways to obtain your first bitcoins, the most common way to start
@@ -119,6 +119,7 @@ export default function BecomeABitcoinerPage() {
         <section className="bbtc-section">
           <p className="bbtc-section-label">Self custody</p>
           <h2 className="bbtc-section-title">Storing your bitcoins</h2>
+          <p className="bbtc-section-tagline">protecting your hard money</p>
           <p className="bbtc-intro">
             One of the biggest mantras of the bitcoin community is to store your own bitcoin
             outside the banks. Leaving your bitcoin on the exchange you used makes no sense as
@@ -126,8 +127,8 @@ export default function BecomeABitcoinerPage() {
             you shouldn&apos;t worry, but once you start stacking some sats, you have to consider
             storing your bitcoin somewhere else. Not your keys not your coins. It&apos;s
             critically important that when setting up your wallet,{' '}
-            <em>write the seed phrase on paper offline and make a couple of copies, store those
-            papers in a trustful place</em>. If something happens to your wallet, you&apos;ll
+            <strong>write the seed phrase on paper offline and make a couple of copies, store those
+            papers in a trustful place</strong>. If something happens to your wallet, you&apos;ll
             need those 12/24 words to recover access &mdash; if you can&apos;t recover, you lose
             everything. You are your own bank so you have to take care of yourself.
           </p>
@@ -221,8 +222,8 @@ export default function BecomeABitcoinerPage() {
               <h3 className="bbtc-card-name">Wallet of Satoshi</h3>
               <p className="bbtc-card-subtitle">Lightning wallet</p>
               <p className="bbtc-card-body">
-                Mobile lightning wallet for bitcoin. Simple to use. Not non-custodial, which
-                means you don&apos;t have full access. Convenient for quick and cheap payments
+                Mobile lightning wallet for bitcoin. Simple to use. Custodial, which means
+                you don&apos;t have full control, you trust them. Convenient for quick and cheap payments
                 but not for storing large amounts.
               </p>
               <div className="bbtc-logo-row">

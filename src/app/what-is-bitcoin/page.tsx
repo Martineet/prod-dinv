@@ -259,8 +259,8 @@ export default function WhatIsBitcoinPage() {
                 the current market price.
               </p>
               <p className="wib-paragraph">
-                The most common type are centralised exchanges (CEX): platforms like Coinbase, Kraken, or
-                Binance. These are user-friendly and handle the technical complexity for you. When you buy
+                The most common type are centralised exchanges (CEX): platforms like Coinbase, Kraken or
+                MEXC. These are user-friendly and handle the technical complexity for you. When you buy
                 on a CEX, the exchange holds your bitcoin in custody — similar to how a bank holds your
                 money — until you decide to withdraw it to your own wallet.
               </p>
