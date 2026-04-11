@@ -14,8 +14,8 @@ const EUR = '\u20AC';
 const NAV_LINKS = [
   { label: 'What is Bitcoin?', href: '/what-is-bitcoin' },
   { label: 'Investment strategies', href: '/investment-strategies' },
+  { label: 'Become a Bitcoiner', href: '/become-a-bitcoiner' },
   { label: 'Metrics', href: '/metrics' },
-  { label: 'Buy Bitcoin', href: '/buy-bitcoin' },
   { label: 'Tribute', href: '/tribute' },
 ];
 
