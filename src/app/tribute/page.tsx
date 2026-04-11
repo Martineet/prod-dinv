@@ -215,21 +215,10 @@ export default function TributePage() {
           <section className="tribute-section">
             <h2 className="tribute-section-title">VI. The Cypherpunks</h2>
             <p className="tribute-paragraph">
-              Before Satoshi, there were the cypherpunks. They did not seek fame. They sought freedom.
+              With Satoshi, there were the cypherpunks. They did not seek fame. They sought freedom.
               In mailing lists and encrypted messages, they dreamed of a world where privacy was a
               right, not a privilege — where cryptography could protect the individual from the
               overreach of states and corporations.
-            </p>
-            <p className="tribute-paragraph">
-              They built. Many failed. DigiCash, b-money, Hashcash, Bit Gold — each one a stepping
-              stone, each one a lesson. They were not discouraged by failure. They understood that
-              the revolution would not arrive fully formed. It would be assembled, slowly, from the
-              work of countless hands and minds across decades.
-            </p>
-            <p className="tribute-paragraph">
-              And then Satoshi arrived. And everything that came before — every failed attempt, every
-              elegant idea, every sacrifice made in the name of digital freedom — was synthesized into
-              a single white paper, nine pages long, that changed the world.
             </p>
             <p className="tribute-paragraph">
               So this tribute is for all of them. For the cypherpunks who dreamed. For the miners who
