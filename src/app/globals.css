@@ -444,6 +444,176 @@ h1 {
   }
 }
 
+/* ── What is Bitcoin page ──────────────────────────────────── */
+
+.wib-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.wib-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.wib-intro {
+  margin-bottom: 48px;
+}
+
+.wib-page-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.wib-lead {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #d1d5db;
+  text-align: justify;
+}
+
+/* Table of Contents */
+.wib-toc {
+  background: #0a0e27;
+  border: 1px solid #2d3548;
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 56px;
+}
+
+.wib-toc-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f59e0b;
+  margin-bottom: 12px;
+}
+
+.wib-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  counter-reset: none;
+}
+
+.wib-toc-list li a {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.wib-toc-list li a:hover {
+  color: #f59e0b;
+  text-decoration: none;
+}
+
+/* Sections */
+.wib-section {
+  margin-bottom: 56px;
+}
+
+.wib-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f59e0b;
+  margin-bottom: 6px;
+}
+
+.wib-section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2d3548;
+}
+
+.wib-paragraph {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #d1d5db;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.wib-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wib-list li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  padding-left: 20px;
+  position: relative;
+}
+
+.wib-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+/* Sources */
+.wib-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wib-sources-list li {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #9ca3af;
+  padding-left: 20px;
+  position: relative;
+}
+
+.wib-sources-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #f59e0b;
+}
+
+@media (max-width: 640px) {
+  .wib-shell {
+    padding: 32px 16px 60px;
+  }
+  .wib-page-title {
+    font-size: 1.8rem;
+  }
+  .wib-section-title {
+    font-size: 1.2rem;
+  }
+  .wib-lead,
+  .wib-paragraph {
+    font-size: 0.95rem;
+  }
+}
+
 /* ── Investment Strategies page ───────────────────────────── */
 
 .istrat-shell {
