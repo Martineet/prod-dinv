@@ -7,8 +7,10 @@ export default function TributePage() {
     <>
       <LandingHeader />
       <LectureToggle>
+        {(toggleBar) => (
         <main className="tribute-shell">
           <div className="tribute-content">
+            {toggleBar}
 
             {/* Header */}
             <div className="tribute-header">
@@ -254,6 +256,7 @@ export default function TributePage() {
 
           </div>
         </main>
+        )}
       </LectureToggle>
       <Footer variant="blank" />
     </>

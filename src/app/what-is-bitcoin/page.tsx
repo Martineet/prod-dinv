@@ -7,8 +7,10 @@ export default function WhatIsBitcoinPage() {
     <>
       <LandingHeader />
       <LectureToggle>
+        {(toggleBar) => (
         <main className="wib-shell">
           <div className="wib-content">
+            {toggleBar}
 
             {/* Introduction */}
             <div className="wib-intro">
@@ -393,6 +395,7 @@ export default function WhatIsBitcoinPage() {
 
           </div>
         </main>
+        )}
       </LectureToggle>
       <Footer variant="simple" />
     </>
