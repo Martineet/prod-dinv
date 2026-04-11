@@ -25,7 +25,7 @@ export default function BecomeABitcoinerPage() {
           <div className="bbtc-exchange-list">
 
             {/* Kraken */}
-            <div className="bbtc-exchange-card bbtc-exchange-featured">
+            <div className="bbtc-exchange-card card-featured">
               <div className="bbtc-card-header">
                 <div>
                   <h3 className="bbtc-card-name">Kraken</h3>
@@ -136,7 +136,7 @@ export default function BecomeABitcoinerPage() {
           {/* Hardware wallets — 3-col grid */}
           <div className="bbtc-hw-grid">
 
-            <div className="bbtc-hw-card bbtc-hw-featured">
+            <div className="bbtc-hw-card card-featured">
               <h3 className="bbtc-card-name">Trezor Safe 3</h3>
               <p className="bbtc-card-subtitle">The basic</p>
               <p className="bbtc-card-body">

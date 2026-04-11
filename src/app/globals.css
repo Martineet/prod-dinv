@@ -450,7 +450,8 @@ h1 {
   padding: 48px 24px 80px;
 }
 
-.tribute-content {
+.tribute-content,
+.wib-content {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -624,11 +625,7 @@ h1 {
   padding: 48px 24px 80px;
 }
 
-.wib-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+/* .wib-content shares rules with .tribute-content above */
 
 .wib-intro {
   margin-bottom: 48px;
@@ -863,7 +860,8 @@ h1 {
   padding: 28px;
 }
 
-.istrat-strategy-featured {
+/* Shared featured card highlight — used across istrat, bbtc */
+.card-featured {
   border-color: #f59e0b;
   box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 4px 24px rgba(245, 158, 11, 0.08);
 }
@@ -946,7 +944,7 @@ h1 {
   color: #9ca3af;
 }
 
-.istrat-strategy-featured .istrat-tip {
+.card-featured .istrat-tip {
   border-left-color: rgba(245, 158, 11, 0.5);
 }
 
@@ -2147,14 +2145,6 @@ button:disabled {
   display: inline;
 }
 
-.btc-hodled-compact {
-  display: none;
-}
-
-.btc-hodled-full {
-  display: inline;
-}
-
 .investments-table {
   background: #0a0e27;
   border: 1px solid #2d3548;
@@ -3044,10 +3034,7 @@ tr:hover {
   padding: 28px;
 }
 
-.bbtc-exchange-featured {
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 4px 24px rgba(245, 158, 11, 0.08);
-}
+/* .bbtc-exchange-featured → use shared .card-featured */
 
 .bbtc-card-header {
   display: flex;
@@ -3131,10 +3118,7 @@ tr:hover {
   flex-direction: column;
 }
 
-.bbtc-hw-featured {
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 4px 24px rgba(245, 158, 11, 0.08);
-}
+/* .bbtc-hw-featured → use shared .card-featured */
 
 .bbtc-hw-card .bbtc-card-name {
   font-size: 1rem;

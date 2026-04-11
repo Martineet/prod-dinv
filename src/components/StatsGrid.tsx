@@ -4,10 +4,9 @@ import { PortfolioTotals } from '@/lib/types';
 
 type StatsGridProps = {
   totals: PortfolioTotals | null;
-  taxRate: number | null;
 };
 
-export function StatsGrid({ totals, taxRate: _taxRate }: StatsGridProps) {
+export function StatsGrid({ totals }: StatsGridProps) {
   const EUR = '\u20AC';
   const display = (value: number | null | undefined) => {
     if (!totals || value === null || value === undefined) return `-- ${EUR}`;

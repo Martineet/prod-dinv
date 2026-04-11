@@ -52,7 +52,7 @@ export default function InvestmentStrategiesPage() {
           <div className="istrat-strategies-list">
 
             {/* DCA */}
-            <div className="istrat-strategy-card istrat-strategy-featured">
+            <div className="istrat-strategy-card card-featured">
               <div className="istrat-strategy-header">
                 <div>
                   <h3 className="istrat-strategy-name">DCA — Dollar Cost Averaging</h3>

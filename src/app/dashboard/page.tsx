@@ -88,7 +88,7 @@ export default function DashboardPage() {
   return (
     <div className="container">
       <DashboardHeader displayName={displayName} />
-      <StatsGrid totals={totals} taxRate={member?.taxes ?? null} />
+      <StatsGrid totals={totals} />
       <InvestmentsTable
         investments={investments}
         rows={rows}
