@@ -82,10 +82,10 @@ export default function InvestmentStrategiesPage() {
               </div>
               <p className="istrat-strategy-body">
                 Same as DCA but adapt the monthly amount based on market conditions. Set a range
-                (e.g. 0€–100€/month). When bitcoin looks cheap based on metrics like RSI under 30,
-                fear in the market, or few addresses in profit (see the{' '}
-                <a href="/metrics">Metrics page</a>
-                ), invest more. When bitcoin is breaking records, invest less or even nothing.
+                (e.g. 0€–100€/month). When bitcoin looks cheap based on{' '}
+                <a href="/metrics">metrics</a>
+                {' '}like RSI under 30, fear in the market, or few addresses in profit, invest more.
+                When bitcoin is breaking records, invest less or even nothing.
                 In deep crashes, temporarily increase significantly using spare investment funds —
                 not emergency money. Don&apos;t aim for the exact bottom.
               </p>
