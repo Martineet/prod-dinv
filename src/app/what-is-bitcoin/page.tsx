@@ -317,68 +317,57 @@ export default function WhatIsBitcoinPage() {
               <p className="wib-section-label">9.</p>
               <h2 className="wib-section-title">Bitcoin as the first true religion of the 21st century</h2>
               <p className="wib-paragraph">
-                Sometimes people call Bitcoin a religion pejoratively — as a way to sneer at its disciples,
-                or to imply the whole thing is irrational. But there is a more serious case to be made,
-                with no judgment one way or another: Bitcoin structurally resembles a religion in ways
-                that are hard to dismiss.
+                Every religion is born from a wound. A recognition that something in the world is deeply
+                wrong — and a belief that there is a path to something better. Bitcoin is no different.
+                Its founding wound is money printing: the quiet, relentless debasement of the currency
+                that ordinary people work their whole lives to accumulate. Every unit of currency printed
+                without backing is a transfer of wealth from savers to those who control the press. It is
+                a form of theft made invisible by complexity. Bitcoiners call it what it is: degeneracy.
+                And they have dedicated themselves to ending it.
               </p>
               <p className="wib-paragraph">
-                <strong>It has a prophet.</strong> Satoshi Nakamoto has never been identified. After
-                corresponding with early contributors and shepherding the project through its first years,
-                Satoshi departed the world entirely around 2011. The mystery surrounding this figure only
-                deepens the reverence.
+                <strong>The sin of centralisation.</strong> Throughout history, every institution granted
+                the power to control money has eventually abused it. Not because the people in charge are
+                always evil — but because centralised power attracts corruption the way light attracts
+                moths. It is structural. Inevitable. When one entity controls the ledger, the ledger
+                eventually serves that entity. Bitcoin removes this possibility entirely. There is no
+                ledger controller. There is no one to corrupt. The code is the law — immutable,
+                transparent, and indifferent to power.
               </p>
               <p className="wib-paragraph">
-                <strong>The prophet appeared to act for the benefit of all mankind.</strong> There is no
-                evidence that Satoshi ever sold a single coin. The roughly one million BTC believed to
-                belong to Satoshi have sat untouched for over fifteen years.
+                <strong>The covenant of equality.</strong> In the Bitcoin network, everyone is equal.
+                Your transaction follows the same rules whether you are a billionaire or a student with
+                ten euros. No one can be banned from sending or receiving. No one can be deplatformed,
+                frozen out, or subjected to different fees because of who they are or where they live.
+                The protocol does not discriminate. This is not just a technical property — it is a
+                moral one. Bitcoiners are united by the belief that a fairer financial system is possible,
+                and that the code they run every day is the closest humanity has ever come to building it.
               </p>
               <p className="wib-paragraph">
-                <strong>It has a sacred text.</strong>{' '}
-                <a href="https://bitcoin.org/en/bitcoin-paper" target="_blank" rel="noopener noreferrer">
-                  The Bitcoin White Paper
-                </a>
-                {' '}— nine pages long — is still passed around in printed form like scripture.
+                <strong>The promise of hyperbitcoinisation.</strong> At the heart of the Bitcoin
+                worldview is a prophecy: that one day, Bitcoin will become the global standard of value.
+                Not a speculative asset. Not a niche technology. The foundation of a new monetary order.
+                This future — called hyperbitcoinisation — would mean the end of money printing, the end
+                of monetary debasement, and the beginning of an era in which governments must earn their
+                citizens&apos; money rather than simply create more of it. It is an eschatological vision —
+                a promised land — that drives Bitcoiners through every crash, every regulatory attack,
+                and every wave of mockery from the mainstream.
               </p>
               <p className="wib-paragraph">
-                <strong>It has original saints and apostles.</strong> Early figures like Hal Finney — who
-                exchanged messages with Satoshi and received the very first Bitcoin transaction — are
-                revered in the community for their vision and their role in establishing the foundation
-                of the network.
+                <strong>The rituals.</strong> Like any religion, Bitcoin has its practices — acts of
+                devotion that reinforce commitment and identity. <em>Stacking sats</em>: buying small
+                amounts of bitcoin regularly, regardless of price, as an act of quiet faith in the long
+                arc of the protocol. <em>HODLing</em>: refusing to sell during crashes, treating
+                volatility not as a threat but as a test of conviction. <em>DCA</em> — dollar-cost
+                averaging — buying on a fixed schedule, removing emotion from the equation, letting
+                discipline do the work that willpower cannot sustain. These are not mere investment
+                strategies. They are practices. Ways of living out a belief system in daily life.
               </p>
               <p className="wib-paragraph">
-                <strong>It has its own ancient texts.</strong> The early Bitcointalk.org message boards,
-                where Satoshi and the first users discussed and debated the project, are still studied
-                today — analysed for meaning and guidance much like religious commentaries.
-              </p>
-              <p className="wib-paragraph">
-                <strong>It has holidays.</strong> Every May 22nd, Bitcoiners celebrate Bitcoin Pizza Day —
-                the date of the first real-world transaction, when 10,000 BTC were spent on two pizzas.
-                Every four years, the halving is observed: the moment when the pace of new bitcoin
-                issuance is cut in half, a recurring event anticipated with near-religious intensity.
-              </p>
-              <p className="wib-paragraph">
-                <strong>It has schisms.</strong> Just as major religions have split over doctrine, Bitcoin
-                has had its own breakaways. Bitcoin Cash was created in 2017 by a faction that disagreed
-                with the direction of the original protocol — dividing the community and generating
-                controversy that still echoes today.
-              </p>
-              <p className="wib-paragraph">
-                <strong>It has disputed claims to the crown.</strong> Several individuals have claimed to
-                be Satoshi Nakamoto over the years. Each time, the community has responded with intense
-                scrutiny and, invariably, rejection.
-              </p>
-              <p className="wib-paragraph">
-                <strong>It has sayings and incantations.</strong> Mantras like <em>HODL</em>,{' '}
-                <em>not your keys not your coins</em>, <em>don&apos;t trust, verify</em>, and{' '}
-                <em>there is no second best</em> are repeated constantly — not just as advice, but as
-                affirmations of identity and belief.
-              </p>
-              <p className="wib-paragraph">
-                Whether Bitcoin is &ldquo;really&rdquo; a religion depends on how you define the word.
-                But the structure is there: a mysterious founder, a sacred origin, a fixed and
-                inviolable text, saints and martyrs, holidays and rituals, schisms and heresies, and a
-                devoted global community united by shared belief in something larger than themselves.
+                Whether you call it a religion or not is a matter of definition. What is not up for debate
+                is the depth of conviction, the coherence of the worldview, and the scale of the community
+                that has organised itself around it. Bitcoin is not just a bet on a technology. It is a
+                statement about how the world should work — and a commitment to building it.
               </p>
             </section>
 
@@ -423,12 +412,6 @@ export default function WhatIsBitcoinPage() {
                   </a>{' '}
                   — The original Bitcoin forum, founded by Satoshi Nakamoto. The earliest discussions
                   about Bitcoin are still archived here.
-                </li>
-                <li>
-                  <a href="https://theconversation.com/why-are-people-calling-bitcoin-a-religion-175717" target="_blank" rel="noopener noreferrer">
-                    The Conversation — Why are people calling Bitcoin a religion?
-                  </a>{' '}
-                  — An academic perspective on Bitcoin&apos;s religious parallels.
                 </li>
               </ul>
             </section>
