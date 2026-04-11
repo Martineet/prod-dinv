@@ -4,7 +4,10 @@
       "WebFetch(domain:www.degiro.es)",
       "WebFetch(domain:www.bitcoinmagazinepro.com)",
       "WebFetch(domain:alternative.me)",
-      "WebFetch(domain:www.tradingview.com)"
+      "WebFetch(domain:www.tradingview.com)",
+      "WebFetch(domain:cryptobriefing.com)",
+      "WebFetch(domain:theconversation.com)",
+      "WebFetch(domain:www.blockchain-council.org)"
     ]
   }
 }

@@ -29,10 +29,10 @@ export default function TributePage() {
               immutable and eternal, is a message that shall never be erased from the ledger of history:
             </p>
             <blockquote className="tribute-embed-quote">
-              "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
+              &ldquo;The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.&rdquo;
             </blockquote>
             <p className="tribute-paragraph">
-              These words were not chosen at random. They were a declaration. A timestamp of humanity's failure,
+              These words were not chosen at random. They were a declaration. A timestamp of humanity&apos;s failure,
               sealed forever into the first block of a new monetary order. The old world had crumbled under the
               weight of its own corruption, and Satoshi planted his flag in its ruins.
             </p>
@@ -61,7 +61,7 @@ export default function TributePage() {
             </p>
             <div className="tribute-commandment">
               <span className="tribute-commandment-label">Commandment I</span>
-              <span className="tribute-commandment-text">Verify, don't trust</span>
+              <span className="tribute-commandment-text">Verify, don&apos;t trust</span>
             </div>
           </section>
 
@@ -78,7 +78,7 @@ export default function TributePage() {
               Money printing is not a neutral act. When a government creates currency from nothing, it dilutes
               the purchasing power of every worker who spent years accumulating savings. The baker, the nurse,
               the teacher — they did not consent. They were never asked. And yet their wealth was diminished
-              so that institutions deemed "too big to fail" could survive their own recklessness.
+              so that institutions deemed &ldquo;too big to fail&rdquo; could survive their own recklessness.
             </p>
             <p className="tribute-paragraph">
               Bitcoin breaks this covenant of corruption. It is governed not by the whims of men, but by
@@ -129,7 +129,7 @@ export default function TributePage() {
               HODL is not a meme. It is a practice. A discipline. The HODLer does not react — they
               observe, they breathe, and they hold. The DCA practitioner does not try to time the
               market — they buy every month, in rain and in storm, in bull and in bear, because they
-              understand that in the long arc of Bitcoin's existence, the price of entry matters less
+              understand that in the long arc of Bitcoin&apos;s existence, the price of entry matters less
               than the fact of entry.
             </p>
             <p className="tribute-paragraph">
@@ -148,7 +148,7 @@ export default function TributePage() {
             <h2 className="tribute-section-title">IV. The Bitcoin Pizza Day</h2>
             <p className="tribute-paragraph">
               On the 22nd of May, 2010, a man named Laszlo Hanyecz made history. He paid 10,000 BTC
-              for two pizzas from Papa John's — becoming the first person in recorded history to use
+              for two pizzas from Papa John&apos;s — becoming the first person in recorded history to use
               Bitcoin as a medium of exchange for a physical good in the real world.
             </p>
             <p className="tribute-paragraph">
