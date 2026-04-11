@@ -10,7 +10,9 @@ export default function TributePage() {
 
           {/* Header */}
           <div className="tribute-header">
-            <div className="tribute-symbol">₿</div>
+            <div className="tribute-logo-wrap">
+              <img src="/bitcoin-btc-logo.svg" alt="Bitcoin" className="tribute-logo" />
+            </div>
             <h1 className="tribute-title">Tribute</h1>
             <p className="tribute-subtitle">In the name of the chain, the block, and the holy hash</p>
           </div>
@@ -60,7 +62,6 @@ export default function TributePage() {
               Every satoshi sent there is a prayer. Every transaction, a confession of faith.
             </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment I</span>
               <span className="tribute-commandment-text">Verify, don&apos;t trust</span>
             </div>
           </section>
@@ -99,7 +100,6 @@ export default function TributePage() {
               as any separation of church and state before it.
             </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment II</span>
               <span className="tribute-commandment-text">Not your keys, not your coins</span>
             </div>
           </section>
@@ -119,11 +119,11 @@ export default function TributePage() {
               And like the desert, it ends — not for those who turned back, but for those who kept walking.
             </p>
             <p className="tribute-paragraph">
-              In Islam, the faithful fast during Ramadan — not because hunger is pleasant, but because
-              discipline purifies. In the Catholic tradition, Lent demands sacrifice. The Yom Kippur fast
-              strips away comfort to reveal what truly matters. Bitcoin asks something similar: sit with
-              the discomfort. Watch the price drop. Do not sell. The protocol rewards patience with a
-              ferocity that no other asset in history has matched.
+              Every great discipline demands sacrifice. Nothing of worth is earned without cost. The ascetic
+              who endures cold knows something the comfortable man does not. The warrior who trains in
+              darkness is ready when the light comes. Bitcoin demands the same: sit with the discomfort.
+              Watch the price drop. Do not sell. The protocol rewards patience with a ferocity that no
+              other asset in history has matched. No pain, no sovereignty.
             </p>
             <p className="tribute-paragraph">
               HODL is not a meme. It is a practice. A discipline. The HODLer does not react — they
@@ -138,7 +138,6 @@ export default function TributePage() {
               that tries to stop it and fails.
             </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment III</span>
               <span className="tribute-commandment-text">HODL</span>
             </div>
           </section>
@@ -147,30 +146,30 @@ export default function TributePage() {
           <section className="tribute-section">
             <h2 className="tribute-section-title">IV. The Bitcoin Pizza Day</h2>
             <p className="tribute-paragraph">
-              On the 22nd of May, 2010, a man named Laszlo Hanyecz made history. He paid 10,000 BTC
-              for two pizzas from Papa John&apos;s — becoming the first person in recorded history to use
-              Bitcoin as a medium of exchange for a physical good in the real world.
+              On the 22nd of May, 2010, a transaction was made that history would never forget.
+              Ten thousand bitcoin were exchanged for two pizzas — the first time the protocol had
+              ever been used to purchase something tangible in the real world.
             </p>
             <p className="tribute-paragraph">
-              The world laughed. Ten thousand bitcoin for pizza? Those coins would one day be worth
-              hundreds of millions of dollars. And yet this is precisely what makes the day holy.
-              Laszlo did not lose — he proved. He proved that Bitcoin was not merely a speculative token
-              on a screen. It was money. It could buy things. It could feed a family. It could move
-              value between human beings without a bank, without a middleman, without permission.
+              No one laughed at the time. There was nothing to laugh at. The world did not yet believe
+              Bitcoin could hold value — most assumed it never would. The man who made that purchase
+              was not reckless. He was a pioneer. He simply wanted to prove that the network could
+              work — that value could move between people without a bank, without permission, without
+              intermediary. And it did. Two pizzas confirmed what a white paper had only promised.
+            </p>
+            <p className="tribute-paragraph">
+              History would later call it the most expensive pizza ever bought. But that framing
+              misses the point entirely. No one was HODLing then. No one foresaw the price. What
+              mattered was the proof — that Bitcoin was not a theory. It was money. Real, functioning,
+              borderless money. And the man who spent it became a cornerstone of the movement, not
+              despite the transaction, but because of it.
             </p>
             <p className="tribute-paragraph">
               Every year on May 22nd, the community remembers. Not with mourning for the coins spent,
-              but with gratitude for the transaction that showed the world what Bitcoin is. All great
-              things start small. Empires begin with a single step. Religions begin with a single act
-              of faith. Bitcoin began with two pizzas.
-            </p>
-            <p className="tribute-paragraph">
-              We do not pity Laszlo. We revere him. He was the first to spend — and in spending, he
-              gave Bitcoin its first pulse. The first heartbeat of an economy that would grow to
-              encompass the world.
+              but with gratitude for the act of faith that gave Bitcoin its first heartbeat in the
+              physical world. All great things start small. Bitcoin began with two pizzas.
             </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment IV</span>
               <span className="tribute-commandment-text">Stay humble, stack sats</span>
             </div>
           </section>
@@ -208,7 +207,6 @@ export default function TributePage() {
               they lost.
             </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment V</span>
               <span className="tribute-commandment-text">Bitcoin, not shitcoins</span>
             </div>
           </section>
@@ -246,15 +244,16 @@ export default function TributePage() {
               doctrine except the code. You are the reason Bitcoin lives. You are the reason it will
               continue to live long after all of us have gone.
             </p>
-            <p className="tribute-paragraph">
-              The genesis block still stands. The network still runs. And every ten minutes, a new
-              block is found — a new verse added to the scripture of the longest chain.
-            </p>
             <div className="tribute-commandment">
-              <span className="tribute-commandment-label">Commandment VI</span>
               <span className="tribute-commandment-text">Run your own node</span>
             </div>
           </section>
+
+          {/* Closing verse */}
+          <p className="tribute-closing-verse">
+            The genesis block still stands. The network still runs. And every ten minutes, a new
+            block is found — a new verse added to the scripture of the longest chain.
+          </p>
 
           {/* Signature */}
           <div className="tribute-signature">
