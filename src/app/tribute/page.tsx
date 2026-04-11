@@ -1,7 +1,7 @@
 import { LandingHeader } from '@/components/LandingHeader';
 import { Footer } from '@/components/Footer';
 
-export default function DonatePage() {
+export default function TributePage() {
   return (
     <>
       <LandingHeader />

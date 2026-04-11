@@ -16,7 +16,7 @@ const NAV_LINKS = [
   { label: 'Investment strategies', href: '/investment-strategies' },
   { label: 'Metrics', href: '/metrics' },
   { label: 'Buy Bitcoin', href: '/buy-bitcoin' },
-  { label: 'Donate', href: '/donate' },
+  { label: 'Tribute', href: '/tribute' },
 ];
 
 export function LandingHeader() {
