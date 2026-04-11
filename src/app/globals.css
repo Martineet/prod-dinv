@@ -484,6 +484,7 @@ h1 {
   border: 1px solid #2d3548;
   border-radius: 12px;
   padding: 24px;
+  text-align: center;
 }
 
 .istrat-principle-icon {
@@ -503,6 +504,7 @@ h1 {
   font-size: 0.9rem;
   line-height: 1.65;
   color: #9ca3af;
+  text-align: justify;
 }
 
 /* Strategy cards — stacked vertically */
@@ -556,9 +558,9 @@ h1 {
 }
 
 .istrat-badge-info {
-  color: #60a5fa;
-  background: rgba(96, 165, 250, 0.1);
-  border-color: rgba(96, 165, 250, 0.3);
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.3);
 }
 
 .istrat-badge-warning {
@@ -574,9 +576,10 @@ h1 {
 }
 
 .istrat-badge-muted {
-  color: #d4a94e;
-  background: rgba(212, 169, 78, 0.1);
-  border-color: rgba(212, 169, 78, 0.3);
+  color: #f0c040;
+  background: rgba(240, 192, 64, 0.15);
+  border-color: rgba(240, 192, 64, 0.5);
+  text-shadow: 0 0 8px rgba(240, 192, 64, 0.4);
 }
 
 .istrat-strategy-body {
@@ -584,6 +587,7 @@ h1 {
   line-height: 1.75;
   color: #d1d5db;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .istrat-tip {

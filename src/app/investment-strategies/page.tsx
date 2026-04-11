@@ -8,7 +8,7 @@ const PRINCIPLES = [
     text: "If an investment keeps you up at night or makes you anxious, it's too much for you right now. Protecting your peace is also a strategy.",
   },
   {
-    icon: '💸',
+    icon: '📉',
     title: 'Only invest money you can afford to lose',
     text: 'Base your investment on potential losses, not gains. Never invest money meant for rent, food, or bills.',
   },
