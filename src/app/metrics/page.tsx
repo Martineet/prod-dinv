@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { LandingHeader } from '@/components/LandingHeader';
 import { Footer } from '@/components/Footer';
+import { useT } from '@/hooks/useT';
 
 type FearGreedData = {
   value: number;
@@ -35,6 +36,8 @@ function getFearGreedColor(value: number): string {
 }
 
 export default function MetricsPage() {
+  const t  = useT('metrics');
+  const tc = useT('common');
   const tvRef = useRef<HTMLDivElement>(null);
   const [fearGreed, setFearGreed] = useState<FearGreedData | null>(null);
   const [fgLoading, setFgLoading] = useState(true);
@@ -82,11 +85,11 @@ export default function MetricsPage() {
         <section className="metrics-panel">
           <div className="metrics-panel-header">
             <div>
-              <h2 className="metrics-panel-title">BTC Price &amp; RSI</h2>
-              <p className="metrics-panel-subtitle">Weekly · BTCEUR · Kraken</p>
+              <h2 className="metrics-panel-title">{t('page_title')}</h2>
+              <p className="metrics-panel-subtitle">{t('page_subtitle')}</p>
             </div>
             <span className="metrics-source">
-              Source:{' '}
+              {tc('source')}:{' '}
               <a
                 href="https://www.tradingview.com"
                 target="_blank"
@@ -105,9 +108,9 @@ export default function MetricsPage() {
           {/* Fear & Greed Index */}
           <section className="metrics-panel metrics-card">
             <div className="metrics-panel-header">
-              <h3 className="metrics-panel-title">Fear &amp; Greed Index</h3>
+              <h3 className="metrics-panel-title">{t('fear_greed_title')}</h3>
               <span className="metrics-source">
-                Source:{' '}
+                {tc('source')}:{' '}
                 <a
                   href="https://alternative.me/crypto/fear-and-greed-index/"
                   target="_blank"
@@ -118,7 +121,7 @@ export default function MetricsPage() {
               </span>
             </div>
 
-            {fgLoading && <p className="muted">Loading...</p>}
+            {fgLoading && <p className="muted">{tc('loading')}</p>}
             {fgError && <p className="error">{fgError}</p>}
             {fearGreed && (
               <div className="fg-gauge">
@@ -149,9 +152,9 @@ export default function MetricsPage() {
           {/* MVRV Z-Score */}
           <section className="metrics-panel metrics-card metrics-link-card">
             <div className="metrics-panel-header">
-              <h3 className="metrics-panel-title">MVRV Z-Score</h3>
+              <h3 className="metrics-panel-title">{t('mvrv_title')}</h3>
               <span className="metrics-source">
-                Source:{' '}
+                {tc('source')}:{' '}
                 <a
                   href="https://www.bitcoinmagazinepro.com/charts/mvrv-zscore/"
                   target="_blank"
@@ -161,27 +164,23 @@ export default function MetricsPage() {
                 </a>
               </span>
             </div>
-            <p className="metrics-description">
-              Compares Bitcoin&apos;s market cap to its realised value. High positive
-              values signal the market is overheated; negative values mark strong
-              accumulation zones historically.
-            </p>
+            <p className="metrics-description">{t('mvrv_description')}</p>
             <a
               href="https://www.bitcoinmagazinepro.com/charts/mvrv-zscore/"
               target="_blank"
               rel="noopener noreferrer"
               className="metrics-chart-link"
             >
-              View live chart →
+              {tc('view_live_chart')}
             </a>
           </section>
 
           {/* BTC Addresses in Profit */}
           <section className="metrics-panel metrics-card metrics-link-card">
             <div className="metrics-panel-header">
-              <h3 className="metrics-panel-title">Addresses in Profit</h3>
+              <h3 className="metrics-panel-title">{t('addresses_title')}</h3>
               <span className="metrics-source">
-                Source:{' '}
+                {tc('source')}:{' '}
                 <a
                   href="https://www.bitcoinmagazinepro.com/charts/percent-addresses-in-profit/"
                   target="_blank"
@@ -191,18 +190,14 @@ export default function MetricsPage() {
                 </a>
               </span>
             </div>
-            <p className="metrics-description">
-              Percentage of BTC addresses currently holding at a profit. Near 100%
-              has historically marked cycle tops; readings below 50% signal deep
-              bear markets and strong accumulation opportunities.
-            </p>
+            <p className="metrics-description">{t('addresses_description')}</p>
             <a
               href="https://www.bitcoinmagazinepro.com/charts/percent-addresses-in-profit/"
               target="_blank"
               rel="noopener noreferrer"
               className="metrics-chart-link"
             >
-              View live chart →
+              {tc('view_live_chart')}
             </a>
           </section>
 

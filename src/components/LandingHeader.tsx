@@ -9,22 +9,24 @@ import { SettingsMenu } from '@/components/SettingsMenu';
 import { formatMoneyRounded } from '@/lib/format';
 import { useAuth } from '@/hooks/useAuth';
 import { useBtcPrice } from '@/hooks/useBtcPrice';
+import { useT } from '@/hooks/useT';
 
 const EUR = '\u20AC';
 
-const NAV_LINKS = [
-  { label: 'What is Bitcoin?', href: '/what-is-bitcoin' },
-  { label: 'Investment strategies', href: '/investment-strategies' },
-  { label: 'Become a Bitcoiner', href: '/become-a-bitcoiner' },
-  { label: 'Metrics', href: '/metrics' },
-  { label: 'Tribute', href: '/tribute' },
-];
+const NAV_LINK_KEYS = [
+  { key: 'nav_what_is_bitcoin',        href: '/what-is-bitcoin' },
+  { key: 'nav_investment_strategies',  href: '/investment-strategies' },
+  { key: 'nav_become_a_bitcoiner',     href: '/become-a-bitcoiner' },
+  { key: 'nav_metrics',                href: '/metrics' },
+  { key: 'nav_tribute',                href: '/tribute' },
+] as const;
 
 export function LandingHeader() {
   const router = useRouter();
   const pathname = usePathname();
   const { session, loading, signOut } = useAuth();
   const { price: btcPrice } = useBtcPrice();
+  const t = useT('navbar');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -92,13 +94,13 @@ export function LandingHeader() {
 
       {/* Desktop nav links */}
       <nav className="landing-top-nav-middle" aria-label="Main navigation">
-        {NAV_LINKS.map((link) => (
+        {NAV_LINK_KEYS.map((link) => (
           <a
             key={link.href}
             href={link.href}
             className={`nav-link${pathname === link.href ? ' nav-link-active' : ''}`}
           >
-            {link.label}
+            {t(link.key)}
           </a>
         ))}
       </nav>
@@ -114,7 +116,7 @@ export function LandingHeader() {
           />
         ) : (
           <button type="button" className="members-zone-btn" onClick={openMembersZone}>
-            Members Zone
+            {t('nav_members_zone')}
           </button>
         )}
       </div>
@@ -136,14 +138,14 @@ export function LandingHeader() {
       {/* Mobile dropdown menu */}
       {isMobileMenuOpen && (
         <div ref={menuRef} className="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINK_KEYS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={`nav-mobile-link${pathname === link.href ? ' nav-mobile-link-active' : ''}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {link.label}
+              {t(link.key)}
             </a>
           ))}
           <div className="nav-mobile-separator" />
@@ -155,7 +157,7 @@ export function LandingHeader() {
             />
           ) : (
             <button type="button" className="members-zone-btn" onClick={openMembersZone}>
-              Members Zone
+              {t('nav_members_zone')}
             </button>
           )}
           <div className="nav-mobile-separator" />
