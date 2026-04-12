@@ -1,0 +1,28 @@
+{
+  "community_title": "Communauté D.Inversions",
+  "stat_bitcoin_hodled": "Bitcoin en portefeuille",
+  "stat_bitcoiners": "Bitcoiners",
+  "stat_community_value": "Valeur de la communauté",
+  "stat_net_invested": "Investi net",
+  "stat_portfolio_result": "Résultat du portefeuille",
+  "stat_journey_started": "Début du voyage",
+
+  "calculator_title": "Calculateur d'investissement Bitcoin",
+  "calculator_current_price": "Prix actuel du BTC",
+  "calculator_growth_rate": "Taux de croissance annuel (%)",
+  "calculator_investment_amount": "Montant de l'investissement (€)",
+  "calculator_expected_price": "Prix BTC attendu (4 ans)",
+  "calculator_expected_value": "Valeur finale attendue (4 ans)",
+
+  "dca_title": "Calculateur DCA Bitcoin",
+  "dca_monthly_investment": "Investissement mensuel (€)",
+  "dca_start_date": "Date de début",
+  "dca_end_date": "Date de fin (optionnel)",
+  "dca_compare_with": "Comparer avec",
+  "dca_euros_invested": "Euros investis",
+  "dca_bitcoin_value": "Valeur en Bitcoin",
+  "dca_bitcoin_profit": "Profit/Perte en Bitcoin",
+  "dca_gold_value": "Valeur en or",
+  "dca_gold_profit": "Profit/Perte en or",
+  "dca_gold_reference": "Prix de référence de l'or"
+}

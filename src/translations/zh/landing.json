@@ -1,0 +1,28 @@
+{
+  "community_title": "D.Inversions 社区",
+  "stat_bitcoin_hodled": "持有的比特币",
+  "stat_bitcoiners": "比特币持有者",
+  "stat_community_value": "社区总价值",
+  "stat_net_invested": "净投资额",
+  "stat_portfolio_result": "投资组合收益",
+  "stat_journey_started": "旅程开始于",
+
+  "calculator_title": "比特币投资计算器",
+  "calculator_current_price": "当前 BTC 价格",
+  "calculator_growth_rate": "年化增长率 (%)",
+  "calculator_investment_amount": "投资金额 (€)",
+  "calculator_expected_price": "预期 BTC 价格（4年后）",
+  "calculator_expected_value": "预期最终价值（4年后）",
+
+  "dca_title": "比特币 DCA 计算器",
+  "dca_monthly_investment": "每月投资额 (€)",
+  "dca_start_date": "开始日期",
+  "dca_end_date": "结束日期（可选）",
+  "dca_compare_with": "与之比较",
+  "dca_euros_invested": "已投入欧元",
+  "dca_bitcoin_value": "比特币价值",
+  "dca_bitcoin_profit": "比特币盈亏",
+  "dca_gold_value": "黄金价值",
+  "dca_gold_profit": "黄金盈亏",
+  "dca_gold_reference": "黄金参考价格"
+}

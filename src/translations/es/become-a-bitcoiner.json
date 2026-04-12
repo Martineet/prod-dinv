@@ -1,0 +1,43 @@
+{
+  "page_label": "Exchanges",
+  "page_title": "Comprar bitcoins",
+  "page_subtitle": "vendiendo tu dinero falso",
+  "page_intro": "Hay diferentes formas de obtener tus primeros bitcoins. La forma más común de empezar son los exchanges — funcionan como un banco: crea una cuenta, rellena tu información personal (KYC, Know Your Customer) y empieza a operar. Comprueba siempre la reputación y las comisiones. Pero recuerda: no tus llaves, no tus monedas. Después de unos meses, mueve tu bitcoin a tu propia cartera. No confíes, verifica.",
+
+  "exchange_kraken_title": "Kraken",
+  "exchange_kraken_subtitle": "El mejor amigo del principiante",
+  "exchange_kraken_body": "Fácil de configurar y reputación sólida tras años de operación. Buena opción con web y app. Comisiones intermedias. El primer paso.",
+
+  "exchange_coinbase_title": "Coinbase + MEXC",
+  "exchange_coinbase_subtitle": "Más complejo pero con comisiones bajas",
+  "exchange_coinbase_body": "Si quieres una opción de comisiones bajas (con cierta complejidad): regístrate en ambos exchanges, compra USDC en Coinbase, transfiérelo a MEXC (presta atención a la red usada) y allí cambia USDC a bitcoin.",
+
+  "exchange_hodlhodl_title": "HODL HODL",
+  "exchange_hodlhodl_subtitle": "Sin rastro para quienes valoran la privacidad",
+  "exchange_hodlhodl_body": "Contacta directamente con otras personas y haz el trato sin exponer tu identidad. No reutilices direcciones. Aquí todos valoran su privacidad. Una de las plataformas P2P más fiables.",
+
+  "custody_label": "Autocustodia",
+  "custody_title": "Guardar tus bitcoins",
+  "custody_subtitle": "protegiendo tu dinero sólido",
+  "custody_intro": "Uno de los grandes mantras de la comunidad bitcoin es guardar tus propias monedas fuera de los exchanges. Dejarlos allí no tiene sentido — estás confiando en un intermediario. Para cantidades pequeñas puede ser aceptable al principio, pero cuando empieces a acumular sats, considera la autocustodia. Anota la frase semilla en papel, sin conexión, haz un par de copias y guárdalas en un lugar seguro. Si pierdes esas 12/24 palabras, lo pierdes todo. Eres tu propio banco.",
+
+  "wallet_trezor_title": "Trezor Safe 3",
+  "wallet_trezor_subtitle": "Lo básico",
+  "wallet_trezor_body": "Código abierto, asequible, robusto. No necesitas más. El primer paso.",
+
+  "wallet_ellipal_title": "Ellipal Titan Mini",
+  "wallet_ellipal_subtitle": "El offline",
+  "wallet_ellipal_body": "La combinación más segura: sin USB, sin conectividad, sin NFC — solo escaneando códigos QR desde el móvil. Tan seguro que a veces olvidarás cómo se usa. Para avanzados.",
+
+  "wallet_tangem_title": "Tangem Ring",
+  "wallet_tangem_subtitle": "El estiloso",
+  "wallet_tangem_body": "Tu anillo se convierte en tu cartera usando NFC sincronizado con el móvil. No lo pierdas nunca, mueve millones con el dedo.",
+
+  "wallet_bluewallet_title": "Bluewallet",
+  "wallet_bluewallet_subtitle": "Móvil",
+  "wallet_bluewallet_body": "Cartera caliente gratuita para el móvil. Como una cartera de monedas en el bolsillo — cómoda, pero recuerda que puede ser hackeada.",
+
+  "wallet_satoshi_title": "Wallet of Satoshi",
+  "wallet_satoshi_subtitle": "Cartera Lightning",
+  "wallet_satoshi_body": "Cartera Lightning móvil para bitcoin. Simple de usar. Con custodia — confías en ellos. Conveniente para pagos rápidos pero no para guardar grandes cantidades."
+}

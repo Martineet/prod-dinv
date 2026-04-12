@@ -1,0 +1,43 @@
+{
+  "page_label": "Plateformes d'échange",
+  "page_title": "Acheter des bitcoins",
+  "page_subtitle": "en vendant votre fausse monnaie",
+  "page_intro": "Il existe différentes façons d'obtenir vos premiers bitcoins. La façon la plus courante de commencer est via les exchanges — ils fonctionnent comme une banque : créez un compte, remplissez vos informations personnelles (KYC, Know Your Customer) et commencez à opérer. Vérifiez toujours la réputation et les frais. Mais souvenez-vous : pas vos clés, pas vos coins. Après quelques mois, transférez vos bitcoin vers votre propre portefeuille. Ne faites pas confiance, vérifiez.",
+
+  "exchange_kraken_title": "Kraken",
+  "exchange_kraken_subtitle": "Le meilleur ami du débutant",
+  "exchange_kraken_body": "Facile à configurer et réputation solide après des années de fonctionnement. Bonne option avec web et app. Frais dans la moyenne. La première étape.",
+
+  "exchange_coinbase_title": "Coinbase + MEXC",
+  "exchange_coinbase_subtitle": "Plus complexe mais frais réduits",
+  "exchange_coinbase_body": "Si vous voulez une option à frais réduits (avec un peu de complexité) : inscrivez-vous sur les deux plateformes, achetez des USDC sur Coinbase, transférez-les vers MEXC (attention au réseau utilisé) et échangez USDC contre du bitcoin.",
+
+  "exchange_hodlhodl_title": "HODL HODL",
+  "exchange_hodlhodl_subtitle": "Sans traces pour ceux qui tiennent à leur vie privée",
+  "exchange_hodlhodl_body": "Contactez directement d'autres personnes et concluez l'accord sans exposer votre identité. Ne réutilisez pas les adresses. Ici tout le monde tient à sa vie privée. L'une des plateformes P2P les plus fiables.",
+
+  "custody_label": "Auto-garde",
+  "custody_title": "Stocker vos bitcoins",
+  "custody_subtitle": "en protégeant votre argent solide",
+  "custody_intro": "L'un des grands mantras de la communauté bitcoin est de stocker ses propres coins hors des exchanges. Les laisser là n'a aucun sens — vous faites confiance à un intermédiaire. Pour de petites sommes c'est acceptable au début, mais dès que vous commencez à accumuler des sats, pensez à l'auto-garde. Notez votre phrase de récupération sur papier, hors ligne, faites-en quelques copies et rangez-les dans un endroit sûr. Si vous perdez ces 12/24 mots, vous perdez tout. Vous êtes votre propre banque.",
+
+  "wallet_trezor_title": "Trezor Safe 3",
+  "wallet_trezor_subtitle": "Le basique",
+  "wallet_trezor_body": "Open source, abordable, robuste. Vous n'avez pas besoin de plus. La première étape.",
+
+  "wallet_ellipal_title": "Ellipal Titan Mini",
+  "wallet_ellipal_subtitle": "Le hors-ligne",
+  "wallet_ellipal_body": "La combinaison la plus sécurisée : pas d'USB, pas de connectivité, pas de NFC — seulement la lecture de QR codes depuis votre téléphone. Tellement sécurisé que vous oublierez parfois comment l'utiliser. Niveau avancé.",
+
+  "wallet_tangem_title": "Tangem Ring",
+  "wallet_tangem_subtitle": "Le stylé",
+  "wallet_tangem_body": "Votre bague devient votre portefeuille grâce à la technologie NFC couplée à votre téléphone. Ne la perdez jamais, déplacez des millions d'un doigt.",
+
+  "wallet_bluewallet_title": "Bluewallet",
+  "wallet_bluewallet_subtitle": "Mobile",
+  "wallet_bluewallet_body": "Portefeuille chaud gratuit pour votre téléphone. Comme un porte-monnaie dans votre poche — pratique, mais gardez à l'esprit qu'il peut être piraté.",
+
+  "wallet_satoshi_title": "Wallet of Satoshi",
+  "wallet_satoshi_subtitle": "Portefeuille Lightning",
+  "wallet_satoshi_body": "Portefeuille Lightning mobile pour bitcoin. Simple à utiliser. Avec garde — vous leur faites confiance. Pratique pour les paiements rapides, pas pour stocker de grandes sommes."
+}

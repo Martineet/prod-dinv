@@ -1,0 +1,10 @@
+{
+  "page_title": "Preu BTC i RSI",
+  "page_subtitle": "Setmanal · BTCEUR · Kraken",
+
+  "fear_greed_title": "Índex de Por i Cobdícia",
+  "mvrv_title": "MVRV Z-Score",
+  "mvrv_description": "Compara la capitalització de mercat de Bitcoin amb el seu valor realitzat. Valors positius alts indiquen que el mercat és sobreescalfat; valors negatius marquen zones d'acumulació històricament fortes.",
+  "addresses_title": "Adreces en Guany",
+  "addresses_description": "Percentatge d'adreces BTC que actualment mantenen amb guany. Proper al 100% ha marcat històricament els màxims del cicle; lectures per sota del 50% indiquen mercats baixistes profunds i fortes oportunitats d'acumulació."
+}

@@ -1,0 +1,52 @@
+{
+  "page_label": "Comment investir",
+  "page_title": "Stratégies d'investissement",
+  "page_intro": "Voici les approches les plus courantes pour acheter du bitcoin. Choisissez celle qui correspond à votre personnalité et à votre situation.",
+
+  "guides_label": "Avant de commencer",
+  "guides_title": "Guides d'investissement",
+  "guides_intro": "Quelques principes simples qui vous feront économiser de l'argent, de l'anxiété et des regrets. Lisez-les avant tout.",
+
+  "guide_sleep_title": "Dormez dessus",
+  "guide_sleep_text": "Si un investissement vous empêche de dormir ou vous rend anxieux, c'est trop pour vous en ce moment. Protéger votre sérénité est aussi une stratégie.",
+
+  "guide_lose_title": "N'investissez que ce que vous pouvez vous permettre de perdre",
+  "guide_lose_text": "Basez votre investissement sur les pertes potentielles, pas sur les gains. N'investissez jamais l'argent prévu pour le loyer, la nourriture ou les factures.",
+
+  "guide_vote_title": "Investir, c'est voter",
+  "guide_vote_text": "Là où vous mettez votre argent est une déclaration. Investissez dans ce en quoi vous croyez. L'argent investi dans la guerre finance la guerre. L'argent investi dans l'énergie propre finance l'énergie propre.",
+
+  "guide_time_title": "Le temps bat le timing",
+  "guide_time_text": "Personne ne connaît les hauts et les bas. Investissez régulièrement, attendez patiemment et laissez votre argent travailler pour vous.",
+
+  "strat_a_title": "DCA · Dollar Cost Averaging",
+  "strat_a_subtitle": "Le meilleur ami du débutant",
+  "strat_a_badge": "Recommandé",
+  "strat_a_body_1": "Choisissez un montant mensuel fixe et abordable (ex. 50 €). Achetez du bitcoin chaque mois, le même jour, quel que soit le prix. Certains mois vous obtiendrez plus de bitcoin, d'autres moins — cela s'équilibre avec le temps.",
+  "strat_a_body_2": "Pas besoin de connaître le marché. Juste de la patience et de la discipline. Conservez pendant 5+ ans.",
+  "strat_a_tip": "Soyez ennuyeux. Mettez un rappel, achetez et passez à autre chose. Ne vérifiez pas le prix tous les jours.",
+
+  "strat_b_title": "DCA Pondéré · DCA v2",
+  "strat_b_subtitle": "La même idée, une exécution plus intelligente",
+  "strat_b_badge": "Intermédiaire",
+  "strat_b_body_1": "Identique au DCA mais adaptez le montant mensuel selon les conditions du marché. Définissez une fourchette (ex. 0 €–100 €/mois). Quand le bitcoin semble bon marché — d'après des signaux comme RSI sous 30, la peur sur le marché ou peu d'adresses en profit — investissez plus. Quand le bitcoin bat des records, investissez moins.",
+  "strat_b_body_2": "En cas de krach profond, augmentez temporairement en utilisant des fonds d'investissement supplémentaires — jamais d'urgence. Ne cherchez pas le fond exact.",
+  "strat_b_metrics_link": "page des métriques",
+  "strat_b_tip": "Vous ne cherchez pas à anticiper le marché — vous êtes juste intelligent sur combien vous y mettez.",
+
+  "strat_c_title": "Lump-Sum · Tout en bas",
+  "strat_c_subtitle": "Risque élevé, récompense élevée — pas pour les débutants",
+  "strat_c_badge": "Avancé",
+  "strat_c_body_1": "Attendez un krach majeur, puis investissez une grande somme d'un coup. Excellent en théorie, très difficile émotionnellement en pratique. Nécessite de connaître au moins un cycle complet de bitcoin (~4 ans).",
+  "strat_c_body_2": "Sans expérience, il est facile d'acheter trop tôt, de vendre en panique ou de rater la fenêtre. C'est plus proche du trading que de l'investissement — cherchez des cours spécialisés en dehors de cette page.",
+  "strat_c_tip": "La plupart des gens s'en sortent mieux avec le DCA. Le lump-sum semble génial rétrospectivement, mais c'est brutal en temps réel.",
+
+  "strat_d_title": "Or · La valeur refuge classique",
+  "strat_d_subtitle": "Pour ceux qui préfèrent la stabilité à la volatilité",
+  "strat_d_badge": "Alternatif",
+  "strat_d_body_1": "Si le bitcoin vous semble trop volatile, c'est valide — mais ne rien faire n'est pas sûr non plus. L'inflation érode silencieusement votre épargne chaque année. L'or est une réserve de valeur fiable depuis des millénaires.",
+  "strat_d_body_2": "Achetez de l'or physique comme couverture. Pour les détails sur comment investir dans l'or, cherchez des plateformes spécialisées.",
+  "strat_d_tip": "Cela dit — gardez au moins un peu de bitcoin. Vous savez pourquoi 😉",
+
+  "metrics_link_text": "page des métriques"
+}
