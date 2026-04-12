@@ -19,7 +19,7 @@ type FullCache = Record<string, LangCache>;
 
 const cache: FullCache = {};
 
-export const SUPPORTED_LANGUAGES = ['en', 'ca', 'es', 'fr', 'de', 'zh'] as const;
+export const SUPPORTED_LANGUAGES = ['en', 'ca', 'es', 'fr', 'de', 'zh', 'ar', 'ru'] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export const TRANSLATION_FILES = [

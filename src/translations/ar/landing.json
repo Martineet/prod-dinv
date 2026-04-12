@@ -1,0 +1,28 @@
+{
+  "community_title": "مجتمع D.Inversions",
+  "stat_bitcoin_hodled": "البيتكوين المحتفظ به",
+  "stat_bitcoiners": "مستثمرو البيتكوين",
+  "stat_community_value": "قيمة المجتمع",
+  "stat_net_invested": "صافي الاستثمار",
+  "stat_portfolio_result": "نتيجة المحفظة",
+  "stat_journey_started": "بدأت الرحلة",
+
+  "calculator_title": "حاسبة استثمار البيتكوين",
+  "calculator_current_price": "سعر BTC الحالي",
+  "calculator_growth_rate": "معدل النمو السنوي (%)",
+  "calculator_investment_amount": "مبلغ الاستثمار (€)",
+  "calculator_expected_price": "سعر BTC المتوقع (4 سنوات)",
+  "calculator_expected_value": "القيمة النهائية المتوقعة (4 سنوات)",
+
+  "dca_title": "حاسبة DCA للبيتكوين",
+  "dca_monthly_investment": "الاستثمار الشهري (€)",
+  "dca_start_date": "تاريخ البدء",
+  "dca_end_date": "تاريخ الانتهاء (اختياري)",
+  "dca_compare_with": "مقارنة مع",
+  "dca_euros_invested": "اليورو المستثمر",
+  "dca_bitcoin_value": "قيمة البيتكوين",
+  "dca_bitcoin_profit": "ربح/خسارة البيتكوين",
+  "dca_gold_value": "قيمة الذهب",
+  "dca_gold_profit": "ربح/خسارة الذهب",
+  "dca_gold_reference": "سعر الذهب المرجعي"
+}
