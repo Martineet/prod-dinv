@@ -1,10 +1,10 @@
 {
   "community_title": "Comunidad D.Inversions",
-  "stat_bitcoin_hodled": "Bitcoin en cartera",
+  "stat_bitcoin_hodled": "Bitcoin Hodled",
   "stat_bitcoiners": "Bitcoiners",
   "stat_community_value": "Valor de la comunidad",
-  "stat_net_invested": "Invertido neto",
-  "stat_portfolio_result": "Resultado de la cartera",
+  "stat_net_invested": "Total invertido",
+  "stat_portfolio_result": "Resultado comunitario",
   "stat_journey_started": "Inicio del camino",
 
   "calculator_title": "Calculadora de inversión en Bitcoin",

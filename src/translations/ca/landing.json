@@ -1,10 +1,10 @@
 {
-  "community_title": "Comunitat D.Inversions",
-  "stat_bitcoin_hodled": "Bitcoin en cartera",
+  "community_title": "Comunitat de D.Inversions",
+  "stat_bitcoin_hodled": "Bitcoin Hodled",
   "stat_bitcoiners": "Bitcoiners",
   "stat_community_value": "Valor de la comunitat",
-  "stat_net_invested": "Invertit net",
-  "stat_portfolio_result": "Resultat de la cartera",
+  "stat_net_invested": "Diners invertits",
+  "stat_portfolio_result": "Resultat comunitari",
   "stat_journey_started": "Inici del viatge",
 
   "calculator_title": "Calculadora d'inversió en Bitcoin",
@@ -21,8 +21,8 @@
   "dca_compare_with": "Comparar amb",
   "dca_euros_invested": "Euros invertits",
   "dca_bitcoin_value": "Valor en Bitcoin",
-  "dca_bitcoin_profit": "Guany/Pèrdua en Bitcoin",
+  "dca_bitcoin_profit": "Guanys/Pèrdues en Bitcoin",
   "dca_gold_value": "Valor en or",
-  "dca_gold_profit": "Guany/Pèrdua en or",
+  "dca_gold_profit": "Guanys/Pèrdues en or",
   "dca_gold_reference": "Preu de referència de l'or"
 }

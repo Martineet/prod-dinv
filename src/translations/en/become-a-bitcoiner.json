@@ -2,7 +2,7 @@
   "page_label": "Exchanges",
   "page_title": "Buying bitcoins",
   "page_subtitle": "selling your fake money",
-  "page_intro": "There are different ways to obtain your first bitcoins. The most common way to start are the exchanges — they behave like a bank: create an account, fill in your personal information (KYC, Know Your Customer) and start operating. Always check reputation and fees. But remember: not your keys, not your coins. After some months, move your bitcoin to your own wallet. Don't trust, verify.",
+  "page_intro": "There are different ways to obtain your first bitcoins. The most common way to start are the exchanges — they behave like a bank: create an account, fill in your personal information (KYC, Know Your Customer) and start operating. Always check reputation and fees. But remember: not your keys, not your coins. After some months, move your bitcoin to your own wallet.",
 
   "exchange_kraken_title": "Kraken",
   "exchange_kraken_subtitle": "The beginner's best friend",
@@ -19,7 +19,7 @@
   "custody_label": "Self custody",
   "custody_title": "Storing your bitcoins",
   "custody_subtitle": "protecting your hard money",
-  "custody_intro": "One of the biggest mantras of the bitcoin community is to store your own bitcoin outside exchanges. Leaving your bitcoin on the exchange makes no sense — you're trusting an intermediary. For small amounts it's fine to start, but once you start stacking sats, consider self-custody. Write your seed phrase on paper, offline, make a couple of copies, and store them somewhere safe. If you lose those 12/24 words, you lose everything. You are your own bank.",
+  "custody_intro": "One of the biggest mantras of the Bitcoin community is to store your own bitcoin outside exchanges. Leaving your bitcoin on the exchange makes no sense — you're trusting an intermediary. For small amounts it's fine to start, but once you start stacking sats, consider self-custody. Write your seed phrase on paper, offline, make a couple of copies, and store them somewhere safe. If you lose those 12/24 words, you lose everything. You are your own bank.",
 
   "wallet_trezor_title": "Trezor Safe 3",
   "wallet_trezor_subtitle": "The basic",

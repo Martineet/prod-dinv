@@ -4,11 +4,11 @@
   "page_intro": "Estos son los enfoques más comunes para comprar bitcoin. Elige el que mejor se adapte a tu personalidad y situación.",
 
   "guides_label": "Antes de empezar",
-  "guides_title": "Guías de inversión",
+  "guides_title": "Puntos clave a la hora de invertir",
   "guides_intro": "Unos principios sencillos que te ahorrarán dinero, ansiedad y arrepentimientos. Léelos antes que nada.",
 
   "guide_sleep_title": "Duerme por las noches",
-  "guide_sleep_text": "Si una inversión no te deja dormir o te genera ansiedad, no es una buena inversión. Proteger tu paz también es una estrategia.",
+  "guide_sleep_text": "Si una inversión no te deja dormir o te genera ansiedad, no es una buena inversión. Proteger tu tranquilidad forma parte de la estrategia.",
 
   "guide_lose_title": "Invierte sololo que puedes perder",
   "guide_lose_text": "Dimensiona tu inversión en base a las posibles pérdidas, no en las ganancias. Nunca inviertas dinero destinado al alquiler, a la comida o a las facturas.",
@@ -16,7 +16,7 @@
   "guide_vote_title": "Invertir es votar",
   "guide_vote_text": "Donde pones tu dinero es donde pones tu energía. Invierte en lo que crees. El dinero invertido en guerra alimenta la guerra. El dinero invertido en energía renovable alimenta la energía renovable.",
 
-  "guide_time_title": "El tiempo en el mercado marca la diferencia",
+  "guide_time_title": "Sé paciente",
   "guide_time_text": "Nadie sabe los máximos ni los mínimos. Invierte periódicamente, espera con paciencia y deja que tu dinero trabaje para ti.",
 
   "strat_a_title": "DCA · Dollar Cost Averaging",
@@ -41,7 +41,7 @@
   "strat_c_body_2": "Sin experiencia, es fácil comprar demasiado pronto, vender en pánico o perder la oportunidad. Esto se acerca más al trading que a la inversión — busca cursos especializados fuera de esta página si quieres aprender.",
   "strat_c_tip": "La mayoría de la gente está mejor con DCA. El lump-sum suena genial a posteriori, pero es brutal en tiempo real.",
 
-  "strat_d_title": "Oro · El refugio seguro clásico",
+  "strat_d_title": "Oro · El refugio de toda la vida",
   "strat_d_subtitle": "Para quienes prefieren estabilidad a volatilidad",
   "strat_d_badge": "Alternativa",
   "strat_d_body_1": "Si el Bitcoin te parece demasiado volátil, es válido, pero no hacer nada tampoco es seguro. La inflación se come silenciosamente tus ahorros cada año. El oro ha sido una reserva de valor fiable durante miles de años.",
