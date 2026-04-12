@@ -5,15 +5,15 @@ import { useLanguage } from '@/hooks/useLanguage';
 import type { SupportedLanguage } from '@/utils/i18n';
 
 // Alphabetical by label in their own language; Arabic last per design spec.
-const LANGUAGES: { code: SupportedLanguage; label: string; display: string }[] = [
-  { code: 'ca', label: 'Català',    display: 'CA' },
-  { code: 'de', label: 'Deutsch',   display: 'DE' },
-  { code: 'en', label: 'English',   display: 'EN' },
-  { code: 'es', label: 'Español',   display: 'ES' },
-  { code: 'fr', label: 'Français',  display: 'FR' },
-  { code: 'ru', label: 'Русский',   display: 'RU' },
-  { code: 'zh', label: '中文',       display: 'ZH' },
-  { code: 'ar', label: 'العربية',   display: 'AR' },
+const LANGUAGES: { code: SupportedLanguage; label: string }[] = [
+  { code: 'ca', label: 'Català'   },
+  { code: 'de', label: 'Deutsch'  },
+  { code: 'en', label: 'English'  },
+  { code: 'es', label: 'Español'  },
+  { code: 'fr', label: 'Français' },
+  { code: 'ru', label: 'Русский'  },
+  { code: 'zh', label: '中文'      },
+  { code: 'ar', label: 'العربية'  },
 ];
 
 const GlobeIcon = () => (
@@ -35,7 +35,7 @@ const GlobeIcon = () => (
 );
 
 type Props = {
-  /** 'desktop' — globe icon only; 'mobile' — globe + 2-letter code */
+  /** 'desktop' — globe icon only; 'mobile' — globe + language name, centered */
   variant: 'desktop' | 'mobile';
   /** Callback so the parent can close the mobile menu after a selection */
   onSelect?: () => void;
@@ -61,7 +61,7 @@ export function LanguagePicker({ variant, onSelect }: Props) {
     onSelect?.();
   };
 
-  const currentDisplay = LANGUAGES.find((l) => l.code === lang)?.display ?? 'EN';
+  const currentLabel = LANGUAGES.find((l) => l.code === lang)?.label ?? 'English';
 
   return (
     <div
@@ -78,7 +78,7 @@ export function LanguagePicker({ variant, onSelect }: Props) {
       >
         <GlobeIcon />
         {variant === 'mobile' && (
-          <span className="lang-picker-code">{currentDisplay}</span>
+          <span className="lang-picker-code">{currentLabel}</span>
         )}
       </button>
 
@@ -87,7 +87,7 @@ export function LanguagePicker({ variant, onSelect }: Props) {
         role="listbox"
         aria-label="Language"
       >
-        {LANGUAGES.map(({ code, label, display }) => (
+        {LANGUAGES.map(({ code, label }) => (
           <button
             key={code}
             type="button"
@@ -96,7 +96,6 @@ export function LanguagePicker({ variant, onSelect }: Props) {
             className={`lang-picker-item${code === lang ? ' active' : ''}`}
             onClick={() => handleSelect(code)}
           >
-            <span className="lang-picker-item-code">{display}</span>
             <span className="lang-picker-item-label">{label}</span>
           </button>
         ))}

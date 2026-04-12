@@ -1826,23 +1826,14 @@ button:disabled {
   background: rgba(245, 158, 11, 0.08);
 }
 
-.lang-picker-item-code {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #6b7280;
-  width: 22px;
-  flex-shrink: 0;
-}
-
-.lang-picker-item.active .lang-picker-item-code {
-  color: #f59e0b;
-}
-
 .lang-picker-item-label {
   font-size: 13px;
   font-weight: 500;
   color: #e5e7eb;
+}
+
+.lang-picker-item.active .lang-picker-item-label {
+  color: #f59e0b;
 }
 
 /* Mobile: dropdown opens upward (picker sits at bottom of mobile menu) */
@@ -1851,14 +1842,14 @@ button:disabled {
   bottom: calc(100% + 8px);
 }
 
-/* Mobile button is full-width row */
+/* Mobile button: centered globe + language name */
 .lang-picker--mobile .lang-picker-btn {
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
   border-color: transparent;
-  justify-content: flex-start;
-  font-size: 17px;
+  justify-content: center;
+  gap: 8px;
 }
 
 .lang-picker--mobile .lang-picker-btn:hover {
@@ -1868,8 +1859,8 @@ button:disabled {
 
 .lang-picker--mobile .lang-picker-code {
   font-size: 14px;
-  font-weight: 600;
-  color: #9ca3af;
+  font-weight: 500;
+  color: #e5e7eb;
 }
 
 .modal-overlay {
