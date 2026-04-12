@@ -138,6 +138,7 @@ h1 {
   align-items: center;
   justify-content: flex-end;
   flex: 0 0 auto;
+  gap: 8px;
 }
 
 .nav-link {
@@ -1749,6 +1750,126 @@ button:disabled {
   height: 1px;
   background: #2d3548;
   margin: 0;
+}
+
+/* ── Language Picker ──────────────────────────────────────────── */
+
+.lang-picker-wrapper {
+  position: relative;
+}
+
+.lang-picker-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  background: transparent;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.lang-picker-btn:hover {
+  color: #e5e7eb;
+  border-color: #6b7280;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-picker-code {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: inherit;
+}
+
+/* Dropdown — same pattern as .settings-dropdown */
+.lang-picker-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #1a1d2e;
+  border: 1px solid #2d3548;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 400;
+}
+
+.lang-picker-dropdown.open {
+  display: block;
+}
+
+.lang-picker-item {
+  width: 100%;
+  padding: 11px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s;
+}
+
+.lang-picker-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lang-picker-item.active {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.lang-picker-item-code {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.lang-picker-item.active .lang-picker-item-code {
+  color: #f59e0b;
+}
+
+.lang-picker-item-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+/* Mobile: dropdown opens upward (picker sits at bottom of mobile menu) */
+.lang-picker--mobile .lang-picker-dropdown {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+
+/* Mobile button is full-width row */
+.lang-picker--mobile .lang-picker-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-color: transparent;
+  justify-content: flex-start;
+  font-size: 17px;
+}
+
+.lang-picker--mobile .lang-picker-btn:hover {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lang-picker--mobile .lang-picker-code {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
 }
 
 .modal-overlay {

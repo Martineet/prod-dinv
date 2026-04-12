@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChangePasswordModal } from '@/components/ChangePasswordModal';
+import { LanguagePicker } from '@/components/LanguagePicker';
 import { MemberSettingsModal } from '@/components/MemberSettingsModal';
 import { SettingsMenu } from '@/components/SettingsMenu';
 import { formatMoneyRounded } from '@/lib/format';
@@ -102,8 +103,9 @@ export function LandingHeader() {
         ))}
       </nav>
 
-      {/* Desktop right: Members Zone or account settings */}
+      {/* Desktop right: language picker + Members Zone or account settings */}
       <div className="landing-top-nav-right">
+        <LanguagePicker variant="desktop" />
         {isLoggedIn ? (
           <SettingsMenu
             onSettings={() => setIsSettingsOpen(true)}
@@ -156,6 +158,8 @@ export function LandingHeader() {
               Members Zone
             </button>
           )}
+          <div className="nav-mobile-separator" />
+          <LanguagePicker variant="mobile" onSelect={() => setIsMobileMenuOpen(false)} />
         </div>
       )}
 

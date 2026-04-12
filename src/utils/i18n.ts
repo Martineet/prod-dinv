@@ -39,12 +39,38 @@ let currentLanguage: SupportedLanguage = 'en';
 
 // ─── Language state ──────────────────────────────────────────────────────────
 
-/** Read persisted language from localStorage; falls back to 'en'. Call once on app boot. */
+/**
+ * Detects the best language from the browser's navigator.languages list.
+ * Catalan is checked before Spanish so Catalan-region users get Català
+ * even if 'es' appears later in their preferences.
+ * Falls back to 'en' if no match found.
+ */
+export function detectLanguage(): SupportedLanguage {
+  if (typeof window === 'undefined') return 'en';
+  const langs = Array.from(navigator.languages?.length ? navigator.languages : [navigator.language ?? 'en']);
+  for (const lang of langs) {
+    const base = lang.split('-')[0].toLowerCase();
+    // Catalan must be checked explicitly before the generic loop to ensure
+    // it is preferred over Spanish in Catalan-speaking regions.
+    if (base === 'ca') return 'ca';
+    if ((SUPPORTED_LANGUAGES as readonly string[]).includes(base)) {
+      return base as SupportedLanguage;
+    }
+  }
+  return 'en';
+}
+
+/**
+ * Reads persisted language from localStorage; if none stored, auto-detects
+ * from the browser locale. Call once on app boot.
+ */
 export function initLanguage(): void {
   if (typeof window === 'undefined') return;
   const stored = localStorage.getItem(STORAGE_KEY) as SupportedLanguage | null;
   if (stored && (SUPPORTED_LANGUAGES as readonly string[]).includes(stored)) {
     currentLanguage = stored;
+  } else {
+    currentLanguage = detectLanguage();
   }
 }
 
@@ -56,6 +82,7 @@ export function setLanguage(lang: SupportedLanguage): void {
   currentLanguage = lang;
   if (typeof window !== 'undefined') {
     localStorage.setItem(STORAGE_KEY, lang);
+    window.dispatchEvent(new CustomEvent('language-changed', { detail: lang }));
   }
 }
 
