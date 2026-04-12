@@ -1,8 +1,15 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/asset-quotes/route": "app/api/asset-quotes/route.js",
+  "/investment-strategies/page": "app/investment-strategies/page.js",
   "/dashboard/page": "app/dashboard/page.js",
-  "/page": "app/page.js",
+  "/metrics/page": "app/metrics/page.js",
   "/sell-simulation/page": "app/sell-simulation/page.js",
-  "/reset-password/page": "app/reset-password/page.js"
+  "/become-a-bitcoiner/page": "app/become-a-bitcoiner/page.js",
+  "/page": "app/page.js",
+  "/reset-password/page": "app/reset-password/page.js",
+  "/tribute/page": "app/tribute/page.js",
+  "/what-is-bitcoin/page": "app/what-is-bitcoin/page.js",
+  "/api/btc-price/route": "app/api/btc-price/route.js",
+  "/api/fear-greed/route": "app/api/fear-greed/route.js",
+  "/api/asset-quotes/route": "app/api/asset-quotes/route.js"
 }

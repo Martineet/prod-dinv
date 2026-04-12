@@ -1,57 +1,101 @@
 {
   "pages": {
     "/_not-found/page": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/chunks/app/_not-found/page-7b57af7c004eafad.js"
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/app/_not-found/page-d34f5300f970336c.js"
     ],
     "/layout": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/css/4ead82d31e44386e.css",
-      "static/chunks/53-3d978abaad1c1d34.js",
-      "static/chunks/app/layout-761a43d91ae0a06b.js"
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/css/a43971746a0e24e2.css",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/layout-ae7ce0e2cd453148.js"
+    ],
+    "/investment-strategies/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/investment-strategies/page-73860bbd7066416c.js"
     ],
     "/dashboard/page": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/chunks/53-3d978abaad1c1d34.js",
-      "static/chunks/865-0feaa8ff11eb3950.js",
-      "static/chunks/app/dashboard/page-99122324c15a0faa.js"
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/1865-b50eaa92cd057850.js",
+      "static/chunks/app/dashboard/page-42daf7ad73124d8d.js"
     ],
-    "/page": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/chunks/ca377847-2e2a748a6f6fd719.js",
-      "static/chunks/53-3d978abaad1c1d34.js",
-      "static/chunks/256-382d1208189f9cd9.js",
-      "static/chunks/app/page-a600c945b1d3d0a1.js"
+    "/metrics/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/metrics/page-f7a40498a569834c.js"
     ],
     "/sell-simulation/page": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/chunks/53-3d978abaad1c1d34.js",
-      "static/chunks/865-0feaa8ff11eb3950.js",
-      "static/chunks/app/sell-simulation/page-0ce151aa2886510f.js"
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/1865-b50eaa92cd057850.js",
+      "static/chunks/app/sell-simulation/page-d9bd3b3bcfa064ee.js"
+    ],
+    "/become-a-bitcoiner/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/become-a-bitcoiner/page-bf36f60abb712304.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/app/page-161461512584cbcb.js"
     ],
     "/reset-password/page": [
-      "static/chunks/webpack-a3c37fcbf859f6f9.js",
-      "static/chunks/fd9d1056-88c8a1669018f964.js",
-      "static/chunks/117-b00f2ec5b735bd69.js",
-      "static/chunks/main-app-7e0f79623a77e4fe.js",
-      "static/chunks/53-3d978abaad1c1d34.js",
-      "static/chunks/648-be42b8654e233dfc.js",
-      "static/chunks/app/reset-password/page-2578ed4122b0cff0.js"
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/7648-1a6788a5513efdff.js",
+      "static/chunks/app/reset-password/page-48b9fa7ab27169e9.js"
+    ],
+    "/tribute/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/tribute/page-20f2f42d32b8fed8.js"
+    ],
+    "/what-is-bitcoin/page": [
+      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/app/what-is-bitcoin/page-113f6ce3e82874eb.js"
     ]
   }
 }

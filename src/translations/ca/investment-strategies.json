@@ -7,46 +7,46 @@
   "guides_title": "Guies d'inversió",
   "guides_intro": "Uns principis senzills que t'estalviaran diners, ansietat i penediments. Llegeix-los abans de res.",
 
-  "guide_sleep_title": "Dorm-hi una nit",
-  "guide_sleep_text": "Si una inversió et treu la son o et genera ansietat, és massa per a tu ara mateix. Protegir la teva pau també és una estratègia.",
+  "guide_sleep_title": "Dormir a la nit",
+  "guide_sleep_text": "Si una inversió et treu la son o et genera ansietat, no és una bona inversió. Protegir la teva pau també és una estratègia.",
 
-  "guide_lose_title": "Només inverteix el que pots permetre't perdre",
-  "guide_lose_text": "Basa la teva inversió en les pèrdues potencials, no en els guanys. Mai inverteixis diners destinats al lloguer, el menjar o les factures.",
+  "guide_lose_title": "Inverteix només el que pots perdre",
+  "guide_lose_text": "Dimensiona la teva inversió en base a les possibles pèrdues, no en els guanys. Mai inverteixis diners destinats al lloguer, al menjar o a les factures.",
 
   "guide_vote_title": "Invertir és votar",
-  "guide_vote_text": "On poses els teus diners és una declaració. Inverteix en allò en què creus. Els diners invertits en guerra alimenten la guerra. Els diners invertits en energia neta alimenten l'energia neta.",
+  "guide_vote_text": "On poses els teus diners és on poses la teva energia. Inverteix en allò en què creus. Els diners invertits en guerra alimenten la guerra. Els diners invertits en energia renovable alimenten l'energia renovable.",
 
-  "guide_time_title": "El temps guanya al timing",
-  "guide_time_text": "Ningú sap els màxims ni els mínims. Inverteix regularment, espera amb paciència i deixa que els teus diners treballin per tu.",
+  "guide_time_title": "El temps dins el mercat marca la diferència",
+  "guide_time_text": "Ningú sap els màxims ni els mínims. Inverteix periòdicament, espera amb paciència i deixa que els teus diners treballin per tu.",
 
   "strat_a_title": "DCA · Dollar Cost Averaging",
   "strat_a_subtitle": "El millor amic del principiant",
   "strat_a_badge": "Recomanat",
-  "strat_a_body_1": "Tria un import mensual fix i assequible (p. ex. 50 €). Compra bitcoin cada mes, el mateix dia, independentment del preu. Alguns mesos obtindràs més bitcoin, d'altres menys — s'equilibra amb el temps.",
-  "strat_a_body_2": "No cal conèixer el mercat. Només paciència i disciplina. Mantén durant 5+ anys.",
-  "strat_a_tip": "Sigues avorrit. Posa un recordatori, compra i segueix endavant. No miris el preu cada dia.",
+  "strat_a_body_1": "Tria un import mensual fix i assequible (p. ex. 50 €). Compra bitcoin cada mes, independentment del preu. Alguns mesos compraràs més bitcoins, d'altres menys.",
+  "strat_a_body_2": "No cal conèixer el mercat. Només paciència i disciplina. Mantén durant almenys un cicle complet (~4 anys).",
+  "strat_a_tip": "És avorrit. Posa un recordatori, compra i segueix endavant. No miris el preu.",
 
   "strat_b_title": "DCA Ponderat · DCA v2",
-  "strat_b_subtitle": "Mateixa idea, execució més intel·ligent",
+  "strat_b_subtitle": "La mateixa idea, però amb una execució més intel·ligent",
   "strat_b_badge": "Intermedi",
-  "strat_b_body_1": "Igual que el DCA però adapta l'import mensual segons les condicions del mercat. Estableix un rang (p. ex. 0 €–100 €/mes). Quan el bitcoin sembla barat — per senyals com RSI per sota de 30, por al mercat o poques adreces en positiu — inverteix més. Quan el bitcoin bat rècords, inverteix menys.",
-  "strat_b_body_2": "En caigudes profundes, augmenta temporalment usant fons d'inversió addicionals, mai d'emergència. No apuntis al fons exacte.",
-  "strat_b_metrics_link": "pàgina de mètriques",
-  "strat_b_tip": "No estàs intentant encertar el mercat, simplement ets intel·ligent sobre quant hi poses.",
+  "strat_b_body_1": "Igual que el DCA però adapta l'import mensual segons les condicions del mercat. Estableix un rang (p. ex. 0 €–100 €/mes). Quan bitcoin estigui barat [per senyals com RSI <30, por en el mercat o poques adreces en positiu; inverteix més. Quan el bitcoin faci rècords, inverteix menys.",
+  "strat_b_body_2": "En caigudes fortes, augmenta temporalment la teva inversió utilitzant diners addicionals, però mai els d'emergència. No apuntis al mínim absolut.",
+  "strat_b_metrics_link": "Mètriques",
+  "strat_b_tip": "No estàs intentant encertar el mercat, simplement intentes optimitzar la teva inversió.",
 
   "strat_c_title": "Lump-Sum · Tot a les mínimes",
-  "strat_c_subtitle": "Alt risc, alta recompensa — no per a principiants",
+  "strat_c_subtitle": "Alt risc, alta recompensa — no apte per a principiants",
   "strat_c_badge": "Avançat",
-  "strat_c_body_1": "Espera una caiguda important i aleshores inverteix una gran quantitat d'un cop. Fantàstic en teoria, molt difícil emocionalment en la pràctica. Requereix conèixer almenys un cicle complet de bitcoin (~4 anys).",
-  "strat_c_body_2": "Sense experiència, és fàcil comprar massa aviat, vendre en pànic o perdre la finestra. Això s'acosta més al trading que a la inversió — busca cursos especialitzats fora d'aquesta pàgina si vols aprendre'l.",
+  "strat_c_body_1": "Espera una caiguda important i aleshores inverteix una gran quantitat d'un cop. Fantàstic en teoria, molt difícil emocionalment en la pràctica. Requereix conèixer almenys un cicle complet de Bitcoin (~4 anys).",
+  "strat_c_body_2": "Sense experiència, és fàcil comprar massa aviat, vendre en pànic o perdre la oportunitat. Això s'acosta més al trading que a la inversió — busca cursos especialitzats fora d'aquesta pàgina si vols aprendre'n.",
   "strat_c_tip": "La majoria de la gent és millor amb DCA. El lump-sum sembla genial a posteriori, però és brutal en temps real.",
 
   "strat_d_title": "Or · El refugi segur clàssic",
   "strat_d_subtitle": "Per als qui prefereixen estabilitat a volatilitat",
   "strat_d_badge": "Alternativa",
-  "strat_d_body_1": "Si el bitcoin et sembla massa volàtil, és vàlid — però no fer res tampoc és segur. La inflació erosiona silenciosament els teus estalvis cada any. L'or ha estat una reserva de valor fiable durant milers d'anys.",
-  "strat_d_body_2": "Compra or físic com a cobertura. Per saber com invertir en or, busca plataformes especialitzades.",
-  "strat_d_tip": "Dit això — mantén almenys una mica de bitcoin. Ja saps per què 😉",
+  "strat_d_body_1": "Si el Bitcoin et sembla massa volàtil, no passa res, però no fer res tampoc és segur. La inflació es menja silenciosament els teus estalvis cada any. L'or ha estat una reserva de valor fiable durant milers d'anys.",
+  "strat_d_body_2": "Compra or físic com a mesura de protecció. Per saber com invertir en or, busca plataformes especialitzades.",
+  "strat_d_tip": "Dit això, ves comprant almenys una mica de bitcoin. Ja saps per què 😉",
 
-  "metrics_link_text": "pàgina de mètriques"
+  "metrics_link_text": "Mètriques"
 }

@@ -7,46 +7,46 @@
   "guides_title": "Guías de inversión",
   "guides_intro": "Unos principios sencillos que te ahorrarán dinero, ansiedad y arrepentimientos. Léelos antes que nada.",
 
-  "guide_sleep_title": "Duérmelo",
-  "guide_sleep_text": "Si una inversión no te deja dormir o te genera ansiedad, es demasiado para ti ahora mismo. Proteger tu paz también es una estrategia.",
+  "guide_sleep_title": "Duerme por las noches",
+  "guide_sleep_text": "Si una inversión no te deja dormir o te genera ansiedad, no es una buena inversión. Proteger tu paz también es una estrategia.",
 
-  "guide_lose_title": "Solo invierte lo que puedes permitirte perder",
-  "guide_lose_text": "Basa tu inversión en las pérdidas potenciales, no en las ganancias. Nunca inviertas dinero destinado al alquiler, la comida o las facturas.",
+  "guide_lose_title": "Invierte sololo que puedes perder",
+  "guide_lose_text": "Dimensiona tu inversión en base a las posibles pérdidas, no en las ganancias. Nunca inviertas dinero destinado al alquiler, a la comida o a las facturas.",
 
   "guide_vote_title": "Invertir es votar",
-  "guide_vote_text": "Donde pones tu dinero es una declaración. Invierte en lo que crees. El dinero invertido en guerra alimenta la guerra. El dinero invertido en energía limpia alimenta la energía limpia.",
+  "guide_vote_text": "Donde pones tu dinero es donde pones tu energía. Invierte en lo que crees. El dinero invertido en guerra alimenta la guerra. El dinero invertido en energía renovable alimenta la energía renovable.",
 
-  "guide_time_title": "El tiempo gana al timing",
-  "guide_time_text": "Nadie sabe los máximos ni los mínimos. Invierte regularmente, espera con paciencia y deja que tu dinero trabaje para ti.",
+  "guide_time_title": "El tiempo en el mercado marca la diferencia",
+  "guide_time_text": "Nadie sabe los máximos ni los mínimos. Invierte periódicamente, espera con paciencia y deja que tu dinero trabaje para ti.",
 
   "strat_a_title": "DCA · Dollar Cost Averaging",
   "strat_a_subtitle": "El mejor amigo del principiante",
   "strat_a_badge": "Recomendado",
-  "strat_a_body_1": "Elige un importe mensual fijo y asequible (p. ej. 50 €). Compra bitcoin cada mes, el mismo día, independientemente del precio. Algunos meses obtendrás más bitcoin, otros menos — se equilibra con el tiempo.",
-  "strat_a_body_2": "No hace falta conocer el mercado. Solo paciencia y disciplina. Mantén durante 5+ años.",
-  "strat_a_tip": "Sé aburrido. Pon un recordatorio, compra y sigue adelante. No mires el precio cada día.",
+  "strat_a_body_1": "Elige un importe mensual fijo y asequible (p. ej. 50 €). Compra bitcoin cada mes, independentemente del precio. Algunos meses comprarás más bitcoins, otros menos.",
+  "strat_a_body_2": "No hace falta conocer el mercado. Solo paciencia y disciplina. Mantén durante al menos un ciclo completo (~4 años).",
+  "strat_a_tip": "Es aburrido. Pon un recordatorio, compra y sigue adelante. No mires el precio.",
 
   "strat_b_title": "DCA Ponderado · DCA v2",
   "strat_b_subtitle": "La misma idea, ejecución más inteligente",
   "strat_b_badge": "Intermedio",
-  "strat_b_body_1": "Igual que el DCA pero adapta el importe mensual según las condiciones del mercado. Establece un rango (p. ej. 0 €–100 €/mes). Cuando el bitcoin parece barato — por señales como RSI por debajo de 30, miedo en el mercado o pocas direcciones en positivo — invierte más. Cuando el bitcoin bate récords, invierte menos.",
-  "strat_b_body_2": "En caídas profundas, aumenta temporalmente usando fondos de inversión adicionales, nunca de emergencia. No apuntes al fondo exacto.",
-  "strat_b_metrics_link": "página de métricas",
-  "strat_b_tip": "No estás intentando acertar el mercado, simplemente eres inteligente sobre cuánto pones.",
+  "strat_b_body_1": "Igual que el DCA pero adapta el importe mensual según las condiciones del mercado. Establece un rango (p. ej. 0 €–100 €/mes). Cuando bitcoin parece barato [por señales como un RSI <30, miedo en el mercado o pocas direcciones en positivo] invierte más. Cuando bitcoin bate récords, invierte menos.",
+  "strat_b_body_2": "En caídas fuertes, aumenta temporalmente tu inversión utilitzando fondos adicionales, pero nunca los de emergencia. No apuntes al mínimo absoluto.",
+  "strat_b_metrics_link": "Métricas",
+  "strat_b_tip": "No estás intentando acertar el mercado, simplemente estás intentando optimizar tu estrategia.",
 
   "strat_c_title": "Lump-Sum · Todo en los mínimos",
-  "strat_c_subtitle": "Alto riesgo, alta recompensa — no para principiantes",
+  "strat_c_subtitle": "Alto riesgo, alta recompensa — no apto para principiantes",
   "strat_c_badge": "Avanzado",
-  "strat_c_body_1": "Espera una caída importante y luego invierte una gran cantidad de golpe. Fantástico en teoría, muy difícil emocionalmente en la práctica. Requiere conocer al menos un ciclo completo de bitcoin (~4 años).",
-  "strat_c_body_2": "Sin experiencia, es fácil comprar demasiado pronto, vender en pánico o perder la ventana. Esto se acerca más al trading que a la inversión — busca cursos especializados fuera de esta página si quieres aprenderlo.",
+  "strat_c_body_1": "Espera una caída importante y luego invierte una gran cantidad de golpe. Fantástico en teoría, muy difícil emocionalmente en la práctica. Requiere conocer al menos un ciclo completo de Bitcoin (~4 años).",
+  "strat_c_body_2": "Sin experiencia, es fácil comprar demasiado pronto, vender en pánico o perder la oportunidad. Esto se acerca más al trading que a la inversión — busca cursos especializados fuera de esta página si quieres aprender.",
   "strat_c_tip": "La mayoría de la gente está mejor con DCA. El lump-sum suena genial a posteriori, pero es brutal en tiempo real.",
 
   "strat_d_title": "Oro · El refugio seguro clásico",
   "strat_d_subtitle": "Para quienes prefieren estabilidad a volatilidad",
   "strat_d_badge": "Alternativa",
-  "strat_d_body_1": "Si el bitcoin te parece demasiado volátil, es válido — pero no hacer nada tampoco es seguro. La inflación erosiona silenciosamente tus ahorros cada año. El oro ha sido una reserva de valor fiable durante miles de años.",
-  "strat_d_body_2": "Compra oro físico como cobertura. Para saber cómo invertir en oro, busca plataformas especializadas.",
-  "strat_d_tip": "Dicho esto — mantén al menos un poco de bitcoin. Ya sabes por qué 😉",
+  "strat_d_body_1": "Si el Bitcoin te parece demasiado volátil, es válido, pero no hacer nada tampoco es seguro. La inflación se come silenciosamente tus ahorros cada año. El oro ha sido una reserva de valor fiable durante miles de años.",
+  "strat_d_body_2": "Compra oro físico como medida de protección. Para saber cómo invertir en oro, busca plataformas especializadas.",
+  "strat_d_tip": "Dicho esto, sigue comprando al menos un poco de bitcoin. Ya tu sabes 😉",
 
-  "metrics_link_text": "página de métricas"
+  "metrics_link_text": "Métricas"
 }
