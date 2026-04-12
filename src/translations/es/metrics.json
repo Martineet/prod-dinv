@@ -6,5 +6,5 @@
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Compara la capitalización de mercado de Bitcoin con su valor realizado. Valores positivos altos indican que el mercado está sobrecalentado; los valores negativos marcan zonas de acumulación históricamente fuertes.",
   "addresses_title": "Direcciones en Ganancias",
-  "addresses_description": "Porcentaje de direcciones BTC que actualmente mantienen con ganancias. Cerca del 100% ha marcado históricamente los máximos del ciclo; lecturas por debajo del 50% señalan mercados bajistas profundos y fuertes oportunidades de acumulación."
+  "addresses_description": "Porcentaje de direcciones BTC que actualmente mantienen con ganancias. Lecturas por debajo del 50% señalan mercados bajistas profundos y fuertes oportunidades de acumulación."
 }

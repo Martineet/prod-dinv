@@ -3,6 +3,7 @@
 import { useDcaCalculator } from '@/hooks/useDcaCalculator';
 import { AssetKind } from '@/lib/types';
 import { formatMoneyRounded } from '@/lib/format';
+import { useT } from '@/hooks/useT';
 
 type DcaCalculatorSectionProps = {
   btcPrice: number;
@@ -12,14 +13,8 @@ const EUR = '\u20AC';
 const DIAMOND = '\u{1F48E}';
 const HANDS = '\u{1F932}';
 
-function assetLabel(asset: AssetKind): string {
-  if (asset === 'gold') return 'Gold';
-  if (asset === 'sp500') return 'SP500';
-  if (asset === 'ibex35') return 'Ibex35';
-  return 'Bitcoin';
-}
-
 export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
+  const t = useT('landing');
   const {
     monthlyEur,
     startDate,
@@ -40,13 +35,17 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
   const cmpSign = result && result.compare.profitLoss >= 0 ? '+' : '';
   const cmpClass = result && result.compare.profitLoss >= 0 ? 'positive' : 'negative';
 
+  const cmpValue     = t(`dca_${compareAsset}_value`);
+  const cmpProfit    = t(`dca_${compareAsset}_profit`);
+  const cmpReference = t(`dca_${compareAsset}_reference`);
+
   return (
     <div className="calculator-panel">
-      <h2 className="section-title large">{`${DIAMOND} Bitcoin DCA Calculator ${HANDS}`}</h2>
+      <h2 className="section-title large">{`${DIAMOND} `}{t('dca_title')}{` ${HANDS}`}</h2>
       <div className="calculator-card">
         <div className="calc-grid">
           <div className="calc-row">
-            <label>Monthly Investment ({EUR})</label>
+            <label>{t('dca_monthly_investment')}</label>
             <input
               type="number"
               min={0}
@@ -57,7 +56,7 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
             />
           </div>
           <div className="calc-row">
-            <label>Start Date</label>
+            <label>{t('dca_start_date')}</label>
             <input
               type="date"
               min="2013-05-01"
@@ -67,7 +66,7 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
             />
           </div>
           <div className="calc-row">
-            <label>End Date (optional)</label>
+            <label>{t('dca_end_date')}</label>
             <input
               type="date"
               min={startDate || '2013-05-01'}
@@ -77,14 +76,14 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
             />
           </div>
           <div className="calc-row">
-            <label>Compare With</label>
+            <label>{t('dca_compare_with')}</label>
             <select
               value={compareAsset}
               onChange={(event) => setCompareAsset(event.target.value as AssetKind)}
             >
-              <option value="gold">Gold</option>
-              <option value="sp500">SP500</option>
-              <option value="ibex35">Ibex35</option>
+              <option value="gold">{t('dca_option_gold')}</option>
+              <option value="sp500">{t('dca_option_sp500')}</option>
+              <option value="ibex35">{t('dca_option_ibex35')}</option>
             </select>
           </div>
         </div>
@@ -92,7 +91,7 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
         <div className="calc-result">
           <div className="dca-row dca-row-eur">
             <div className="dca-inline-line">
-              <span className="result-label dca-inline-label">Euros invested</span>
+              <span className="result-label dca-inline-label">{t('dca_euros_invested')}</span>
               <span className="result-value result-value-normal dca-inline-value">
                 {result ? `${formatMoneyRounded(result.investedEur)} ${EUR}` : `-- ${EUR}`}
               </span>
@@ -101,13 +100,13 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
 
           <div className="dca-row dca-row-strong">
             <div className="dca-row-item">
-              <div className="result-label">Bitcoin value</div>
+              <div className="result-label">{t('dca_bitcoin_value')}</div>
               <div className="result-value">
                 {result ? `${formatMoneyRounded(result.bitcoin.eurosValue)} ${EUR}` : `-- ${EUR}`}
               </div>
             </div>
             <div className="dca-row-item">
-              <div className={`result-label ${result ? btcClass : ''}`}>Bitcoin Profit/Loss</div>
+              <div className={`result-label ${result ? btcClass : ''}`}>{t('dca_bitcoin_profit')}</div>
               <div className={`result-value ${result ? btcClass : ''}`}>
                 {result ? `${btcSign}${formatMoneyRounded(result.bitcoin.profitLoss)} ${EUR}` : `-- ${EUR}`}
               </div>
@@ -116,15 +115,13 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
 
           <div className="dca-row">
             <div className="dca-row-item">
-              <div className="result-label">{assetLabel(compareAsset)} value</div>
+              <div className="result-label">{cmpValue}</div>
               <div className="result-value result-value-normal">
                 {result ? `${formatMoneyRounded(result.compare.eurosValue)} ${EUR}` : `-- ${EUR}`}
               </div>
             </div>
             <div className="dca-row-item">
-              <div className={`result-label ${result ? cmpClass : ''}`}>
-                {assetLabel(compareAsset)} Profit/Loss
-              </div>
+              <div className={`result-label ${result ? cmpClass : ''}`}>{cmpProfit}</div>
               <div className={`result-value result-value-normal ${result ? cmpClass : ''}`}>
                 {result ? `${cmpSign}${formatMoneyRounded(result.compare.profitLoss)} ${EUR}` : `-- ${EUR}`}
               </div>
@@ -133,13 +130,11 @@ export function DcaCalculatorSection({ btcPrice }: DcaCalculatorSectionProps) {
 
           <div className="result-label">
             {result
-              ? `${assetLabel(compareAsset)} reference price: ${formatMoneyRounded(
-                  result.compareFinalPrice
-                )} ${EUR} ${result.usingLiveFinalPrice ? '(live)' : '(stored monthly)'}`
-              : `${assetLabel(compareAsset)} reference price: -- ${EUR}`}
+              ? `${cmpReference}: ${formatMoneyRounded(result.compareFinalPrice)} ${EUR} ${result.usingLiveFinalPrice ? '(live)' : '(stored monthly)'}`
+              : `${cmpReference}: -- ${EUR}`}
           </div>
 
-          {loading && <div className="loading">Calculating DCA...</div>}
+          {loading && <div className="loading">{t('dca_calculating')}</div>}
           {error && <div className="error centered-text">{error}</div>}
         </div>
       </div>

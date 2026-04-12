@@ -6,5 +6,5 @@
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Compares Bitcoin's market cap to its realised value. High positive values signal the market is overheated; negative values mark strong accumulation zones historically.",
   "addresses_title": "Addresses in Profit",
-  "addresses_description": "Percentage of BTC addresses currently holding at a profit. Near 100% has historically marked cycle tops; readings below 50% signal deep bear markets and strong accumulation opportunities."
+  "addresses_description": "Percentage of BTC addresses currently holding at a profit. Readings below 50% signal deep bear markets and strong accumulation opportunities."
 }

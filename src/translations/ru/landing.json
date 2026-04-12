@@ -24,5 +24,15 @@
   "dca_bitcoin_profit": "Прибыль/убыток по биткоину",
   "dca_gold_value": "Стоимость золота",
   "dca_gold_profit": "Прибыль/убыток по золоту",
-  "dca_gold_reference": "Референсная цена золота"
+  "dca_gold_reference": "Референсная цена золота",
+  "dca_sp500_value": "Стоимость SP500",
+  "dca_sp500_profit": "Прибыль/убыток по SP500",
+  "dca_sp500_reference": "Референсная цена SP500",
+  "dca_ibex35_value": "Стоимость Ibex35",
+  "dca_ibex35_profit": "Прибыль/убыток по Ibex35",
+  "dca_ibex35_reference": "Референсная цена Ibex35",
+  "dca_option_gold": "Золото",
+  "dca_option_sp500": "SP500",
+  "dca_option_ibex35": "Ibex35",
+  "dca_calculating": "Расчёт DCA..."
 }

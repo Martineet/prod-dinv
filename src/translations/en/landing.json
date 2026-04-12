@@ -24,5 +24,15 @@
   "dca_bitcoin_profit": "Bitcoin Profit/Loss",
   "dca_gold_value": "Gold value",
   "dca_gold_profit": "Gold Profit/Loss",
-  "dca_gold_reference": "Gold reference price"
+  "dca_gold_reference": "Gold reference price",
+  "dca_sp500_value": "SP500 value",
+  "dca_sp500_profit": "SP500 Profit/Loss",
+  "dca_sp500_reference": "SP500 reference price",
+  "dca_ibex35_value": "Ibex35 value",
+  "dca_ibex35_profit": "Ibex35 Profit/Loss",
+  "dca_ibex35_reference": "Ibex35 reference price",
+  "dca_option_gold": "Gold",
+  "dca_option_sp500": "SP500",
+  "dca_option_ibex35": "Ibex35",
+  "dca_calculating": "Calculating DCA..."
 }

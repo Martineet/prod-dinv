@@ -6,5 +6,5 @@
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "比较比特币市值与其已实现价值。高正值表明市场过热；负值在历史上标志着强劲的积累区域。",
   "addresses_title": "盈利地址比例",
-  "addresses_description": "当前持仓盈利的 BTC 地址占比。接近 100% 历史上标志着周期顶部；低于 50% 则表明深度熊市和强劲的积累机会。"
+  "addresses_description": "当前持仓盈利的 BTC 地址占比。低于 50% 则表明深度熊市和强劲的积累机会。"
 }

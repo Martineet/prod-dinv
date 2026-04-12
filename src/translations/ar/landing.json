@@ -24,5 +24,15 @@
   "dca_bitcoin_profit": "ربح/خسارة البيتكوين",
   "dca_gold_value": "قيمة الذهب",
   "dca_gold_profit": "ربح/خسارة الذهب",
-  "dca_gold_reference": "سعر الذهب المرجعي"
+  "dca_gold_reference": "سعر الذهب المرجعي",
+  "dca_sp500_value": "قيمة SP500",
+  "dca_sp500_profit": "ربح/خسارة SP500",
+  "dca_sp500_reference": "سعر SP500 المرجعي",
+  "dca_ibex35_value": "قيمة Ibex35",
+  "dca_ibex35_profit": "ربح/خسارة Ibex35",
+  "dca_ibex35_reference": "سعر Ibex35 المرجعي",
+  "dca_option_gold": "ذهب",
+  "dca_option_sp500": "SP500",
+  "dca_option_ibex35": "Ibex35",
+  "dca_calculating": "جارٍ حساب DCA..."
 }
