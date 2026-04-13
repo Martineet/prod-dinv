@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useT } from '@/hooks/useT';
 
 type SettingsMenuProps = {
   onSettings: () => void;
@@ -14,6 +15,7 @@ const KEY_ICON = '\u{1F511}';
 const DOOR_ICON = '\u{1F6AA}';
 
 export function SettingsMenu({ onSettings, onChangePassword, onLogout }: SettingsMenuProps) {
+  const t = useT('common');
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,8 +36,8 @@ export function SettingsMenu({ onSettings, onChangePassword, onLogout }: Setting
       <button
         type="button"
         className="settings-btn"
-        title="Settings"
-        aria-label="Settings"
+        title={t('menu_settings')}
+        aria-label={t('menu_settings')}
         onClick={() => setOpen((prev) => !prev)}
       >
         {GEAR_ICON}
@@ -49,7 +51,7 @@ export function SettingsMenu({ onSettings, onChangePassword, onLogout }: Setting
             onSettings();
           }}
         >
-          {`${SETTINGS_ICON} Settings`}
+          {`${SETTINGS_ICON} ${t('menu_settings')}`}
         </button>
         <button
           type="button"
@@ -59,7 +61,7 @@ export function SettingsMenu({ onSettings, onChangePassword, onLogout }: Setting
             onChangePassword();
           }}
         >
-          {`${KEY_ICON} Change Password`}
+          {`${KEY_ICON} ${t('menu_change_password')}`}
         </button>
         <div className="settings-divider" />
         <button
@@ -70,7 +72,7 @@ export function SettingsMenu({ onSettings, onChangePassword, onLogout }: Setting
             onLogout();
           }}
         >
-          {`${DOOR_ICON} Logout`}
+          {`${DOOR_ICON} ${t('menu_logout')}`}
         </button>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useT } from '@/hooks/useT';
 
 type ChangePasswordModalProps = {
   isOpen: boolean;
@@ -11,6 +12,7 @@ type ChangePasswordModalProps = {
 
 export function ChangePasswordModal({ isOpen, onClose }: ChangePasswordModalProps) {
   const { changePassword } = useAuth();
+  const t = useT('common');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,17 +39,17 @@ export function ChangePasswordModal({ isOpen, onClose }: ChangePasswordModalProp
     setSuccess('');
 
     if (newPassword.length < 6) {
-      setError('Password must be at least 6 characters.');
+      setError(t('error_pw_min_6'));
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError(t('error_passwords_no_match'));
       return;
     }
 
     if (!currentPassword) {
-      setError('Please enter your current password.');
+      setError(t('error_enter_current_pw'));
       return;
     }
 
@@ -55,9 +57,9 @@ export function ChangePasswordModal({ isOpen, onClose }: ChangePasswordModalProp
 
     try {
       await changePassword(currentPassword, newPassword);
-      setSuccess('Password updated. Logging out...');
+      setSuccess(t('info_pw_updated_logging_out'));
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to update password.');
+      setError(err instanceof Error ? err.message : t('error_unable_update_pw'));
       setLoading(false);
     }
   };
@@ -67,37 +69,37 @@ export function ChangePasswordModal({ isOpen, onClose }: ChangePasswordModalProp
   return createPortal(
     <div className="modal-overlay open" onClick={(event) => event.currentTarget === event.target && handleClose()}>
       <div className="modal">
-        <h3>Change Password</h3>
+        <h3>{t('change_pw_title')}</h3>
         <div className="form-group">
-          <label htmlFor="currentPassword">Current password</label>
+          <label htmlFor="currentPassword">{t('label_current_pw')}</label>
           <input
             type="password"
             id="currentPassword"
             value={currentPassword}
             onChange={(event) => setCurrentPassword(event.target.value)}
-            placeholder="Enter current password"
+            placeholder={t('placeholder_enter_current_pw')}
             autoComplete="current-password"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="newPassword">New password</label>
+          <label htmlFor="newPassword">{t('label_new_pw')}</label>
           <input
             type="password"
             id="newPassword"
             value={newPassword}
             onChange={(event) => setNewPassword(event.target.value)}
-            placeholder="At least 6 characters"
+            placeholder={t('placeholder_min_6_chars')}
             autoComplete="new-password"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm new password</label>
+          <label htmlFor="confirmPassword">{t('label_confirm_new_pw')}</label>
           <input
             type="password"
             id="confirmPassword"
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
-            placeholder="Repeat password"
+            placeholder={t('placeholder_repeat_pw')}
             autoComplete="new-password"
           />
         </div>
@@ -105,10 +107,10 @@ export function ChangePasswordModal({ isOpen, onClose }: ChangePasswordModalProp
         {success ? <div className="info-msg">{success}</div> : null}
         <div className="modal-actions">
           <button type="button" className="btn-secondary" onClick={handleClose} disabled={loading}>
-            Cancel
+            {t('btn_cancel')}
           </button>
           <button type="button" onClick={handleSave} disabled={loading}>
-            {loading ? 'Saving...' : 'Save'}
+            {loading ? t('btn_saving') : t('btn_save')}
           </button>
         </div>
       </div>

@@ -2,11 +2,13 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import { useT } from '@/hooks/useT';
 
 const LOCK_ICON = '\u{1F510}';
 
 export function LoginForm() {
   const { signIn, signUp, requestPasswordReset } = useAuth();
+  const t = useT('common');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -25,10 +27,10 @@ export function LoginForm() {
   useEffect(() => {
     const changed = sessionStorage.getItem('pw_changed');
     if (changed) {
-      setInfo('Password updated. Please log in again.');
+      setInfo(t('info_pw_changed_login'));
       sessionStorage.removeItem('pw_changed');
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (!resetEmail && email) {
@@ -45,13 +47,13 @@ export function LoginForm() {
     if (isSignup) {
       const trimmedEmail = email.trim();
       if (!trimmedEmail) {
-        setError('Email is required.');
+        setError(t('error_email_required'));
         setLoading(false);
         return;
       }
 
       if (password !== confirmPassword) {
-        setError('Passwords do not match.');
+        setError(t('error_passwords_no_match'));
         setLoading(false);
         return;
       }
@@ -69,11 +71,11 @@ export function LoginForm() {
       }
 
       if (profileError) {
-        setInfo('Account created, but your profile is pending. Please log in after confirmation.');
+        setInfo(t('info_account_pending'));
       } else if (requiresEmailConfirmation) {
-        setInfo('Account created. An email has been sent to confirm your account.');
+        setInfo(t('info_account_email_sent'));
       } else {
-        setInfo('Account created. You can log in now.');
+        setInfo(t('info_account_created'));
       }
 
       setIsSignup(false);
@@ -103,7 +105,7 @@ export function LoginForm() {
 
     const trimmedEmail = resetEmail.trim();
     if (!trimmedEmail) {
-      setResetError('Email is required.');
+      setResetError(t('error_email_required'));
       return;
     }
 
@@ -116,28 +118,28 @@ export function LoginForm() {
       return;
     }
 
-    setResetInfo('Recovery email sent. Check your inbox to reset your password.');
+    setResetInfo(t('info_recovery_sent'));
   };
 
   return (
     <div className="login-form-wrapper">
-      <h2 className="section-title">{`${LOCK_ICON} ${isSignup ? 'Create Account' : 'Member Login'}`}</h2>
+      <h2 className="section-title">{`${LOCK_ICON} ${isSignup ? t('signup_title') : t('login_title')}`}</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         {isSignup ? (
           <div className="form-group">
-            <label htmlFor="displayName">Display name</label>
+            <label htmlFor="displayName">{t('label_display_name')}</label>
             <input
               type="text"
               id="displayName"
               value={displayName}
               onChange={(event) => setDisplayName(event.target.value)}
-              placeholder="Your name"
+              placeholder={t('placeholder_display_name')}
               autoComplete="name"
             />
           </div>
         ) : null}
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t('label_email')}</label>
           <input
             type="email"
             id="email"
@@ -149,33 +151,33 @@ export function LoginForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">{t('label_password')}</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
-            placeholder={isSignup ? 'Create a password' : 'Enter your password'}
+            placeholder={isSignup ? t('placeholder_password_create') : t('placeholder_password_enter')}
             autoComplete={isSignup ? 'new-password' : 'current-password'}
           />
         </div>
         {isSignup ? (
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm password</label>
+            <label htmlFor="confirmPassword">{t('label_confirm_password')}</label>
             <input
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
               required
-              placeholder="Re-enter your password"
+              placeholder={t('placeholder_reenter_password')}
               autoComplete="new-password"
             />
           </div>
         ) : null}
         <button type="submit" disabled={loading}>
-          {loading ? (isSignup ? 'Creating account...' : 'Logging in...') : isSignup ? 'Create account' : 'Login'}
+          {loading ? (isSignup ? t('btn_creating_account') : t('btn_logging_in')) : isSignup ? t('btn_create_account') : t('btn_login')}
         </button>
         <button
           type="button"
@@ -190,7 +192,7 @@ export function LoginForm() {
             setResetInfo('');
           }}
         >
-          {isSignup ? '\u2190 Back to login' : '\u2192 Sign up'}
+          {isSignup ? t('btn_back_to_login') : t('btn_sign_up')}
         </button>
         {error ? <div className="error">{error}</div> : null}
         {info ? <div className="info-msg">{info}</div> : null}
@@ -206,12 +208,12 @@ export function LoginForm() {
               setShowResetForm(true);
             }}
           >
-            Click here to reset your password
+            {t('btn_reset_password_link')}
           </button>
           {showResetForm ? (
             <form className="reset-form" onSubmit={handleResetRequest}>
               <div className="form-group">
-                <label htmlFor="resetEmail">Recovery email</label>
+                <label htmlFor="resetEmail">{t('label_recovery_email')}</label>
                 <input
                   type="email"
                   id="resetEmail"
@@ -222,7 +224,7 @@ export function LoginForm() {
                 />
               </div>
               <button type="submit" disabled={resetLoading}>
-                {resetLoading ? 'Sending email...' : 'Send recovery email'}
+                {resetLoading ? t('btn_sending_email') : t('btn_send_recovery')}
               </button>
               {resetError ? <div className="error">{resetError}</div> : null}
               {resetInfo ? <div className="info-msg">{resetInfo}</div> : null}

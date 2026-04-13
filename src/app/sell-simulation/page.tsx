@@ -7,6 +7,7 @@ import { Logos } from '@/components/Logos';
 import { useAuth } from '@/hooks/useAuth';
 import { useBtcPrice } from '@/hooks/useBtcPrice';
 import { useInvestments } from '@/hooks/useInvestments';
+import { useT } from '@/hooks/useT';
 import { calculatePortfolioTotals } from '@/lib/calculations';
 import { formatBtcFull, formatMoneyRounded } from '@/lib/format';
 import { createSellSimulationInvestment } from '@/services/investmentsService';
@@ -27,6 +28,8 @@ export default function SellSimulationPage() {
   const router = useRouter();
   const { session, user, loading } = useAuth();
   const { price } = useBtcPrice();
+  const t = useT('sell-simulation');
+  const tCommon = useT('common');
   const {
     member,
     portfolios,
@@ -72,17 +75,17 @@ export default function SellSimulationPage() {
     setResult(null);
 
     if (!selectedPortfolioId) {
-      setError('Select a portfolio first.');
+      setError(t('error_select_portfolio'));
       return;
     }
 
     if (!investments.length) {
-      setError('No transactions available for simulation.');
+      setError(t('error_no_transactions'));
       return;
     }
 
     if (!price || price <= 0) {
-      setError('Current BTC price is unavailable.');
+      setError(t('error_no_btc_price'));
       return;
     }
 
@@ -136,7 +139,7 @@ export default function SellSimulationPage() {
     });
 
     if (saveError) {
-      setError(saveError.message ?? 'Failed to save the transaction.');
+      setError(saveError.message ?? t('error_save_failed'));
       setSaving(false);
       return;
     }
@@ -159,26 +162,26 @@ export default function SellSimulationPage() {
     <div className="container simulation-shell">
       <div className="simulation-header">
         <div>
-          <h2>Sell Simulation (FUD)</h2>
-          <p className="muted">Simulate a FIFO sell before committing.</p>
+          <h2>{t('page_title')}</h2>
+          <p className="muted">{t('page_subtitle')}</p>
         </div>
         <div className="stat-tooltip simulation-tooltip">
-          <button type="button" className="info-icon" aria-label="Tax info">
+          <button type="button" className="info-icon" aria-label={t('tooltip_tax_label')}>
             i
           </button>
-          <div className="tooltip-bubble">Taxes can be edited in your profile settings.</div>
+          <div className="tooltip-bubble">{t('tooltip_tax')}</div>
         </div>
       </div>
 
       <section className="simulation-panel">
         <div className="simulation-panel-header">
-          <h3>Input</h3>
+          <h3>{t('section_input')}</h3>
         </div>
 
         <div className="simulation-grid">
           <div className="simulation-card">
             <div className="form-group">
-              <label htmlFor="simulation-portfolio">Portfolio</label>
+              <label htmlFor="simulation-portfolio">{t('label_portfolio')}</label>
               <select
                 id="simulation-portfolio"
                 value={selectedPortfolioId ?? ''}
@@ -195,13 +198,13 @@ export default function SellSimulationPage() {
 
             <div className="simulation-stats">
               <div className="simulation-stat">
-                <span className="simulation-stat-label">BTC hodled</span>
+                <span className="simulation-stat-label">{t('label_btc_hodled')}</span>
                 <span className="simulation-stat-value">
                   {totals ? `${formatBtcFull(totals.totalBTC)} BTC` : '--'}
                 </span>
               </div>
               <div className="simulation-stat">
-                <span className="simulation-stat-label">Portfolio value</span>
+                <span className="simulation-stat-label">{t('label_portfolio_value')}</span>
                 <span className="simulation-stat-value">
                   {totals ? `${formatMoneyRounded(portfolioValue)} ${EUR}` : `-- ${EUR}`}
                 </span>
@@ -230,7 +233,7 @@ export default function SellSimulationPage() {
             {mode === 'btc' ? (
               <>
                 <div className="form-group">
-                  <label htmlFor="btc-amount">BTC amount</label>
+                  <label htmlFor="btc-amount">{t('label_btc_amount')}</label>
                   <input
                     id="btc-amount"
                     type="number"
@@ -247,13 +250,13 @@ export default function SellSimulationPage() {
                     checked={allPortfolio}
                     onChange={(event) => setAllPortfolio(event.target.checked)}
                   />
-                  All my portfolio
+                  {t('label_all_portfolio')}
                 </label>
               </>
             ) : (
               <>
                 <div className="form-group">
-                  <label htmlFor="eur-amount">EUR amount</label>
+                  <label htmlFor="eur-amount">{t('label_eur_amount')}</label>
                   <input
                     id="eur-amount"
                     type="number"
@@ -269,7 +272,7 @@ export default function SellSimulationPage() {
                     checked={isPreTax}
                     onChange={(event) => setIsPreTax(event.target.checked)}
                   />
-                  Without taxes
+                  {t('label_without_taxes')}
                 </label>
               </>
             )}
@@ -278,62 +281,62 @@ export default function SellSimulationPage() {
 
         <div className="simulation-actions">
           <button type="button" onClick={() => router.push('/dashboard')}>
-            I have Diamond Hands
+            {t('btn_diamond_hands')}
           </button>
           <button type="button" className="btn-secondary" onClick={handleRunSimulation} disabled={!canRunSimulation}>
-            Run simulation
+            {t('btn_run_simulation')}
           </button>
         </div>
       </section>
 
       <section className="simulation-panel">
         <div className="simulation-panel-header">
-          <h3>Output</h3>
+          <h3>{t('section_output')}</h3>
         </div>
 
         {result ? (
           <div className="simulation-output-wrap">
             <div className="sim-box sim-box-btc">
-              <span className="sim-row-label">BTC SOLD:</span>
+              <span className="sim-row-label">{t('label_btc_sold')}</span>
               <span className="sim-row-value">{formatBtcFull(result.btc_sold)} BTC</span>
             </div>
 
             <div className="sim-boxes-row">
               <div className="sim-box">
                 <div className="sim-row">
-                  <span className="sim-row-label">EUR invested</span>
+                  <span className="sim-row-label">{t('label_eur_invested')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.buy_value)} {EUR}</span>
                 </div>
                 <div className="sim-row">
-                  <span className="sim-row-label">Average price</span>
+                  <span className="sim-row-label">{t('label_avg_price')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.avg_buy_price)} {EUR}</span>
                 </div>
               </div>
 
               <div className="sim-box">
                 <div className="sim-row">
-                  <span className="sim-row-label">EUR divested</span>
+                  <span className="sim-row-label">{t('label_eur_divested')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.eur_without_tax)} {EUR}</span>
                 </div>
                 <div className="sim-row">
-                  <span className="sim-row-label">Current price</span>
+                  <span className="sim-row-label">{t('label_current_price')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.current_price)} {EUR}</span>
                 </div>
               </div>
 
               <div className="sim-box">
                 <div className="sim-row">
-                  <span className="sim-row-label">EUR net</span>
+                  <span className="sim-row-label">{t('label_eur_net')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.eur_with_tax)} {EUR}</span>
                 </div>
                 <div className="sim-row">
-                  <span className="sim-row-label">Profit / Loss</span>
+                  <span className="sim-row-label">{t('label_profit_loss')}</span>
                   <span className={`sim-row-value ${result.profit_loss >= 0 ? 'positive' : 'negative'}`}>
                     {result.profit_loss >= 0 ? '+' : ''}{formatMoneyRounded(result.profit_loss)} {EUR}
                   </span>
                 </div>
                 <div className="sim-row">
-                  <span className="sim-row-label">Taxes</span>
+                  <span className="sim-row-label">{t('label_taxes')}</span>
                   <span className="sim-row-value">{formatMoneyRounded(result.tax_eur)} {EUR}</span>
                 </div>
               </div>
@@ -348,10 +351,10 @@ export default function SellSimulationPage() {
 
         <div className="simulation-actions">
           <button type="button" onClick={() => router.push('/dashboard')}>
-            I&apos;M HODLING {'<3'}
+            {t('btn_hodling')}
           </button>
           <button type="button" className="btn-secondary" onClick={handleConfirmSell} disabled={!result || saving}>
-            {saving ? 'Saving...' : 'Sorry Satoshi, I need the fake money'}
+            {saving ? tCommon('btn_saving') : t('btn_sorry_satoshi')}
           </button>
         </div>
       </section>

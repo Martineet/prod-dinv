@@ -10,10 +10,12 @@ import { StatsGrid } from '@/components/StatsGrid';
 import { useAuth } from '@/hooks/useAuth';
 import { useBtcPrice } from '@/hooks/useBtcPrice';
 import { useInvestments } from '@/hooks/useInvestments';
+import { useT } from '@/hooks/useT';
 import { buildInvestmentRows, calculatePortfolioTotals } from '@/lib/calculations';
 
 export default function DashboardPage() {
   const router = useRouter();
+  const t = useT('common');
   const { session, user, loading } = useAuth();
   const { price } = useBtcPrice();
   const {
@@ -78,7 +80,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="container">
-        <div className="loading">Loading...</div>
+        <div className="loading">{t('loading')}</div>
       </div>
     );
   }

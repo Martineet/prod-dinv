@@ -33,6 +33,7 @@ export const TRANSLATION_FILES = [
   'tribute',
   'dashboard',
   'settings',
+  'sell-simulation',
 ] as const;
 export type TranslationFile = (typeof TRANSLATION_FILES)[number];
 

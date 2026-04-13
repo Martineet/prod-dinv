@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { Investment, InvestmentFormInput, InvestmentRow, Portfolio } from '@/lib/types';
+import { useT } from '@/hooks/useT';
 
 type MutationState = {
   loading: boolean;
@@ -80,11 +81,6 @@ function isTransferType(value: string): boolean {
   return TRANSFER_TYPES.has(value);
 }
 
-function eurAmountLabel(value: string): string {
-  if (value === 'sell') return `Money divested (${EUR})`;
-  return `Money invested (${EUR})`;
-}
-
 function isValidDate(value: string): boolean {
   if (!value) return false;
   const timestamp = Date.parse(value);
@@ -96,7 +92,7 @@ function isValidDate(value: string): boolean {
   return `${yyyy}-${mm}-${dd}` === value;
 }
 
-function validateDraft(draft: InvestmentDraft): DraftErrors {
+function validateDraft(draft: InvestmentDraft, t: (key: string) => string): DraftErrors {
   const errors: DraftErrors = {};
   const amount = Number(draft.amount);
   const eurAmount = Number(draft.eurAmount);
@@ -104,37 +100,37 @@ function validateDraft(draft: InvestmentDraft): DraftErrors {
   const transfer = isTransferType(draft.asset);
 
   if (!draft.asset.trim()) {
-    errors.asset = 'Type is required';
+    errors.asset = t('error_type_required');
   }
 
   if (!draft.amount.trim()) {
-    errors.amount = 'Amount is required';
+    errors.amount = t('error_amount_required');
   } else if (!Number.isFinite(amount) || amount <= 0) {
-    errors.amount = 'Amount must be greater than 0';
+    errors.amount = t('error_amount_positive');
   }
 
   if (!transfer) {
     if (!draft.eurAmount.trim()) {
-      errors.eurAmount = 'EUR amount is required';
+      errors.eurAmount = t('error_eur_required');
     } else if (!Number.isFinite(eurAmount) || eurAmount <= 0) {
-      errors.eurAmount = 'EUR amount must be greater than 0';
+      errors.eurAmount = t('error_eur_positive');
     }
   }
 
   if (transfer) {
     if (draft.price.trim() && (!Number.isFinite(price) || price < 0)) {
-      errors.price = 'Price cannot be negative';
+      errors.price = t('error_price_negative');
     }
   } else if (!draft.price.trim()) {
-    errors.price = 'Price is required';
+    errors.price = t('error_price_required');
   } else if (!Number.isFinite(price) || price <= 0) {
-    errors.price = 'Price must be greater than 0';
+    errors.price = t('error_price_positive');
   }
 
   if (!draft.date.trim()) {
-    errors.date = 'Date is required';
+    errors.date = t('error_date_required');
   } else if (!isValidDate(draft.date)) {
-    errors.date = 'Date must be valid';
+    errors.date = t('error_date_invalid');
   }
 
   return errors;
@@ -194,6 +190,8 @@ export function InvestmentsTable({
   deletingInvestment
 }: InvestmentsTableProps) {
   const router = useRouter();
+  const t = useT('dashboard');
+  const tCommon = useT('common');
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
   const [transactionMode, setTransactionMode] = useState<'create' | 'edit'>('create');
   const [editingInvestmentId, setEditingInvestmentId] = useState<string | null>(null);
@@ -306,7 +304,7 @@ export function InvestmentsTable({
   };
 
   const handleTransactionSubmit = async () => {
-    const validationErrors = validateDraft(draft);
+    const validationErrors = validateDraft(draft, t);
     setDraftErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
@@ -339,7 +337,7 @@ export function InvestmentsTable({
 
   const handleDeleteFromModal = async () => {
     if (!editingInvestmentId || !selectedPortfolioId) return;
-    const confirmed = window.confirm('Are you sure you want to delete this transaction?');
+    const confirmed = window.confirm(t('confirm_delete_transaction'));
     if (!confirmed) return;
 
     const ok = await onDeleteInvestment(editingInvestmentId, selectedPortfolioId);
@@ -347,7 +345,7 @@ export function InvestmentsTable({
   };
 
   const handleDeleteFromRow = async (row: InvestmentRow) => {
-    const confirmed = window.confirm('Are you sure you want to delete this transaction?');
+    const confirmed = window.confirm(t('confirm_delete_transaction'));
     if (!confirmed) return;
     await onDeleteInvestment(row.id, row.portfolioId);
   };
@@ -371,7 +369,7 @@ export function InvestmentsTable({
   const handleDeletePortfolio = async () => {
     if (!managerPortfolioId) return;
     const targetName = selectedManagerPortfolio?.name ?? 'this portfolio';
-    const confirmed = window.confirm(`Are you sure you want to delete ${targetName}?`);
+    const confirmed = window.confirm(t('confirm_delete_portfolio').replace('{name}', targetName));
     if (!confirmed) return;
 
     const ok = await onDeletePortfolio(managerPortfolioId);
@@ -413,9 +411,18 @@ export function InvestmentsTable({
     };
   }, [isPortfolioSelectorOpen]);
 
+  const eurAmountLabel = (value: string): string => {
+    if (value === 'sell') return t('label_money_divested');
+    return t('label_money_invested');
+  };
+
+  const typeLabel = (type: string): string => {
+    return t(`type_${type.replace(/-/g, '_')}`);
+  };
+
   const renderTableBody = () => {
     if (loading) {
-      return <div className="loading">Loading your investments...</div>;
+      return <div className="loading">{t('loading_investments')}</div>;
     }
 
     if (error) {
@@ -423,11 +430,11 @@ export function InvestmentsTable({
     }
 
     if (!portfolios.length) {
-      return <p className="muted centered-text">No portfolios available</p>;
+      return <p className="muted centered-text">{t('no_portfolios')}</p>;
     }
 
     if (!rows.length) {
-      return <p className="muted centered-text">No investments yet.</p>;
+      return <p className="muted centered-text">{t('no_investments')}</p>;
     }
 
     return (
@@ -435,17 +442,17 @@ export function InvestmentsTable({
         <table>
           <thead>
             <tr>
-              <th className="col-date">Date</th>
-              <th className="col-type">Type</th>
-              <th className="col-btc">BTC Amount</th>
-              <th className="col-eur">€ Amount</th>
-              <th className="col-flow">Invested/Divested</th>
-              <th className="col-invested">Invested</th>
-              <th className="col-price">Price</th>
-              <th className="col-divested">Divested</th>
-              <th className="col-profit">Profit/Loss</th>
-              <th className="col-notes">Notes</th>
-              <th className="col-actions">Actions</th>
+              <th className="col-date">{t('col_date')}</th>
+              <th className="col-type">{t('col_type')}</th>
+              <th className="col-btc">{t('col_btc')}</th>
+              <th className="col-eur">{t('col_eur')}</th>
+              <th className="col-flow">{t('col_flow')}</th>
+              <th className="col-invested">{t('col_invested')}</th>
+              <th className="col-price">{t('col_price')}</th>
+              <th className="col-divested">{t('col_divested')}</th>
+              <th className="col-profit">{t('col_profit')}</th>
+              <th className="col-notes">{t('col_notes')}</th>
+              <th className="col-actions">{t('col_actions')}</th>
             </tr>
           </thead>
           <tbody>
@@ -454,7 +461,7 @@ export function InvestmentsTable({
               return (
                 <tr key={row.id} className="investment-row" onClick={() => openEditTransactionModal(row.id)}>
                   <td className="col-date">{row.date}</td>
-                  <td className="col-type">{row.type}</td>
+                  <td className="col-type">{typeLabel(row.type)}</td>
                   <td className="col-btc">{`${formatBtc(row.btcAmount)} BTC`}</td>
                   <td className="col-eur">
                     {row.invested > 0 ? formatMoneyOrHyphen(row.invested) : formatMoneyOrHyphen(row.divested)}
@@ -478,8 +485,8 @@ export function InvestmentsTable({
                           event.stopPropagation();
                           openEditTransactionModal(row.id);
                         }}
-                        title="Edit transaction"
-                        aria-label="Edit transaction"
+                        title={t('edit_transaction')}
+                        aria-label={t('edit_transaction')}
                       >
                         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
                           <path
@@ -496,8 +503,8 @@ export function InvestmentsTable({
                           handleDeleteFromRow(row);
                         }}
                         disabled={deletingInvestment.loading}
-                        title="Delete transaction"
-                        aria-label="Delete transaction"
+                        title={t('delete_transaction')}
+                        aria-label={t('delete_transaction')}
                       >
                         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
                           <path
@@ -585,7 +592,7 @@ export function InvestmentsTable({
               onClick={openCreateTransactionModal}
               disabled={!selectedPortfolioId}
             >
-              Add Transaction
+              {t('btn_add_transaction')}
             </button>
             <button
               type="button"
@@ -593,7 +600,7 @@ export function InvestmentsTable({
               onClick={openFudModal}
               disabled={!selectedPortfolioId}
             >
-              FUD
+              {t('btn_fud')}
             </button>
             <div className="portfolio-menu" ref={portfolioMenuRef}>
               <button
@@ -619,7 +626,7 @@ export function InvestmentsTable({
                     setExpandedPortfolioSection((previous) => (previous === 'rename' ? null : 'rename'))
                   }
                 >
-                  Rename portfolio
+                  {t('portfolio_rename')}
                 </button>
                 {expandedPortfolioSection === 'rename' ? (
                   <div className="portfolio-menu-panel">
@@ -627,7 +634,7 @@ export function InvestmentsTable({
                       id="rename-portfolio"
                       value={renamePortfolioName}
                       onChange={(event) => setRenamePortfolioName(event.target.value)}
-                      placeholder="New name"
+                      placeholder={t('placeholder_new_name')}
                       disabled={!selectedManagerPortfolio}
                     />
                     <div className="portfolio-menu-actions">
@@ -636,11 +643,11 @@ export function InvestmentsTable({
                         onClick={handleRenamePortfolio}
                         disabled={!selectedManagerPortfolio || renamingPortfolio.loading || creatingPortfolio.loading}
                       >
-                        {renamingPortfolio.loading ? 'Saving...' : 'Save'}
+                        {renamingPortfolio.loading ? tCommon('btn_saving') : tCommon('btn_save')}
                       </button>
                     </div>
                     {renamingPortfolio.error ? <p className="field-error">{renamingPortfolio.error}</p> : null}
-                    {renamingPortfolio.success ? <p className="info-msg">Portfolio renamed.</p> : null}
+                    {renamingPortfolio.success ? <p className="info-msg">{t('portfolio_renamed')}</p> : null}
                   </div>
                 ) : null}
                 <button
@@ -650,7 +657,7 @@ export function InvestmentsTable({
                     setExpandedPortfolioSection((previous) => (previous === 'create' ? null : 'create'))
                   }
                 >
-                  Create portfolio
+                  {t('portfolio_create')}
                 </button>
                 {expandedPortfolioSection === 'create' ? (
                   <div className="portfolio-menu-panel">
@@ -658,7 +665,7 @@ export function InvestmentsTable({
                       id="new-portfolio"
                       value={newPortfolioName}
                       onChange={(event) => setNewPortfolioName(event.target.value)}
-                      placeholder="Portfolio name"
+                      placeholder={t('placeholder_portfolio_name')}
                     />
                     <div className="portfolio-menu-actions">
                       <button
@@ -666,11 +673,11 @@ export function InvestmentsTable({
                         onClick={handleCreatePortfolio}
                         disabled={creatingPortfolio.loading || deletingPortfolio.loading || renamingPortfolio.loading}
                       >
-                        {creatingPortfolio.loading ? 'Saving...' : 'Save'}
+                        {creatingPortfolio.loading ? tCommon('btn_saving') : tCommon('btn_save')}
                       </button>
                     </div>
                     {creatingPortfolio.error ? <p className="field-error">{creatingPortfolio.error}</p> : null}
-                    {creatingPortfolio.success ? <p className="info-msg">Portfolio created.</p> : null}
+                    {creatingPortfolio.success ? <p className="info-msg">{t('portfolio_created')}</p> : null}
                   </div>
                 ) : null}
                 <button
@@ -679,7 +686,7 @@ export function InvestmentsTable({
                   onClick={handleDeletePortfolio}
                   disabled={!selectedManagerPortfolio || deletingPortfolio.loading}
                 >
-                  {deletingPortfolio.loading ? 'Deleting...' : 'Delete portfolio'}
+                  {deletingPortfolio.loading ? t('portfolio_deleting') : t('portfolio_delete')}
                 </button>
                 {deletingPortfolio.error ? <p className="field-error">{deletingPortfolio.error}</p> : null}
               </div>
@@ -693,9 +700,9 @@ export function InvestmentsTable({
       {isTransactionModalOpen ? (
         <div className="modal-overlay open" onClick={(event) => event.currentTarget === event.target && closeTransactionModal()}>
           <div className="modal">
-            <h3>{transactionMode === 'create' ? 'Create Transaction' : 'Edit Transaction'}</h3>
+            <h3>{transactionMode === 'create' ? t('create_transaction_title') : t('edit_transaction_title')}</h3>
             <div className="form-group">
-              <label htmlFor="asset">Type</label>
+              <label htmlFor="asset">{t('label_type')}</label>
               <select
                 id="asset"
                 value={draft.asset}
@@ -722,14 +729,14 @@ export function InvestmentsTable({
               >
                 {TRANSACTION_TYPES.map((transactionType) => (
                   <option key={transactionType} value={transactionType}>
-                    {transactionType}
+                    {typeLabel(transactionType)}
                   </option>
                 ))}
               </select>
               {draftErrors.asset ? <p className="field-error">{draftErrors.asset}</p> : null}
             </div>
             <div className="form-group">
-              <label htmlFor="amount">Amount (BTC)</label>
+              <label htmlFor="amount">{t('label_amount_btc')}</label>
               <input
                 id="amount"
                 type="number"
@@ -755,7 +762,7 @@ export function InvestmentsTable({
               </div>
             ) : null}
             <div className="form-group">
-              <label htmlFor="price">Price</label>
+              <label htmlFor="price">{t('label_price')}</label>
               <input
                 id="price"
                 type="number"
@@ -767,7 +774,7 @@ export function InvestmentsTable({
               {draftErrors.price ? <p className="field-error">{draftErrors.price}</p> : null}
             </div>
             <div className="form-group">
-              <label htmlFor="date">Date</label>
+              <label htmlFor="date">{t('label_date')}</label>
               <input
                 id="date"
                 type="date"
@@ -790,14 +797,14 @@ export function InvestmentsTable({
                 onClick={closeTransactionModal}
                 disabled={creatingInvestment.loading || updatingInvestment.loading || deletingInvestment.loading}
               >
-                Cancel
+                {tCommon('btn_cancel')}
               </button>
               <button
                 type="button"
                 onClick={handleTransactionSubmit}
                 disabled={creatingInvestment.loading || updatingInvestment.loading || deletingInvestment.loading}
               >
-                {creatingInvestment.loading || updatingInvestment.loading ? 'Saving...' : 'Save'}
+                {creatingInvestment.loading || updatingInvestment.loading ? tCommon('btn_saving') : tCommon('btn_save')}
               </button>
             </div>
             {transactionMode === 'edit' ? (
@@ -808,7 +815,7 @@ export function InvestmentsTable({
                   onClick={handleDeleteFromModal}
                   disabled={creatingInvestment.loading || updatingInvestment.loading || deletingInvestment.loading}
                 >
-                  {deletingInvestment.loading ? 'Deleting...' : 'Delete Transaction'}
+                  {deletingInvestment.loading ? t('portfolio_deleting') : t('btn_delete_transaction')}
                 </button>
               </div>
             ) : null}
@@ -819,15 +826,15 @@ export function InvestmentsTable({
       {isFudModalOpen ? (
         <div className="modal-overlay open" onClick={(event) => event.currentTarget === event.target && closeFudModal()}>
           <div className="modal">
-            <h3>Are you sure you want to sell your bitcoin?</h3>
+            <h3>{t('fud_title')}</h3>
             <div className="fud-modal-content">
-              <p>Is this a situation of life and death?</p>
-              <p>Are we in ATH? Have you checked the metrics?</p>
-              <p>The RSI? The power law? The rainbow? The cycle?</p>
+              <p>{t('fud_p1')}</p>
+              <p>{t('fud_p2')}</p>
+              <p>{t('fud_p3')}</p>
             </div>
             <div className="modal-actions">
               <button type="button" onClick={closeFudModal}>
-                NO
+                {tCommon('btn_no')}
               </button>
               <button
                 type="button"
@@ -837,7 +844,7 @@ export function InvestmentsTable({
                   router.push('/sell-simulation');
                 }}
               >
-                YES
+                {tCommon('btn_yes')}
               </button>
             </div>
           </div>

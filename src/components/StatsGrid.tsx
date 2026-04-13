@@ -1,12 +1,16 @@
+'use client';
+
 import { PRICE_HAIRCUT } from '@/lib/constants';
 import { formatBtc, formatMoneyRounded } from '@/lib/format';
 import { PortfolioTotals } from '@/lib/types';
+import { useT } from '@/hooks/useT';
 
 type StatsGridProps = {
   totals: PortfolioTotals | null;
 };
 
 export function StatsGrid({ totals }: StatsGridProps) {
+  const t = useT('dashboard');
   const EUR = '\u20AC';
   const display = (value: number | null | undefined) => {
     if (!totals || value === null || value === undefined) return `-- ${EUR}`;
@@ -45,32 +49,32 @@ export function StatsGrid({ totals }: StatsGridProps) {
     <div className="stats-grid">
       <div className="stats-group">
         <div className="stat-card highlight stat-card-btc mobile-left order-1">
-          <div className="stat-label">BTC hodled</div>
+          <div className="stat-label">{t('stat_btc_hodled')}</div>
           <div className="stat-value highlight-value">
             <span className="btc-hodled-full">{btcHodledFull}</span>
             <span className="btc-hodled-compact">{btcHodledCompact}</span>
           </div>
         </div>
         <div className="stat-card stat-card-avg order-2">
-          {renderTooltip('Average price info', 'Net invested / BTC hodled.')}
-          <div className="stat-label">Average Price</div>
+          {renderTooltip(t('tooltip_avg_price_label'), t('tooltip_avg_price'))}
+          <div className="stat-label">{t('stat_avg_price')}</div>
           <div className="stat-value">{display(totals?.averagePurchasePrice)}</div>
         </div>
         <div className="stat-card stat-card-portfolio order-3">
-          {renderTooltip('Portfolio value info', `BTC hodled x current BTC price x ${PRICE_HAIRCUT}.`)}
-          <div className="stat-label">Portfolio Value</div>
+          {renderTooltip(t('tooltip_portfolio_value_label'), t('tooltip_portfolio_value').replace('{haircut}', String(PRICE_HAIRCUT)))}
+          <div className="stat-label">{t('stat_portfolio_value')}</div>
           <div className="stat-value">{display(totals?.totalCurrentValue)}</div>
         </div>
         <div className="stat-card stat-card-net mobile-left order-4">
-          {renderTooltip('Net invested info', 'Total invested - total divested.')}
-          <div className="stat-label">Net Invested</div>
+          {renderTooltip(t('tooltip_net_invested_label'), t('tooltip_net_invested'))}
+          <div className="stat-label">{t('stat_net_invested')}</div>
           <div className="stat-value">{display(totals?.totalInvested)}</div>
         </div>
         <div className="stat-card stat-card-final mobile-left order-5">
-          {renderTooltip('Final value info', 'Portfolio value - taxes + total divested.')}
+          {renderTooltip(t('tooltip_final_value_label'), t('tooltip_final_value'))}
           <div className="stat-final-layout">
             <div className="stat-final-main">
-              <div className="stat-label">Final Value</div>
+              <div className="stat-label">{t('stat_final_value')}</div>
               <div className="stat-value">{display(totals?.totalFinalValue)}</div>
             </div>
             <div className="stat-final-results desktop-only">
@@ -80,14 +84,14 @@ export function StatsGrid({ totals }: StatsGridProps) {
           </div>
         </div>
         <div className="stat-card stat-card-result mobile-only order-6">
-          <div className="stat-label">Result</div>
+          <div className="stat-label">{t('stat_result')}</div>
           <div className="stat-result-values">
             <div className={`stat-final-result ${resultClass}`}>{resultEurDisplay}</div>
             <div className={`stat-final-result ${resultClass}`}>{resultPctDisplay}</div>
           </div>
         </div>
         <div className="stat-card stat-card-divested hide-mobile order-7">
-          <div className="stat-label">Total divested</div>
+          <div className="stat-label">{t('stat_total_divested')}</div>
           <div className="stat-value">{display(totalDivested)}</div>
         </div>
       </div>

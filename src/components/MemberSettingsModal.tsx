@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/services/supabaseClient';
+import { useT } from '@/hooks/useT';
 
 type MemberSettingsModalProps = {
   isOpen: boolean;
@@ -15,10 +16,9 @@ type LoadedSettings = {
   taxes: number;
 };
 
-const TAXES_ERROR = 'Taxes must be between 0 and 100';
-
 export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProps) {
   const { user } = useAuth();
+  const t = useT('common');
   const [visible, setVisible] = useState(true);
   const [taxesInput, setTaxesInput] = useState('');
   const [initialSettings, setInitialSettings] = useState<LoadedSettings | null>(null);
@@ -35,7 +35,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     const load = async () => {
       if (!user?.id) {
         if (!active) return;
-        setError('No active session. Please log in again.');
+        setError(t('error_no_session'));
         setLoading(false);
         return;
       }
@@ -49,7 +49,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
       if (!active) return;
 
       if (loadError || !data) {
-        setError(loadError?.message ?? 'Unable to load settings.');
+        setError(loadError?.message ?? t('error_unable_load_settings'));
         setLoading(false);
         return;
       }
@@ -69,7 +69,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     return () => {
       active = false;
     };
-  }, [isOpen, user?.id]);
+  }, [isOpen, user?.id, t]);
 
   const taxesValue = useMemo(() => {
     const numeric = Number(taxesInput);
@@ -77,9 +77,9 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
   }, [taxesInput]);
 
   const validateTaxes = () => {
-    if (!taxesInput.trim()) return TAXES_ERROR;
-    if (!Number.isFinite(taxesValue)) return TAXES_ERROR;
-    if (taxesValue < 0 || taxesValue > 100) return TAXES_ERROR;
+    if (!taxesInput.trim()) return t('error_taxes_range');
+    if (!Number.isFinite(taxesValue)) return t('error_taxes_range');
+    if (taxesValue < 0 || taxesValue > 100) return t('error_taxes_range');
     return '';
   };
 
@@ -111,7 +111,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     }
 
     if (!user?.id) {
-      setError('No active session. Please log in again.');
+      setError(t('error_no_session'));
       return;
     }
 
@@ -149,13 +149,13 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
   return createPortal(
     <div className="modal-overlay open" onClick={(event) => event.currentTarget === event.target && attemptClose()}>
       <div className="modal">
-        <h3>Settings</h3>
+        <h3>{t('settings_title')}</h3>
         {loading ? (
-          <div className="info-msg">Loading settings...</div>
+          <div className="info-msg">{t('loading_settings')}</div>
         ) : (
           <>
             <div className="form-group">
-              <label htmlFor="visibilitySummary">Visible</label>
+              <label htmlFor="visibilitySummary">{t('label_visible')}</label>
               <div className="toggle-row">
                 <button
                   type="button"
@@ -166,11 +166,11 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
                 >
                   <span className="toggle-knob" />
                 </button>
-                <span className="toggle-state">{visible ? 'On' : 'Off'}</span>
+                <span className="toggle-state">{visible ? t('toggle_on') : t('toggle_off')}</span>
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="taxesInput">Taxes applied</label>
+              <label htmlFor="taxesInput">{t('label_taxes_applied')}</label>
               <div className="input-with-suffix">
                 <input
                   type="number"
@@ -191,7 +191,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
         {error ? <div className="error">{error}</div> : null}
         <div className="modal-actions">
           <button type="button" className="btn-secondary" onClick={attemptClose} disabled={saving}>
-            {saving ? 'Saving...' : 'Close'}
+            {saving ? t('btn_saving') : t('btn_close')}
           </button>
         </div>
       </div>
