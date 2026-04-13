@@ -128,6 +128,10 @@ export async function loadAllTranslations(lang: SupportedLanguage): Promise<void
  * @param key  Namespaced key, e.g. "navbar.members_zone"
  * @returns    Translated string, or the raw key if not found (never throws).
  */
+export function isTranslationCached(lang: SupportedLanguage, file: TranslationFile): boolean {
+  return !!(cache[lang]?.[file]);
+}
+
 export function t(key: string): string {
   const dot = key.indexOf('.');
   if (dot === -1) return key;
