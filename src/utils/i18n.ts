@@ -29,6 +29,8 @@ export const TRANSLATION_FILES = [
   'investment-strategies',
   'metrics',
   'become-a-bitcoiner',
+  'what-is-bitcoin',
+  'tribute',
   'dashboard',
   'settings',
 ] as const;
