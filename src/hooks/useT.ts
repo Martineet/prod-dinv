@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { isTranslationCached, loadTranslations, t as rawT, type TranslationFile } from '@/utils/i18n';
+import {
+  isTranslationCached,
+  loadTranslations,
+  t as rawT,
+  type SupportedLanguage,
+  type TranslationFile,
+} from '@/utils/i18n';
 
 /**
  * Loads a translation namespace for the current language and returns a
@@ -18,27 +24,30 @@ import { isTranslationCached, loadTranslations, t as rawT, type TranslationFile 
  */
 export function useT(namespace: TranslationFile): (key: string) => string {
   const [lang] = useLanguage();
-  // Initialise as ready if both namespaces are already in the module-level
-  // cache (e.g. navigating back to a page visited earlier in the session).
-  const [ready, setReady] = useState(
-    () => isTranslationCached(lang, namespace) && isTranslationCached('en', namespace)
+
+  // Tracks which language is fully loaded in the cache for this namespace.
+  // useLanguage always starts as 'en' (SSR-safe), so initialising to 'en'
+  // when English is already cached lets rawT serve the right language on the
+  // very first render (rawT reads the module-level currentLanguage, not lang).
+  const [loadedLang, setLoadedLang] = useState<SupportedLanguage | null>(
+    () => (isTranslationCached('en', namespace) ? 'en' : null)
   );
 
   useEffect(() => {
-    // If already cached (common after first visit), mark ready immediately
-    // without triggering an async load.
     if (isTranslationCached(lang, namespace) && isTranslationCached('en', namespace)) {
-      setReady(true);
+      setLoadedLang(lang);
       return;
     }
 
-    setReady(false);
     Promise.all([
       loadTranslations(lang, namespace),
       loadTranslations('en', namespace),
-    ]).then(() => setReady(true));
+    ]).then(() => setLoadedLang(lang));
   }, [lang, namespace]);
 
-  // Return empty strings while loading so raw keys never appear on screen.
-  return (key: string) => (ready ? rawT(`${namespace}.${key}`) : '');
+  // Only serve translations when loadedLang matches the current lang.
+  // A mismatch means either nothing is loaded yet (null) or the previous
+  // language's load resolved but the new language isn't cached yet — both
+  // cases return '' to avoid raw-key or wrong-language flashes.
+  return (key: string) => (loadedLang === lang ? rawT(`${namespace}.${key}`) : '');
 }
