@@ -1,8 +1,8 @@
 {
   "title": "Tribut",
-  "subtitle": "En nom de la cadena, el bloc i el sant hash",
+  "subtitle": "En nom de la cadena, el bloc i el hash sagrat",
 
-  "s1_title": "I. El Bloc G\u00e8nesi",
+  "s1_title": "I. El Bloc Gènesi",
   "s1_p1": "Tot va comen\u00e7ar el 03/01/2009, quan Satoshi Nakamoto va posar el bloc g\u00e8nesi al nostre m\u00f3n. Al principi, hi havia el caos \u2014 els bancs centrals imprimint diners sense fre, els governs rescatant les mateixes institucions que havien agenollat el m\u00f3n. I d\u2019aquell caos, va n\u00e9ixer un sol bloc. El bloc zero. El fonament de tot.",
   "s1_p2": "Satoshi no es va limitar a escriure codi. Va escriure un manifest. Enterrat dins del bloc g\u00e8nesi, immutable i etern, hi ha un missatge que mai no ser\u00e0 esborrat del registre de la hist\u00f2ria:",
   "s1_blockquote": "\u201cThe Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\u201d",
