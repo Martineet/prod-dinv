@@ -6,14 +6,12 @@
   "stat_net_invested": "净投资额",
   "stat_portfolio_result": "投资组合收益",
   "stat_journey_started": "旅程开始于",
-
   "calculator_title": "比特币投资计算器",
   "calculator_current_price": "当前 BTC 价格",
   "calculator_growth_rate": "年化增长率 (%)",
   "calculator_investment_amount": "投资金额 (€)",
   "calculator_expected_price": "预期 BTC 价格（4年后）",
   "calculator_expected_value": "预期最终价值（4年后）",
-
   "dca_title": "比特币 DCA 计算器",
   "dca_monthly_investment": "每月投资额 (€)",
   "dca_start_date": "开始日期",

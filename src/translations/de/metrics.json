@@ -1,7 +1,6 @@
 {
   "page_title": "BTC-Preis & RSI",
   "page_subtitle": "Wöchentlich · BTCEUR · Kraken",
-
   "fear_greed_title": "Angst- & Gier-Index",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Vergleicht Bitcoins Marktkapitalisierung mit seinem realisierten Wert. Hohe positive Werte signalisieren Überhitzung; negative Werte markieren historisch starke Akkumulationszonen.",

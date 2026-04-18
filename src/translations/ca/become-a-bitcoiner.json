@@ -3,42 +3,32 @@
   "page_title": "Comprar bitcoins",
   "page_subtitle": "venent els teus diners falsos",
   "page_intro": "Hi ha diferents maneres d'aconseguir els teus primers bitcoins. La forma més habitual de començar és a través de les plataformes d'intercanvi (exchanges en anglès) que funcionen com un banc: crees un compte, omples la teva informació personal (KYC, Know Your Customer) i comences a operar. Comprova sempre la reputació i les comissions. Però recorda: si no són les teves claus, no són les teves monedes. Després d'uns mesos, mou els teus bitcoins a la teva pròpia cartera.",
-
   "exchange_kraken_title": "Kraken",
   "exchange_kraken_subtitle": "El millor amic del principiant",
   "exchange_kraken_body": "Fàcil de configurar i reputació sòlida després d'anys oferint servei Bona opció amb web i app. Comissions intermèdies. El primer pas.",
-
   "exchange_coinbase_title": "Coinbase + MEXC",
   "exchange_coinbase_subtitle": "Més complex però amb comissions baixes",
   "exchange_coinbase_body": "Si vols una opció de comissions baixes (amb certa complexitat): registra't a les dues plataformes, compra USDC a Coinbase, transfereix-lo a MEXC (vigila la xarxa) i allà canvies l'USDC per bitcoin.",
-
   "exchange_hodlhodl_title": "HODL HODL",
   "exchange_hodlhodl_subtitle": "Sense rastre per als qui valoren la privadesa",
   "exchange_hodlhodl_body": "Contacta directament amb altres persones i fes el tracte sense exposar la teva identitat. No reutilitzis adreces. Aquí tothom valora la seva privadesa. Una de les plataformes P2P de més confiança.",
-
   "custody_label": "Custòdia pròpia",
   "custody_title": "Guardar els teus bitcoins",
   "custody_subtitle": "protegint els teus diners sòlids",
   "custody_intro": "Un dels grans mantras de la comunitat Bitcoin és guardar les teves monedes fora de les plataformes d'intercanvi. Deixar-les allà no té sentit ja que llavors estàs confiant en un intermediari. Per a imports petits no passa res al principi, però quan comences a acumular sats, considera la custòdia pròpia. Anota la frase llavor en un paper, fora de línia, fes un parell de còpies i guarda-les en un lloc segur. Si perds aquelles 12/24 paraules, ho perds tot. Tu ets el teu propi banc.",
-
   "wallet_trezor_title": "Trezor Safe 3",
   "wallet_trezor_subtitle": "El bàsic",
   "wallet_trezor_body": "Codi obert, assequible, robust. No necessites res més. El primer pas.",
-
   "wallet_ellipal_title": "Ellipal Titan Mini",
   "wallet_ellipal_subtitle": "L'offline",
   "wallet_ellipal_body": "La combinació més segura: sense USB, sense connectivitat, sense NFC; només escanejant codis QR des del mòbil. Tant segur que oblidaràs com s'utilitza. Per a avançats.",
-
   "wallet_tangem_title": "Tangem Ring",
   "wallet_tangem_subtitle": "L'elegant",
   "wallet_tangem_body": "El teu anell es converteix en la teva cartera utilitzant tecnologia NFC sincronitzada amb el mòbil. Mai la perdràs, mous milions amb el dit.",
-
   "wallet_other_title": "Altres carteres",
-
   "wallet_bluewallet_title": "Bluewallet",
   "wallet_bluewallet_subtitle": "Mòbil",
   "wallet_bluewallet_body": "Cartera calenta gratuïta per al mòbil. Com una cartera de monedes a la butxaca, còmoda, però recorda que pot ser hackejada.",
-
   "wallet_satoshi_title": "Wallet of Satoshi",
   "wallet_satoshi_subtitle": "Cartera Lightning",
   "wallet_satoshi_body": "Cartera Lightning mòbil per a bitcoin. Fàcil d'utilitzar. No tens la custòdia, confies en ells. Còmoda per a pagaments ràpids però no per guardar grans quantitats."

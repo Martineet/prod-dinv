@@ -1,7 +1,6 @@
 {
   "page_title": "Precio BTC y RSI",
   "page_subtitle": "Semanal · BTCEUR · Kraken",
-
   "fear_greed_title": "Índice de Miedo y Codicia",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Compara la capitalización de mercado de Bitcoin con su valor realizado. Valores positivos altos indican que el mercado está sobrecalentado; los valores negativos marcan zonas de acumulación históricamente fuertes.",

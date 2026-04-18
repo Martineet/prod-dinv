@@ -3,42 +3,32 @@
   "page_title": "Buying bitcoins",
   "page_subtitle": "selling your fake money",
   "page_intro": "There are different ways to obtain your first bitcoins. The most common way to start are the exchanges — they behave like a bank: create an account, fill in your personal information (KYC, Know Your Customer) and start operating. Always check reputation and fees. But remember: not your keys, not your coins. After some months, move your bitcoin to your own wallet.",
-
   "exchange_kraken_title": "Kraken",
   "exchange_kraken_subtitle": "The beginner's best friend",
   "exchange_kraken_body": "Easy to set up and robust reputation after years of operating. Solid option with web and app. Fees are mid-range. The first step.",
-
   "exchange_coinbase_title": "Coinbase + MEXC",
   "exchange_coinbase_subtitle": "More complex but low fees",
   "exchange_coinbase_body": "If you want a low-fee option (with some complexity): register in both exchanges, buy USDC in Coinbase, transfer it to MEXC (pay attention to the network used), then swap USDC to bitcoin.",
-
   "exchange_hodlhodl_title": "HODL HODL",
   "exchange_hodlhodl_subtitle": "Without traces for those who value privacy",
   "exchange_hodlhodl_body": "Contact other people directly and make the deal without exposing your identity. Don't reuse addresses. Everyone here values their privacy. One of the most trusted P2P platforms.",
-
   "custody_label": "Self custody",
   "custody_title": "Storing your bitcoins",
   "custody_subtitle": "protecting your hard money",
   "custody_intro": "One of the biggest mantras of the Bitcoin community is to store your own bitcoin outside exchanges. Leaving your bitcoin on the exchange makes no sense — you're trusting an intermediary. For small amounts it's fine to start, but once you start stacking sats, consider self-custody. Write your seed phrase on paper, offline, make a couple of copies, and store them somewhere safe. If you lose those 12/24 words, you lose everything. You are your own bank.",
-
   "wallet_trezor_title": "Trezor Safe 3",
   "wallet_trezor_subtitle": "The basic",
   "wallet_trezor_body": "Open source, affordable, robust. You don't need more. The first step.",
-
   "wallet_ellipal_title": "Ellipal Titan Mini",
   "wallet_ellipal_subtitle": "The offline",
   "wallet_ellipal_body": "The most secure combination: no USB, no connectivity, no NFC — just scanning QR codes from your phone. So secure you'll occasionally forget how to use it. Advanced.",
-
   "wallet_tangem_title": "Tangem Ring",
   "wallet_tangem_subtitle": "The stylish",
   "wallet_tangem_body": "Your ring becomes your wallet using NFC paired with your phone. Never lose it, move millions with your finger.",
-
   "wallet_other_title": "Other wallets",
-
   "wallet_bluewallet_title": "Bluewallet",
   "wallet_bluewallet_subtitle": "Mobile",
   "wallet_bluewallet_body": "Free hot wallet for your phone. Like a coin wallet in your pocket — convenient, but remember it can be hacked.",
-
   "wallet_satoshi_title": "Wallet of Satoshi",
   "wallet_satoshi_subtitle": "Lightning wallet",
   "wallet_satoshi_body": "Mobile Lightning wallet for bitcoin. Simple to use. Custodial — you trust them. Convenient for quick payments but not for storing large amounts."

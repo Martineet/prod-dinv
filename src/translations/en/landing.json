@@ -6,14 +6,12 @@
   "stat_net_invested": "Net Invested",
   "stat_portfolio_result": "Portfolio Result",
   "stat_journey_started": "Journey started",
-
   "calculator_title": "Bitcoin Investment Calculator",
   "calculator_current_price": "Current BTC Price",
   "calculator_growth_rate": "Annual Growth Rate (%)",
   "calculator_investment_amount": "Investment Amount (€)",
   "calculator_expected_price": "Expected BTC Price (4 years)",
   "calculator_expected_value": "Expected Final Value (4 years)",
-
   "dca_title": "Bitcoin DCA Calculator",
   "dca_monthly_investment": "Monthly Investment (€)",
   "dca_start_date": "Start Date",

@@ -1,7 +1,6 @@
 {
   "page_title": "Preu BTC i RSI",
   "page_subtitle": "Setmanal · BTCEUR · Kraken",
-
   "fear_greed_title": "Índex de Por i Cobdícia",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Compara la capitalització de mercat de Bitcoin amb el seu valor realitzat. Valors positius alts indiquen que el mercat està sobreescalfat; valors negatius marquen zones d'acumulació històricament fortes.",

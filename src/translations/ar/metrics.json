@@ -1,7 +1,6 @@
 {
   "page_title": "سعر BTC و RSI",
   "page_subtitle": "أسبوعي · BTCEUR · Kraken",
-
   "fear_greed_title": "مؤشر الخوف والطمع",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "يقارن القيمة السوقية للبيتكوين بقيمتها المحققة. القيم الموجبة العالية تشير إلى أن السوق محمومة؛ القيم السلبية تحدد تاريخياً مناطق تراكم قوية.",

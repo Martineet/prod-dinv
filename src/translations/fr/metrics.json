@@ -1,7 +1,6 @@
 {
   "page_title": "Prix BTC et RSI",
   "page_subtitle": "Hebdomadaire · BTCEUR · Kraken",
-
   "fear_greed_title": "Indice Peur & Avidité",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "Compare la capitalisation boursière de Bitcoin à sa valeur réalisée. Des valeurs positives élevées signalent que le marché est surchauffé ; des valeurs négatives marquent historiquement de fortes zones d'accumulation.",

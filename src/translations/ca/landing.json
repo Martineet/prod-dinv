@@ -6,14 +6,12 @@
   "stat_net_invested": "Diners invertits",
   "stat_portfolio_result": "Resultat comunitari",
   "stat_journey_started": "Inici del viatge",
-
   "calculator_title": "Calculadora d'inversió en Bitcoin",
   "calculator_current_price": "Preu actual del BTC",
   "calculator_growth_rate": "Taxa de creixement anual (%)",
   "calculator_investment_amount": "Import de la inversió (€)",
   "calculator_expected_price": "Preu BTC esperat (4 anys)",
   "calculator_expected_value": "Valor final esperat (4 anys)",
-
   "dca_title": "Calculadora DCA de Bitcoin",
   "dca_monthly_investment": "Inversió mensual (€)",
   "dca_start_date": "Data d'inici",

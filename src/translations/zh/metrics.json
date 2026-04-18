@@ -1,7 +1,6 @@
 {
   "page_title": "BTC 价格与 RSI",
   "page_subtitle": "每周 · BTCEUR · Kraken",
-
   "fear_greed_title": "恐惧与贪婪指数",
   "mvrv_title": "MVRV Z-Score",
   "mvrv_description": "比较比特币市值与其已实现价值。高正值表明市场过热；负值在历史上标志着强劲的积累区域。",
