@@ -12,7 +12,9 @@
       "WebFetch(domain:en.wikipedia.org)",
       "WebFetch(domain:bitcoin-well.gitbook.io)",
       "WebFetch(domain:www.bitcoin.com)",
-      "WebFetch(domain:learnmeabitcoin.com)"
+      "WebFetch(domain:learnmeabitcoin.com)",
+      "Bash(python3 -c ':*)",
+      "Bash(npm run *)"
     ]
   }
 }
