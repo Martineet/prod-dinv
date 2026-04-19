@@ -117,7 +117,7 @@ export default function WhatIsBitcoinPage() {
                   <strong>{t('s6_hot_title')}</strong> — {t('s6_hot_text')}
                 </li>
                 <li>
-                  <strong>{t('s6_hw_title')}</strong> — {t('s6_hw_text')}
+                  <strong>{t('s6_cold_title')}</strong> — {t('s6_cold_text')}
                 </li>
               </ul>
               <p className="wib-paragraph">{t('s6_p4')}</p>
