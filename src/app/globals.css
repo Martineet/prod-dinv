@@ -2686,8 +2686,12 @@ tr:hover {
     font-size: 19px;
   }
 
+  .nav-link {
+    font-size: 15px;
+  }
+
   .landing-top-nav-middle {
-    padding-left: 8px;
+    padding-left: 6px;
   }
 }
 
