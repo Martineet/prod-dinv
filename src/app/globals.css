@@ -2677,6 +2677,20 @@ tr:hover {
   display: none;
 }
 
+@media (max-width: 900px) {
+  .nav-title-link {
+    font-size: 19px;
+  }
+
+  .header-btc-price {
+    font-size: 19px;
+  }
+
+  .landing-top-nav-middle {
+    padding-left: 8px;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 24px);

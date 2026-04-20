@@ -32,10 +32,13 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     setLoading(true);
     setError('');
 
+    const errorNoSession = t('error_no_session');
+    const errorUnableLoad = t('error_unable_load_settings');
+
     const load = async () => {
       if (!user?.id) {
         if (!active) return;
-        setError(t('error_no_session'));
+        setError(errorNoSession);
         setLoading(false);
         return;
       }
@@ -49,7 +52,7 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
       if (!active) return;
 
       if (loadError || !data) {
-        setError(loadError?.message ?? t('error_unable_load_settings'));
+        setError(loadError?.message ?? errorUnableLoad);
         setLoading(false);
         return;
       }
@@ -69,7 +72,8 @@ export function MemberSettingsModal({ isOpen, onClose }: MemberSettingsModalProp
     return () => {
       active = false;
     };
-  }, [isOpen, user?.id, t]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, user?.id]);
 
   const taxesValue = useMemo(() => {
     const numeric = Number(taxesInput);
