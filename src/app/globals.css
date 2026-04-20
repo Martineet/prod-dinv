@@ -2677,7 +2677,7 @@ tr:hover {
   display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
   .nav-title-link {
     font-size: 19px;
   }
