@@ -51,11 +51,9 @@ export function SummarySection({ summary, btcPrice }: SummarySectionProps) {
           <div className="summary-label">{t('stat_bitcoiners')}</div>
         </div>
         <div className="summary-card">
-          <div className="summary-icon">{EURO_BANKNOTE}</div>
-          <div className="summary-value">
-            {summary ? `${formatMoneyRounded(totalVolume)} ${EUR}` : `-- ${EUR}`}
-          </div>
-          <div className="summary-label">{t('stat_community_value')}</div>
+          <div className="summary-icon">{HOURGLASS}</div>
+          <div className="summary-value">12/01/2018</div>
+          <div className="summary-label">{t('stat_journey_started')}</div>
         </div>
         <div className="summary-card">
           <div className="summary-icon">{MONEY_BAG}</div>
@@ -72,9 +70,11 @@ export function SummarySection({ summary, btcPrice }: SummarySectionProps) {
           <div className="summary-label">{t('stat_portfolio_result')}</div>
         </div>
         <div className="summary-card">
-          <div className="summary-icon">{HOURGLASS}</div>
-          <div className="summary-value">12/01/2018</div>
-          <div className="summary-label">{t('stat_journey_started')}</div>
+          <div className="summary-icon">{EURO_BANKNOTE}</div>
+          <div className="summary-value">
+            {summary ? `${formatMoneyRounded(totalVolume)} ${EUR}` : `-- ${EUR}`}
+          </div>
+          <div className="summary-label">{t('stat_community_value')}</div>
         </div>
       </div>
     </section>
