@@ -2683,7 +2683,7 @@ tr:hover {
   }
 
   .header-btc-price {
-    font-size: 19px;
+    font-size: 23px;
   }
 
   .nav-link {
@@ -2695,7 +2695,7 @@ tr:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .container {
     width: calc(100% - 24px);
     margin: 12px auto;
@@ -2752,7 +2752,7 @@ tr:hover {
   }
 
   .header-btc-price {
-    font-size: 1.1em;
+    font-size: 22px;
     white-space: nowrap;
     max-width: 45vw;
     overflow: hidden;
