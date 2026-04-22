@@ -13,8 +13,17 @@ export default function BecomeABitcoinerPage() {
       <LandingHeader />
       <div className="bbtc-shell">
 
+        {/* Table of Contents */}
+        <nav className="wib-toc" aria-label="Table of contents">
+          <p className="wib-toc-title">{t('toc_title')}</p>
+          <ol className="wib-toc-list">
+            <li><a href="#buying">1. {t('toc_1')}</a></li>
+            <li><a href="#storing">2. {t('toc_2')}</a></li>
+          </ol>
+        </nav>
+
         {/* Section 1 — Buying Bitcoins */}
-        <section className="bbtc-section">
+        <section className="bbtc-section" id="buying">
           <p className="bbtc-section-label">{t('page_label')}</p>
           <h1 className="bbtc-section-title">{t('page_title')}</h1>
           <p className="bbtc-section-tagline">{t('page_subtitle')}</p>
@@ -101,7 +110,7 @@ export default function BecomeABitcoinerPage() {
         </section>
 
         {/* Section 2 — Storing Bitcoins */}
-        <section className="bbtc-section">
+        <section className="bbtc-section" id="storing">
           <p className="bbtc-section-label">{t('custody_label')}</p>
           <h2 className="bbtc-section-title">{t('custody_title')}</h2>
           <p className="bbtc-section-tagline">{t('custody_subtitle')}</p>
