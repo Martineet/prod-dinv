@@ -690,6 +690,7 @@ h1 {
 /* Sections */
 .wib-section {
   margin-bottom: 56px;
+  scroll-margin-top: calc(var(--top-nav-height) + 16px);
 }
 
 .wib-section-label {
@@ -3116,6 +3117,7 @@ tr:hover {
 
 .bbtc-section {
   margin-bottom: 64px;
+  scroll-margin-top: calc(var(--top-nav-height) + 16px);
 }
 
 .bbtc-section-label {
