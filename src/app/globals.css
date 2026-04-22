@@ -1650,8 +1650,8 @@ button:disabled {
 
 .welcome-paragraph {
   color: #e5e7eb;
-  font-family: inherit;
-  font-size: 1.05em;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 21px;
   line-height: 1.7;
   margin: 0 0 10px;
   text-align: justify;
@@ -1659,7 +1659,8 @@ button:disabled {
 
 .welcome-signature {
   margin: 0;
-  font-size: 1.1em;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 26px;
   font-weight: 700;
   text-align: center;
 }
