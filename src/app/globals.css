@@ -1613,7 +1613,7 @@ button:disabled {
   flex-direction: row;
   align-items: center;
   gap: 24px;
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -1650,7 +1650,7 @@ button:disabled {
 
 .welcome-paragraph {
   color: #e5e7eb;
-  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
+  font-family: inherit;
   font-size: 1.05em;
   line-height: 1.7;
   margin: 0 0 10px;
