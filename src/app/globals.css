@@ -1614,6 +1614,9 @@ button:disabled {
   flex-direction: row;
   align-items: center;
   gap: 24px;
+  max-width: 608px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .welcome-logo {
@@ -1629,12 +1632,14 @@ button:disabled {
   font-size: 1.05em;
   line-height: 1.65;
   margin: 0 0 10px;
+  text-align: justify;
 }
 
 .welcome-signature {
   margin: 0;
   font-size: 1.1em;
   font-weight: 700;
+  text-align: center;
 }
 
 .welcome-signature-link {
@@ -1646,10 +1651,21 @@ button:disabled {
   text-decoration: underline;
 }
 
+@media (max-width: 1400px) {
+  .welcome-inner {
+    max-width: 760px;
+  }
+}
+
 @media (max-width: 900px) {
   .welcome-inner {
     flex-direction: column;
     align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .welcome-logo {
+    align-self: center;
   }
 }
 
