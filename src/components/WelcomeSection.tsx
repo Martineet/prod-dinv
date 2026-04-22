@@ -3,15 +3,28 @@
 import Image from 'next/image';
 import { useT } from '@/hooks/useT';
 
+function BitcoinLogo({ priority = false }: { priority?: boolean }) {
+  return (
+    <div className="welcome-logo-wrap">
+      <Image
+        className="welcome-logo-img"
+        src="/bitcoin-btc-logo.svg"
+        alt="Bitcoin"
+        width={72}
+        height={72}
+        priority={priority}
+      />
+    </div>
+  );
+}
+
 export function WelcomeSection() {
   const t = useT('landing');
 
   return (
     <section className="welcome-section">
       <div className="welcome-inner">
-        <div className="welcome-logo">
-          <Image src="/bitcoin-btc-logo.svg" alt="Bitcoin" width={72} height={72} priority />
-        </div>
+        <BitcoinLogo priority />
         <div className="welcome-text">
           <p className="welcome-paragraph">{t('welcome_text')}</p>
           <p className="welcome-signature">
@@ -25,6 +38,7 @@ export function WelcomeSection() {
             </a>
           </p>
         </div>
+        <BitcoinLogo />
       </div>
     </section>
   );
