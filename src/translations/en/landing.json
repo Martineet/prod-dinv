@@ -32,5 +32,7 @@
   "dca_option_gold": "Gold",
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
-  "dca_calculating": "Calculating DCA..."
+  "dca_calculating": "Calculating DCA...",
+  "welcome_text": "Welcome to D.Inversions, a community of Bitcoiners that is part of the large network of Bitcoiners all around the world. The first steps are the hardest, but if you're here, it's because you've already made the decision to learn what Bitcoin is and start accumulating some. Be aware of one thing, once you take the orange pill, there's no turning back.",
+  "welcome_signature": "HODL"
 }

@@ -6,6 +6,7 @@ import { BtcHistoricalChart } from '@/components/BtcHistoricalChart';
 import { LoginForm } from '@/components/LoginForm';
 import { SummarySection } from '@/components/SummarySection';
 import { CalculatorsSection } from '@/components/CalculatorsSection';
+import { WelcomeSection } from '@/components/WelcomeSection';
 import { Footer } from '@/components/Footer';
 import { Logos } from '@/components/Logos';
 import { useAuth } from '@/hooks/useAuth';
@@ -58,6 +59,7 @@ export default function HomePage() {
   return (
     <div className="landing-page">
       <main className="landing-main">
+        <WelcomeSection />
         <BtcHistoricalChart />
         <SummarySection summary={summary} btcPrice={price} />
         <CalculatorsSection btcPrice={price} />

@@ -32,5 +32,7 @@
   "dca_option_gold": "黄金",
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
-  "dca_calculating": "正在计算DCA..."
+  "dca_calculating": "正在计算DCA...",
+  "welcome_text": "欢迎来到 D.Inversions，这是一个比特币爱好者社区，是全球比特币爱好者大网络的一部分。第一步是最难的，但如果你在这里，那是因为你已经决定了解什么是比特币并开始积累一些。请记住一件事：一旦你服下橙色药丸，就再也回不去了。",
+  "welcome_signature": "HODL"
 }

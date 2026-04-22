@@ -32,5 +32,7 @@
   "dca_option_gold": "Gold",
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
-  "dca_calculating": "DCA wird berechnet..."
+  "dca_calculating": "DCA wird berechnet...",
+  "welcome_text": "Willkommen bei D.Inversions, einer Gemeinschaft von Bitcoinern, die Teil des großen Netzwerks von Bitcoinern auf der ganzen Welt ist. Die ersten Schritte sind die schwersten, aber wenn du hier bist, hast du bereits die Entscheidung getroffen, zu lernen, was Bitcoin ist, und damit zu beginnen, einige anzuhäufen. Sei dir einer Sache bewusst: Wenn du erst einmal die orange Pille nimmst, gibt es kein Zurück mehr.",
+  "welcome_signature": "HODL"
 }

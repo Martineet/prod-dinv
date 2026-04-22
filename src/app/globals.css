@@ -1602,6 +1602,57 @@ button:disabled {
   font-size: 12px;
 }
 
+/* Welcome Section */
+.welcome-section {
+  padding: 20px 0 28px;
+  border-bottom: 1px solid #2d3548;
+  margin-bottom: 0;
+}
+
+.welcome-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.welcome-logo {
+  flex-shrink: 0;
+}
+
+.welcome-text {
+  flex: 1;
+}
+
+.welcome-paragraph {
+  color: #e5e7eb;
+  font-size: 1.05em;
+  line-height: 1.65;
+  margin: 0 0 10px;
+}
+
+.welcome-signature {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.welcome-signature-link {
+  color: #f59e0b;
+  text-decoration: none;
+}
+
+.welcome-signature-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .welcome-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .summary-section {
   margin-bottom: 40px;
 }
