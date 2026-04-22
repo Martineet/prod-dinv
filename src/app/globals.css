@@ -1604,7 +1604,7 @@ button:disabled {
 
 /* Welcome Section */
 .welcome-section {
-  padding: 20px 0 28px;
+  padding: 0 0 28px;
   margin-bottom: 0;
 }
 
@@ -1651,16 +1651,16 @@ button:disabled {
 .welcome-paragraph {
   color: #e5e7eb;
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.7;
   margin: 0 0 10px;
-  text-align: justify;
+  text-align: center;
 }
 
 .welcome-signature {
   margin: 0;
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   text-align: center;
 }
