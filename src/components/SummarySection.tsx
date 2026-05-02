@@ -9,9 +9,8 @@ type SummarySectionProps = {
   btcPrice: number;
 };
 
-const EUR = '\u20AC';
-const HOURGLASS = '\u23F3';
-const COIN = '\u20BF';
+const EUR = '€';
+const COIN = '₿';
 const USERS = '\u{1F465}';
 const EURO_BANKNOTE = '\u{1F4B6}';
 const MONEY_BAG = '\u{1F4B0}';
@@ -51,9 +50,20 @@ export function SummarySection({ summary, btcPrice }: SummarySectionProps) {
           <div className="summary-label">{t('stat_bitcoiners')}</div>
         </div>
         <div className="summary-card">
-          <div className="summary-icon">{HOURGLASS}</div>
-          <div className="summary-value">12/01/2018</div>
-          <div className="summary-label">{t('stat_journey_started')}</div>
+          <div className="summary-icon">
+            <img src="/telegram-logo.svg" alt="Telegram" width={32} height={32} />
+          </div>
+          <div className="summary-value">
+            <a
+              href={t('stat_community_link')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="summary-community-link"
+            >
+              {t('stat_community_name')}
+            </a>
+          </div>
+          <div className="summary-label">{t('stat_join_us')}</div>
         </div>
         <div className="summary-card">
           <div className="summary-icon">{MONEY_BAG}</div>

@@ -1740,6 +1740,21 @@ button:disabled {
   letter-spacing: 0.5px;
 }
 
+.summary-icon img {
+  width: 32px;
+  height: 32px;
+}
+
+.summary-community-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.summary-community-link:hover {
+  color: #2CA5E0;
+  text-decoration: underline;
+}
+
 .dashboard {
   display: none;
 }

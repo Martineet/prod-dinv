@@ -5,7 +5,6 @@
   "stat_community_value": "社区总价值",
   "stat_net_invested": "净投资额",
   "stat_portfolio_result": "投资组合收益",
-  "stat_journey_started": "旅程开始于",
   "calculator_title": "比特币投资计算器",
   "calculator_current_price": "当前 BTC 价格",
   "calculator_growth_rate": "年化增长率 (%)",
@@ -33,6 +32,9 @@
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
   "dca_calculating": "正在计算DCA...",
-  "welcome_text": "欢迎加入来自世界各地的比特币爱好者大网络。学习、提问、探索，最重要的是，享受这段旅程。但请记住一件事，一旦你服下橙色药丸，就再也回不去了。",
-  "welcome_signature": "HODL"
+  "welcome_text": "欢迎加入全球比特币网络。学习、提问、探索，最重要的是，享受这段旅程。但请记住一件事，一旦你服下橙色药丸，就再也回不去了。",
+  "welcome_signature": "HODL",
+  "stat_community_name": "Criptomaneras",
+  "stat_community_link": "https://t.me/+tjbF3GaGnGwzNzE8",
+  "stat_join_us": "加入我们！"
 }

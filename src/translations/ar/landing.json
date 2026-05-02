@@ -5,7 +5,6 @@
   "stat_community_value": "قيمة المجتمع",
   "stat_net_invested": "صافي الاستثمار",
   "stat_portfolio_result": "نتيجة المحفظة",
-  "stat_journey_started": "بدأت الرحلة",
   "calculator_title": "حاسبة استثمار البيتكوين",
   "calculator_current_price": "سعر BTC الحالي",
   "calculator_growth_rate": "معدل النمو السنوي (%)",
@@ -33,6 +32,9 @@
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
   "dca_calculating": "جارٍ حساب DCA...",
-  "welcome_text": "مرحباً بك في الشبكة الكبيرة من البيتكوينيين من جميع أنحاء العالم. تعلّم، اسأل، استكشف، وقبل كل شيء استمتع بالرحلة. كن واعياً لشيء واحد، حين تتناول الحبة البرتقالية، لن تعود أبداً إلى الوراء.",
-  "welcome_signature": "HODL"
+  "welcome_text": "مرحباً بك في شبكة Bitcoin العالمية. تعلّم، اسأل، استكشف، وقبل كل شيء استمتع بالرحلة. كن واعياً لشيء واحد، حين تتناول الحبة البرتقالية، لن تعود أبداً إلى الوراء.",
+  "welcome_signature": "HODL",
+  "stat_community_name": "Criptomaneras",
+  "stat_community_link": "https://t.me/+tjbF3GaGnGwzNzE8",
+  "stat_join_us": "انضم إلينا!"
 }

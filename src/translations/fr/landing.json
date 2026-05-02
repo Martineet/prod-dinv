@@ -5,7 +5,6 @@
   "stat_community_value": "Valeur de la communauté",
   "stat_net_invested": "Investi net",
   "stat_portfolio_result": "Résultat du portefeuille",
-  "stat_journey_started": "Début du voyage",
   "calculator_title": "Calculateur d'investissement Bitcoin",
   "calculator_current_price": "Prix actuel du BTC",
   "calculator_growth_rate": "Taux de croissance annuel (%)",
@@ -33,6 +32,9 @@
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
   "dca_calculating": "Calcul DCA en cours...",
-  "welcome_text": "Bienvenue dans le grand réseau de Bitcoiners du monde entier. Apprends, pose des questions, joue, et surtout, profite du chemin. Sois conscient d'une chose cependant, une fois que tu prends la pilule orange, il n'y a plus de retour en arrière.",
-  "welcome_signature": "HODL"
+  "welcome_text": "Bienvenue dans le réseau mondial de Bitcoin. Apprends, pose des questions, joue, et surtout, profite du chemin. Sois conscient d'une chose cependant, une fois que tu prends la pilule orange, il n'y a plus de retour en arrière.",
+  "welcome_signature": "HODL",
+  "stat_community_name": "Criptomaneras",
+  "stat_community_link": "https://t.me/+tjbF3GaGnGwzNzE8",
+  "stat_join_us": "Rejoins-nous !"
 }

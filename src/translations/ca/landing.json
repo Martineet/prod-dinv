@@ -5,7 +5,6 @@
   "stat_community_value": "Valor de la comunitat",
   "stat_net_invested": "Diners invertits",
   "stat_portfolio_result": "Resultat comunitari",
-  "stat_journey_started": "Inici del viatge",
   "calculator_title": "Calculadora d'inversió en Bitcoin",
   "calculator_current_price": "Preu actual del BTC",
   "calculator_growth_rate": "Taxa de creixement anual (%)",
@@ -33,6 +32,9 @@
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
   "dca_calculating": "Calculant DCA...",
-  "welcome_text": "Benvingut/da a la gran xarxa de Bitcoiners d'arreu del món. Aprèn, pregunta, juga, i sobretot, gaudeix del camí. Sigues conscient d'una cosa però, un cop prenguis la pastilla taronja, ja no hi ha marxa enrere.",
-  "welcome_signature": "HODL"
+  "welcome_text": "Benvingut/da a la xarxa global de Bitcoin. Aprèn, pregunta, juga, i sobretot, gaudeix del camí. Sigues conscient d'una cosa però, un cop prenguis la pastilla taronja, ja no hi ha marxa enrere.",
+  "welcome_signature": "HODL",
+  "stat_community_name": "Criptomaneras",
+  "stat_community_link": "https://t.me/+tjbF3GaGnGwzNzE8",
+  "stat_join_us": "Uneix-te!"
 }

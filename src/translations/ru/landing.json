@@ -5,7 +5,6 @@
   "stat_community_value": "Ценность сообщества",
   "stat_net_invested": "Чистые инвестиции",
   "stat_portfolio_result": "Результат портфеля",
-  "stat_journey_started": "Путь начат",
   "calculator_title": "Калькулятор инвестиций в биткоин",
   "calculator_current_price": "Текущая цена BTC",
   "calculator_growth_rate": "Годовой темп роста (%)",
@@ -33,6 +32,9 @@
   "dca_option_sp500": "SP500",
   "dca_option_ibex35": "Ibex35",
   "dca_calculating": "Расчёт DCA...",
-  "welcome_text": "Добро пожаловать в большую сеть Биткоинеров со всего мира. Учись, спрашивай, исследуй и прежде всего наслаждайся путём. Но помни об одном: как только ты примешь оранжевую таблетку, пути назад уже нет.",
-  "welcome_signature": "HODL"
+  "welcome_text": "Добро пожаловать в глобальную сеть Bitcoin. Учись, спрашивай, исследуй и прежде всего наслаждайся путём. Но помни об одном: как только ты примешь оранжевую таблетку, пути назад уже нет.",
+  "welcome_signature": "HODL",
+  "stat_community_name": "Criptomaneras",
+  "stat_community_link": "https://t.me/+tjbF3GaGnGwzNzE8",
+  "stat_join_us": "Присоединяйся!"
 }
