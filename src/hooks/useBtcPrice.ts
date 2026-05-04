@@ -23,7 +23,18 @@ export function useBtcPrice(refreshIntervalMs = 3600000) {
   useEffect(() => {
     refresh();
     const intervalId = setInterval(refresh, refreshIntervalMs);
-    return () => clearInterval(intervalId);
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refresh();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      clearInterval(intervalId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, [refresh, refreshIntervalMs]);
 
   return { price, loading, error, refresh };
