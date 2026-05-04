@@ -15,7 +15,14 @@
       "WebFetch(domain:learnmeabitcoin.com)",
       "Bash(python3 -c ':*)",
       "Bash(npm run *)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(python3 -)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\marti.castan\\.claude\\projects\\c--Users-marti-castan-Documents-altres-D-Inversions-PgWeb-prod-dinv\\memory"
     ]
   }
 }

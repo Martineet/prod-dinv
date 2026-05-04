@@ -1,101 +1,104 @@
 {
   "pages": {
     "/_not-found/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/chunks/app/_not-found/page-d34f5300f970336c.js"
     ],
     "/layout": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/css/a43971746a0e24e2.css",
       "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
-      "static/chunks/app/layout-ae7ce0e2cd453148.js"
-    ],
-    "/investment-strategies/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
-      "static/chunks/fd9d1056-1b14749c58c112cd.js",
-      "static/chunks/2117-a31a809b658cb5a0.js",
-      "static/chunks/main-app-d259b56aeb06d942.js",
-      "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
-      "static/chunks/app/investment-strategies/page-73860bbd7066416c.js"
+      "static/chunks/630-4c690fee1dbc89fd.js",
+      "static/chunks/app/layout-3f48d240a8f0cb82.js"
     ],
     "/dashboard/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/1865-b50eaa92cd057850.js",
-      "static/chunks/app/dashboard/page-42daf7ad73124d8d.js"
-    ],
-    "/metrics/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
-      "static/chunks/fd9d1056-1b14749c58c112cd.js",
-      "static/chunks/2117-a31a809b658cb5a0.js",
-      "static/chunks/main-app-d259b56aeb06d942.js",
-      "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
-      "static/chunks/app/metrics/page-f7a40498a569834c.js"
-    ],
-    "/sell-simulation/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
-      "static/chunks/fd9d1056-1b14749c58c112cd.js",
-      "static/chunks/2117-a31a809b658cb5a0.js",
-      "static/chunks/main-app-d259b56aeb06d942.js",
-      "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/1865-b50eaa92cd057850.js",
-      "static/chunks/app/sell-simulation/page-d9bd3b3bcfa064ee.js"
+      "static/chunks/8262-f0c17df7cec294b0.js",
+      "static/chunks/9521-c846d809b0de13b2.js",
+      "static/chunks/app/dashboard/page-526aa055057d8c92.js"
     ],
     "/become-a-bitcoiner/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
+      "static/chunks/630-4c690fee1dbc89fd.js",
       "static/chunks/app/become-a-bitcoiner/page-bf36f60abb712304.js"
     ],
     "/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/app/page-161461512584cbcb.js"
+      "static/chunks/8262-f0c17df7cec294b0.js",
+      "static/chunks/app/page-a480ddbfa37f18e7.js"
+    ],
+    "/investment-strategies/page": [
+      "static/chunks/webpack-49156c41beb80c63.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-4c690fee1dbc89fd.js",
+      "static/chunks/app/investment-strategies/page-73860bbd7066416c.js"
+    ],
+    "/sell-simulation/page": [
+      "static/chunks/webpack-49156c41beb80c63.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/8262-f0c17df7cec294b0.js",
+      "static/chunks/9521-c846d809b0de13b2.js",
+      "static/chunks/app/sell-simulation/page-4c4e00fbe3ac7a1b.js"
+    ],
+    "/tribute/page": [
+      "static/chunks/webpack-49156c41beb80c63.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-4c690fee1dbc89fd.js",
+      "static/chunks/app/tribute/page-68c9b8aa31d73bed.js"
+    ],
+    "/metrics/page": [
+      "static/chunks/webpack-49156c41beb80c63.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-4c690fee1dbc89fd.js",
+      "static/chunks/app/metrics/page-f7a40498a569834c.js"
+    ],
+    "/what-is-bitcoin/page": [
+      "static/chunks/webpack-49156c41beb80c63.js",
+      "static/chunks/fd9d1056-1b14749c58c112cd.js",
+      "static/chunks/2117-a31a809b658cb5a0.js",
+      "static/chunks/main-app-d259b56aeb06d942.js",
+      "static/chunks/3053-11380ec7ed7436a2.js",
+      "static/chunks/630-4c690fee1dbc89fd.js",
+      "static/chunks/app/what-is-bitcoin/page-c349b482fa22f805.js"
     ],
     "/reset-password/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
+      "static/chunks/webpack-49156c41beb80c63.js",
       "static/chunks/fd9d1056-1b14749c58c112cd.js",
       "static/chunks/2117-a31a809b658cb5a0.js",
       "static/chunks/main-app-d259b56aeb06d942.js",
       "static/chunks/3053-11380ec7ed7436a2.js",
       "static/chunks/7648-1a6788a5513efdff.js",
       "static/chunks/app/reset-password/page-48b9fa7ab27169e9.js"
-    ],
-    "/tribute/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
-      "static/chunks/fd9d1056-1b14749c58c112cd.js",
-      "static/chunks/2117-a31a809b658cb5a0.js",
-      "static/chunks/main-app-d259b56aeb06d942.js",
-      "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
-      "static/chunks/app/tribute/page-20f2f42d32b8fed8.js"
-    ],
-    "/what-is-bitcoin/page": [
-      "static/chunks/webpack-8f269d5006576f04.js",
-      "static/chunks/fd9d1056-1b14749c58c112cd.js",
-      "static/chunks/2117-a31a809b658cb5a0.js",
-      "static/chunks/main-app-d259b56aeb06d942.js",
-      "static/chunks/3053-11380ec7ed7436a2.js",
-      "static/chunks/630-18465c5f998eaad4.js",
-      "static/chunks/app/what-is-bitcoin/page-113f6ce3e82874eb.js"
     ]
   }
 }
