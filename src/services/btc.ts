@@ -1,5 +1,5 @@
 export async function fetchBtcPriceEur(): Promise<number> {
-  const response = await fetch('/api/btc-price');
+  const response = await fetch('/api/btc-price', { cache: 'no-store' });
 
   if (!response.ok) {
     throw new Error('Failed to fetch BTC price.');
