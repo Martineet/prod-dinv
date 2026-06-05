@@ -43,7 +43,7 @@ export default function BecomeABitcoinerPage() {
               <p className="bbtc-card-body">{t('exchange_kraken_body')}</p>
               <div className="bbtc-logo-row">
                 <a
-                  href="https://invite.kraken.com/JDNW/zwkw6eog"
+                  href="https://invite.kraken.com/JDNW/h7g9505s"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bbtc-logo-link"
