@@ -15,7 +15,7 @@ type RootLayoutProps = {
 };
 
 export const metadata: Metadata = {
-  title: 'D.Inversions - Bitcoin Portfolio',
+  title: 'D.Inversions - Bitcoin',
   description: 'Track your Bitcoin investments and performance.'
 };
 

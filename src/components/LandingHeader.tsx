@@ -36,6 +36,12 @@ export function LandingHeader() {
   const displayPrice = btcPrice ? `${formatMoneyRounded(btcPrice)} ${EUR}` : `-- ${EUR}`;
   const isLoggedIn = !loading && Boolean(session);
 
+  useEffect(() => {
+    if (!btcPrice) return;
+    const k = Math.round(btcPrice / 1000);
+    document.title = `D.Inversions - ${k} k${EUR}/BTC`;
+  }, [btcPrice]);
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
