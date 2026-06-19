@@ -22,6 +22,7 @@ export function useBtcPrice(refreshIntervalMs = 3600000) {
 
   useEffect(() => {
     refresh();
+    const timeoutId = setTimeout(refresh, 3000);
     const intervalId = setInterval(refresh, refreshIntervalMs);
 
     const handleVisibilityChange = () => {
@@ -29,11 +30,19 @@ export function useBtcPrice(refreshIntervalMs = 3600000) {
         refresh();
       }
     };
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        refresh();
+      }
+    };
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pageshow', handlePageShow);
 
     return () => {
+      clearTimeout(timeoutId);
       clearInterval(intervalId);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pageshow', handlePageShow);
     };
   }, [refresh, refreshIntervalMs]);
 

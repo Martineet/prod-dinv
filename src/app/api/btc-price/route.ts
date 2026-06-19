@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 
-// Cache CoinGecko response on the server for 5 minutes
-export const revalidate = 300;
+export const revalidate = 60;
 
 export async function GET() {
   try {
     const response = await fetch(
       'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur',
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {
@@ -26,7 +25,7 @@ export async function GET() {
       {
         headers: {
           'Cache-Control':
-            'public, s-maxage=300, stale-while-revalidate=600, max-age=0, must-revalidate',
+            'public, s-maxage=60, stale-while-revalidate=120, max-age=0, must-revalidate',
         },
       }
     );
