@@ -53,17 +53,26 @@ export default function BecomeABitcoinerPage() {
               </div>
             </div>
 
-            {/* MEXC */}
+            {/* Coinbase + MEXC */}
             <div className="bbtc-exchange-card">
               <div className="bbtc-card-header">
                 <div>
-                  <h3 className="bbtc-card-name">{t('exchange_mexc_title')}</h3>
-                  <p className="bbtc-card-subtitle">{t('exchange_mexc_subtitle')}</p>
+                  <h3 className="bbtc-card-name">{t('exchange_coinbase_title')}</h3>
+                  <p className="bbtc-card-subtitle">{t('exchange_coinbase_subtitle')}</p>
                 </div>
                 <span className="istrat-badge istrat-badge-warning">{tc('intermediate')}</span>
               </div>
-              <p className="bbtc-card-body">{t('exchange_mexc_body')}</p>
+              <p className="bbtc-card-body">{t('exchange_coinbase_body')}</p>
               <div className="bbtc-logo-row">
+                <a
+                  href="https://coinbase.com/join/J7JU4NM?src=android-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bbtc-logo-link"
+                >
+                  Coinbase &rarr;
+                </a>
+                <span className="bbtc-logo-plus">+</span>
                 <a
                   href="https://promote.mexc.com/r/zTCc2yj40o"
                   target="_blank"
