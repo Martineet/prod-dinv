@@ -740,6 +740,8 @@ export function InvestmentsTable({
               <input
                 id="amount"
                 type="number"
+                inputMode="decimal"
+                autoComplete="off"
                 min="0"
                 step="any"
                 value={draft.amount}
@@ -753,6 +755,8 @@ export function InvestmentsTable({
                 <input
                   id="eur-amount"
                   type="number"
+                  inputMode="decimal"
+                  autoComplete="off"
                   min="0"
                   step="any"
                   value={draft.eurAmount}
@@ -766,6 +770,8 @@ export function InvestmentsTable({
               <input
                 id="price"
                 type="number"
+                inputMode="decimal"
+                autoComplete="off"
                 min="0"
                 step="any"
                 value={draft.price}
