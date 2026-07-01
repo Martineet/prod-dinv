@@ -29,6 +29,7 @@ function normalizePortfolioName(name: string): string {
 }
 
 function toInvestmentInsert(payload: InvestmentFormInput): InvestmentInsert {
+  const trimmedNotes = payload.notes.trim();
   return {
     portfolios_id: payload.portfolios_id,
     type: payload.asset.trim(),
@@ -36,7 +37,7 @@ function toInvestmentInsert(payload: InvestmentFormInput): InvestmentInsert {
     price: payload.price,
     eur_amount: payload.eur_amount,
     date_swap: payload.date,
-    notes: null,
+    notes: trimmedNotes.length > 0 ? trimmedNotes : null,
     commission: 0,
     guaranteed: false
   };

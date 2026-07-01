@@ -18,6 +18,7 @@ export type InvestmentFormInput = {
   eur_amount: number;
   price: number;
   date: string;
+  notes: string;
 };
 
 export type MemberProfile = {

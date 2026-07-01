@@ -18,7 +18,10 @@ type InvestmentDraft = {
   eurAmount: string;
   price: string;
   date: string;
+  notes: string;
 };
+
+const NOTES_MAX_LENGTH = 10;
 
 type DraftErrors = {
   asset?: string;
@@ -66,7 +69,8 @@ const EMPTY_DRAFT: InvestmentDraft = {
   amount: '',
   eurAmount: '',
   price: '',
-  date: todayInputDate()
+  date: todayInputDate(),
+  notes: ''
 };
 
 const TRANSFER_TYPES = new Set(['transfer-in', 'transfer-out']);
@@ -142,7 +146,8 @@ function mapInvestmentToDraft(investment: Investment): InvestmentDraft {
     amount: String(investment.btc_amount ?? ''),
     eurAmount: String(investment.eur_amount ?? ''),
     price: String(investment.price ?? ''),
-    date: investment.date_swap?.slice(0, 10) ?? todayInputDate()
+    date: investment.date_swap?.slice(0, 10) ?? todayInputDate(),
+    notes: (investment.notes ?? '').slice(0, NOTES_MAX_LENGTH)
   };
 }
 
@@ -321,7 +326,8 @@ export function InvestmentsTable({
       amount: Number(draft.amount),
       eur_amount: finalEurAmount,
       price: finalPrice,
-      date: draft.date
+      date: draft.date,
+      notes: draft.notes.slice(0, NOTES_MAX_LENGTH)
     };
 
     if (transactionMode === 'create') {
@@ -788,6 +794,19 @@ export function InvestmentsTable({
                 onChange={(event) => setDraft((prev) => ({ ...prev, date: event.target.value }))}
               />
               {draftErrors.date ? <p className="field-error">{draftErrors.date}</p> : null}
+            </div>
+            <div className="form-group">
+              <label htmlFor="notes">{t('col_notes')}</label>
+              <input
+                id="notes"
+                type="text"
+                maxLength={NOTES_MAX_LENGTH}
+                autoComplete="off"
+                value={draft.notes}
+                onChange={(event) =>
+                  setDraft((prev) => ({ ...prev, notes: event.target.value.slice(0, NOTES_MAX_LENGTH) }))
+                }
+              />
             </div>
             {transactionMode === 'create' && creatingInvestment.error ? (
               <div className="error">{creatingInvestment.error}</div>
