@@ -22,7 +22,7 @@ export function useBtcPrice(refreshIntervalMs = 3600000) {
 
   useEffect(() => {
     refresh();
-    const timeoutId = setTimeout(refresh, 3000);
+    const timeoutId = setTimeout(refresh, 1000);
     const intervalId = setInterval(refresh, refreshIntervalMs);
 
     const handleVisibilityChange = () => {

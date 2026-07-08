@@ -9,8 +9,8 @@ export function Footer({ variant = 'full' }: { variant?: FooterVariant }) {
       {variant === 'full' && (
         <p className="footer-note">
           Bitcoin Portfolio Tracker | Powered by{' '}
-          <a href="https://www.coingecko.com/es/monedas/bitcoin" target="_blank" rel="noreferrer">
-            CoinGecko API
+          <a href="https://www.kraken.com/prices/bitcoin" target="_blank" rel="noreferrer">
+            Kraken API
           </a>
         </p>
       )}

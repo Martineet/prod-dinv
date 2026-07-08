@@ -5,18 +5,27 @@ export const revalidate = 60;
 export async function GET() {
   try {
     const response = await fetch(
-      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur',
+      'https://api.kraken.com/0/public/Ticker?pair=XBTEUR',
       { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {
-      throw new Error('Failed to fetch BTC price from CoinGecko.');
+      throw new Error('Failed to fetch BTC price from Kraken.');
     }
 
-    const data = await response.json();
-    const price = data?.bitcoin?.eur;
+    const data = (await response.json()) as {
+      error?: string[];
+      result?: Record<string, { c?: [string, string] }>;
+    };
 
-    if (!price || typeof price !== 'number') {
+    if (data.error?.length) {
+      throw new Error(`Kraken error: ${data.error.join(', ')}`);
+    }
+
+    const ticker = Object.values(data.result ?? {})[0];
+    const price = Number(ticker?.c?.[0]);
+
+    if (!Number.isFinite(price) || price <= 0) {
       throw new Error('BTC price data unavailable.');
     }
 
