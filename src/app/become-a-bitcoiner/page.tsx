@@ -2,11 +2,13 @@
 
 import { LandingHeader } from '@/components/LandingHeader';
 import { Footer } from '@/components/Footer';
+import { useReferrals } from '@/hooks/useReferrals';
 import { useT } from '@/hooks/useT';
 
 export default function BecomeABitcoinerPage() {
   const t  = useT('become-a-bitcoiner');
   const tc = useT('common');
+  const { data: referrals } = useReferrals();
 
   return (
     <>
@@ -43,7 +45,7 @@ export default function BecomeABitcoinerPage() {
               <p className="bbtc-card-body">{t('exchange_kraken_body')}</p>
               <div className="bbtc-logo-row">
                 <a
-                  href="https://invite.kraken.com/JDNW/h7g9505s"
+                  href={referrals['kraken']?.link ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bbtc-logo-link"
@@ -65,7 +67,7 @@ export default function BecomeABitcoinerPage() {
               <p className="bbtc-card-body">{t('exchange_coinbase_body')}</p>
               <div className="bbtc-logo-row">
                 <a
-                  href="https://coinbase.com/join/J7JU4NM?src=android-link"
+                  href={referrals['coinbase']?.link ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bbtc-logo-link"
@@ -74,7 +76,7 @@ export default function BecomeABitcoinerPage() {
                 </a>
                 <span className="bbtc-logo-plus">+</span>
                 <a
-                  href="https://promote.mexc.com/r/zTCc2yj40o"
+                  href={referrals['mexc']?.link ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bbtc-logo-link"
@@ -96,7 +98,7 @@ export default function BecomeABitcoinerPage() {
               <p className="bbtc-card-body">{t('exchange_hodlhodl_body')}</p>
               <div className="bbtc-logo-row">
                 <a
-                  href="https://hodlhodl.com/join/XY7F"
+                  href={referrals['hodlhodl']?.link ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bbtc-logo-link"
