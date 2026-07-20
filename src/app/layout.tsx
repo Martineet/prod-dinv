@@ -14,9 +14,25 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
+const SITE_TITLE = 'D.Inversions - Bitcoin';
+const SITE_DESCRIPTION = 'Un cop prenguis la pastilla taronja, ja no hi ha marxa enrere';
+const SITE_IMAGE = '/bitcoin-btc-logo.png';
+
 export const metadata: Metadata = {
-  title: 'D.Inversions - Bitcoin',
-  description: 'Track your Bitcoin investments and performance.'
+  metadataBase: new URL('https://www.dinversions.org'),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_IMAGE]
+  },
+  twitter: {
+    card: 'summary',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_IMAGE]
+  }
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
