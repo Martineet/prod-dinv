@@ -1,50 +1,83 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useSyncExternalStore } from 'react';
 import { fetchBtcPriceEur } from '@/services/btc';
 
-export function useBtcPrice(refreshIntervalMs = 3600000) {
-  const [price, setPrice] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type Snapshot = {
+  price: number;
+  loading: boolean;
+  error: string | null;
+};
 
-  const refresh = useCallback(async () => {
+const INITIAL_SNAPSHOT: Snapshot = { price: 0, loading: true, error: null };
+
+let snapshot: Snapshot = INITIAL_SNAPSHOT;
+const listeners = new Set<() => void>();
+let inFlight: Promise<void> | null = null;
+let handlersInstalled = false;
+
+function setSnapshot(next: Snapshot) {
+  snapshot = next;
+  listeners.forEach((listener) => listener());
+}
+
+async function refreshShared(): Promise<void> {
+  if (inFlight) return inFlight;
+  inFlight = (async () => {
     try {
       const nextPrice = await fetchBtcPriceEur();
-      setPrice(nextPrice);
-      setError(null);
+      setSnapshot({ price: nextPrice, loading: false, error: null });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load BTC price.');
+      setSnapshot({
+        price: snapshot.price,
+        loading: false,
+        error: err instanceof Error ? err.message : 'Failed to load BTC price.'
+      });
     } finally {
-      setLoading(false);
+      inFlight = null;
     }
-  }, []);
+  })();
+  return inFlight;
+}
+
+function installHandlers(refreshIntervalMs: number) {
+  if (handlersInstalled || typeof window === 'undefined') return;
+  handlersInstalled = true;
+
+  refreshShared();
+  setTimeout(refreshShared, 1000);
+  setInterval(refreshShared, refreshIntervalMs);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') refreshShared();
+  });
+  window.addEventListener('pageshow', (event) => {
+    if ((event as PageTransitionEvent).persisted) refreshShared();
+  });
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+
+function getSnapshot(): Snapshot {
+  return snapshot;
+}
+
+function getServerSnapshot(): Snapshot {
+  return INITIAL_SNAPSHOT;
+}
+
+export function useBtcPrice(refreshIntervalMs = 3600000) {
+  const current = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const refresh = useCallback(() => refreshShared(), []);
 
   useEffect(() => {
-    refresh();
-    const timeoutId = setTimeout(refresh, 1000);
-    const intervalId = setInterval(refresh, refreshIntervalMs);
+    installHandlers(refreshIntervalMs);
+  }, [refreshIntervalMs]);
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        refresh();
-      }
-    };
-    const handlePageShow = (event: PageTransitionEvent) => {
-      if (event.persisted) {
-        refresh();
-      }
-    };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pageshow', handlePageShow);
-
-    return () => {
-      clearTimeout(timeoutId);
-      clearInterval(intervalId);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pageshow', handlePageShow);
-    };
-  }, [refresh, refreshIntervalMs]);
-
-  return { price, loading, error, refresh };
+  return { ...current, refresh };
 }
