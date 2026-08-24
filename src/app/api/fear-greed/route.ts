@@ -23,7 +23,12 @@ export async function GET() {
         classification: item.value_classification,
         timestamp: item.timestamp
       },
-      { headers: { 'Cache-Control': 'public, max-age=3600, stale-while-revalidate=3600' } }
+      {
+        headers: {
+          'Cache-Control':
+            'public, s-maxage=3600, stale-while-revalidate=7200, max-age=0, must-revalidate'
+        }
+      }
     );
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Could not fetch Fear & Greed Index.';

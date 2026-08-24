@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { LandingHeader } from '@/components/LandingHeader';
 import { Footer } from '@/components/Footer';
 import { useT } from '@/hooks/useT';
@@ -61,18 +61,31 @@ export default function MetricsPage() {
   }, []);
 
   // Fear & Greed Index
-  useEffect(() => {
-    fetch('/api/fear-greed')
+  const refreshFearGreed = useCallback(() => {
+    fetch('/api/fear-greed', { cache: 'no-store' })
       .then((r) => r.json())
       .then((data) => {
         if (data.error) throw new Error(data.error);
         setFearGreed(data);
+        setFgError(null);
       })
       .catch((err) =>
         setFgError(err instanceof Error ? err.message : 'Could not load index.')
       )
       .finally(() => setFgLoading(false));
   }, []);
+
+  useEffect(() => {
+    refreshFearGreed();
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') refreshFearGreed();
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [refreshFearGreed]);
 
   const fgColor = fearGreed ? getFearGreedColor(fearGreed.value) : '#9ca3af';
 
