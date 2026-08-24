@@ -122,8 +122,13 @@ export default function BecomeABitcoinerPage() {
           <div className="bbtc-hw-grid">
 
             <div className="bbtc-hw-card card-featured">
-              <h3 className="bbtc-card-name">{t('wallet_trezor_title')}</h3>
-              <p className="bbtc-card-subtitle">{t('wallet_trezor_subtitle')}</p>
+              <div className="bbtc-card-header">
+                <div>
+                  <h3 className="bbtc-card-name">{t('wallet_trezor_title')}</h3>
+                  <p className="bbtc-card-subtitle">{t('wallet_trezor_subtitle')}</p>
+                </div>
+                <span className="istrat-badge istrat-badge-info">{tc('recommended')}</span>
+              </div>
               <p className="bbtc-card-body">{t('wallet_trezor_body')}</p>
               <div className="bbtc-logo-row">
                 <a
